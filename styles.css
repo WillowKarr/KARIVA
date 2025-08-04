@@ -255,8 +255,8 @@ nav {
             border-radius: 10px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
             transform-style: preserve-3d;
-			width: 100;
-        
+			width: 100%;
+        }
         .about-photo {
             width: 100%;
             height: auto;
@@ -1543,6 +1543,7 @@ nav {
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
