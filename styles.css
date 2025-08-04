@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #5A6D5E; /* Основной темный серо-зеленый */
-    --secondary-color: #8A9B8D; /* Теплый серо-зеленый для заголовков */
+    --primary-color: #31673b; /* Основной темный серо-зеленый */
+    --secondary-color: #4f8a5a; /* Теплый серо-зеленый для заголовков */
     --accent-color: #7D8E80; /* Нейтральный серо-зеленый для акцентов */
     --bg-light: #F5F5F5; /* Светло-серый фон */
     --bg-dark: #3E4E40; /* Темный серо-зеленый для футера */
@@ -301,7 +301,7 @@ nav {
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 30px;
-            color: #8B0000;
+            color: #31673b;
             position: relative;
             display: inline-block;
         }
@@ -317,7 +317,7 @@ nav {
 	.skills-title {
             font-size: 2rem;
             margin-bottom: 30px;
-            color: #8B0000;
+            color: #31673B;
             position: relative;
             display: inline-block;
 			font-weight: 600; /* Явно задаем такую же жирность */
@@ -332,7 +332,7 @@ nav {
 
         .skill-tag {
             padding: 8px 16px;
-            background: #f0f0f0;
+            background: #ffffff;
 			color: #444;
             border-radius: 50px;
             font-size: 0.9rem;
@@ -1568,4 +1568,5 @@ nav {
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
