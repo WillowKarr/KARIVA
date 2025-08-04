@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #31673b; /* Основной темный серо-зеленый */
+    --primary-color: #353f37; /* Основной темный серо-зеленый */
     --secondary-color: #4f8a5a; /* Теплый серо-зеленый для заголовков */
     --accent-color: #7D8E80; /* Нейтральный серо-зеленый для акцентов */
     --bg-light: #F5F5F5; /* Светло-серый фон */
@@ -256,30 +256,7 @@ nav {
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
             transform-style: preserve-3d;
 			width: 100;
-        }
-
-        .photo-frame::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 10px;
-            border: 2px dashed rgba(139, 0, 0, 0.3);
-            transform: translate(10px, 10px);
-            z-index: -1;
-        }
-
-        .photo-frame::after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            right: 30px;
-            bottom: 30px;
-            border: 1px solid rgba(139, 0, 0, 0.2);
-            border-radius: 5px;
-            pointer-events: none;
-        }
-
+        
         .about-photo {
             width: 100%;
             height: auto;
@@ -337,7 +314,7 @@ nav {
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 500;
-            box-shadow: 0 2px 10px rgba(139, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(139, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
@@ -347,7 +324,6 @@ nav {
         /* Projects Section */
         .projects {
             padding: 5rem 2rem;
-            background-color: rgba(255, 216, 0, 0.1);
         }
 
         .section-title {
@@ -577,7 +553,7 @@ nav {
     background: white;
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(139, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     height: 100%;
     border: 1px solid rgba(139, 0, 0, 0.1);
@@ -597,7 +573,6 @@ nav {
     font-size: 0.9rem;
     display: inline-block;
     padding: 5px 10px;
-    background: rgba(139, 0, 0, 0.1);
     border-radius: 20px;
 }
 
@@ -1568,5 +1543,6 @@ nav {
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
