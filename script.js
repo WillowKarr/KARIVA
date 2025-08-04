@@ -302,13 +302,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
     
-    // Инициализация
-    updateScrollIndicator();
-    checkVisibility();
-    window.addEventListener('scroll', checkVisibility);
-}
-
-// Запускаем после полной загрузки DOM
-document.addEventListener('DOMContentLoaded', animateTimeline);
-
-
