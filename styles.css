@@ -247,16 +247,6 @@ nav {
             align-items: center;
         }
 
-        /* Стили для фотографии с декоративной рамкой */
-        .photo-frame {
-            position: relative;
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            transform-style: preserve-3d;
-			width: 100%;
-        }
         .about-photo {
             width: 100%;
             height: auto;
@@ -294,7 +284,7 @@ nav {
 	.skills-title {
             font-size: 2rem;
             margin-bottom: 30px;
-            color: #31673B;
+            color: var(--primary-color);
             position: relative;
             display: inline-block;
 			font-weight: 600; /* Явно задаем такую же жирность */
@@ -1543,6 +1533,7 @@ nav {
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
