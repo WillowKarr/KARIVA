@@ -235,69 +235,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-
-function animateTimeline() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const timelineTrack = document.querySelector('.timeline-track');
-    const timelineContainer = document.querySelector('.timeline-scroll-container');
-    const timelineSection = document.querySelector('.timeline-section');
-    
-    // Функция проверки видимости элементов для анимации
-    function checkVisibility() {
-        const timelineRect = timelineSection.getBoundingClientRect();
-        const triggerPoint = window.innerHeight * 0.8;
-        
-        // Проверяем, видна ли секция таймлайна
-        if (timelineRect.top < triggerPoint && timelineRect.bottom > 0) {
-            timelineItems.forEach((item, index) => {
-                const itemRect = item.getBoundingClientRect();
-                
-                // Анимируем только видимые элементы
-                if (itemRect.top < triggerPoint && itemRect.bottom > 0) {
-                    setTimeout(() => {
-                        item.classList.add('animate-in');
-                    }, index * 150);
-                }
-            });
-        }
-    }
-    
-    // Создаем индикатор прокрутки
-    const scrollIndicator = document.createElement('div');
-    scrollIndicator.className = 'scroll-indicator';
-    scrollIndicator.innerHTML = `
-        <span class="indicator-bar"></span>
-        <span class="scroll-indicator-text">Прокрутите, чтобы увидеть больше</span>
-    `;
-    timelineSection.appendChild(scrollIndicator);
-    
-    const indicatorBar = scrollIndicator.querySelector('.indicator-bar');
-    const indicatorText = scrollIndicator.querySelector('.scroll-indicator-text');
-    
-    // Функция обновления индикатора прокрутки
-    function updateScrollIndicator() {
-        const scrollWidth = timelineTrack.scrollWidth - timelineContainer.clientWidth;
-        const scrollLeft = timelineContainer.scrollLeft;
-        const progress = scrollWidth > 0 ? Math.min(scrollLeft / scrollWidth, 1) : 0;
-        
-        // Обновляем индикатор прогресса
-        indicatorBar.style.width = `${40 + (progress * 200)}px`;
-        indicatorBar.style.background = `linear-gradient(90deg, var(--primary-color) ${progress * 100}%, rgba(139, 0, 0, 0.2) ${progress * 100}%)`;
-        
-        // Скрываем текст при достижении конца
-        indicatorText.style.opacity = scrollLeft >= scrollWidth - 10 ? '0' : '0.7';
-    }
-    
-    // Ограничиваем скролл после последней карточки
-    function handleScrollEnd() {
-        const maxScroll = timelineTrack.scrollWidth - timelineContainer.clientWidth;
-        if (timelineContainer.scrollLeft > maxScroll) {
-            timelineContainer.scrollTo({
-                left: maxScroll,
-                behavior: 'smooth'
-            });
-        }
-    }
     
     // Обработчики событий для десктопов
     let isDown = false;
@@ -373,4 +310,5 @@ function animateTimeline() {
 
 // Запускаем после полной загрузки DOM
 document.addEventListener('DOMContentLoaded', animateTimeline);
+
 
