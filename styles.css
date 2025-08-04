@@ -228,7 +228,7 @@ nav {
         .contact-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            background-color: #6B0000;
+            background-color: #4f8a5a;
         }
 
    /* Современный дизайн для секции "Обо мне" */
@@ -1543,6 +1543,7 @@ nav {
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
