@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>KARMASH - Дизайнер и художник</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=National+Park:wght@200..800&display=swap" rel="stylesheet">
+<!-- Добавляем шрифт для заголовка -->
+<link href="https://fonts.cdnfonts.com/css/aplakattitul" rel="stylesheet">
+  </head>
+  <body>
+    <a id="top"></a>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="#top" class="logo-link">
+          <img src="logo.svg" alt="Наверх" class="logo-img">
+      </div>
+      <nav>
+      <ul>
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      </nav>
+      <button class="theme-toggle" aria-label="Toggle theme">
+      </button>
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+  <div class="hero-background"></div>
+      <h1>KARMASH</h1>
+      <p>Многопрофильный дизайнер, кукольник и художник</p>
+      <a href="#contacts" class="contact-btn">Связаться</a>
+    </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+      <h2 class="section-title">Обо мне</h2>
+      <div class="about-content">
+        <img src="about.png" alt="Фото" class="about-photo">
+        <div class="about-text">
+          <p> Дизайнер с двухлетним опытом работы. Я занимаюсь графическим дизайном, версткой сайтов, а также созданием дизайна для полиграфии, презентаций и постов в соц. сетях. Помимо этого я рисую картинки и делаю очаровательных кукол.
+            Имею опыт работы в команде, и я ценю процесс совместного творчества, ведь он позволяет превратить идеи в реальность. Открыта к новым проектам и сотрудничеству — буду рада внести свой вклад в создание дизайна будущего!
+          </p>
+        </div>
+        <div class="skills">
+          <span class="skill-tag">Графический дизайн</span>
+          <span class="skill-tag">Куклы ручной работы</span>
+          <span class="skill-tag">Иллюстрация</span>
+          <span class="skill-tag">SMM Дизайн</span>
+          <span class="skill-tag">Анимация и медиа</span>
+          <span class="skill-tag">Дизайн полиграфии</span>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2016-2020</div>
+              <h3>Художественная школа</h3>
+              <p>Изучение основ рисунка, живописи и композиции. Первые шаги в мире искусства.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2020-2021</div>
+              <h3>Курсы рисования и композиции им. Косыгина</h3>
+              <p>Подготовка к поступлению, углубленное изучение рисунка</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">2021 - 2024</div>
+              <h3>Колледж ДПИ им. Карла Фаберже. Направление Дизайн IT</h3>
+              <p>создание визуального контента (логотипы, веб-дизайн, анимацию). Основы программирования, графического дизайна для реализации дизайн-проектов.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">03.2024-05.2024</div>
+              <h3>ЛК СПЕКТР</h3>
+              <p>Проектная работа, создание лендинга и фирменной продукции</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">09.2024-03.2025</div>
+              <h3>ЛОГОПОТАМ</h3>
+              <p>Визуальный контент для соцсетей (сторис, посты, обложки, рекламные баннеры), адаптация стиля бренда под разные платформы.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">05.2024 - Настоящее время</div>
+              <h3>Фриланс, проектная работа</h3>
+              <p>Расширение навыков и компетенций, сотрудничество с брендами и выполнение заказов.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Галерея проектов -->
+    <section class="portfolio-gallery" id="projects">
+      <h2 class="section-title">Портфолио</h2>
+      <div class="gallery-grid">
+        <!-- Пример элемента -->
+        <div class="gallery-item" data-project="logopotam">
+          <div class="image-container">
+            <span class="item-tag">SMM дизайн</span>
+            <img src="case_1.png" alt="Логопотам">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">оформление соц. сетей Логопотам</h3>
+            <p class="item-description"> Ведение соц. сетей, оформление постов и креативов, дизайн площадок</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="circusdolls">
+          <div class="image-container">
+            <span class="item-tag">Куклы</span>
+            <img src="case_2.png" alt="Серия кукол волшебников">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Куклы-циркачи</h3>
+            <p class="item-description">Коллекция кукол в цирковой тематике, герои нарядились цирковыми артистами</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="autumnart">
+          <div class="image-container">
+            <span class="item-tag">Иллюстрация</span>
+            <img src="case_3.png" alt="иллюстрации">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Осенние иллюстрации</h3>
+            <p class="item-description">Мрачные и дождливые картинки для открыток</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="mebelsoft">
+          <div class="image-container">
+            <span class="item-tag">Графический дизайн</span>
+            <img src="case_4.png" alt="Мебель_SOFT">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Фирменный стиль для мебельной фирмы "МЕБЕЛЬ-SOFT"</h3>
+            <p class="item-description">Разработка айдентики, корпоративной продукции</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="girlandmonster">
+          <div class="image-container">
+            <span class="item-tag">Иллюстрация</span>
+            <img src="case_5.png" alt="Девочка и монстр">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Девочка и монстр</h3>
+            <p class="item-description">Разработка иллюстрации в разных форматах для печати в виде плаката</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="aurora">
+          <div class="image-container">
+            <span class="item-tag">UX-UI дизайн</span>
+            <img src="case_6.png" alt="Сайт_Аврора">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Лендинг "Аврора"</h3>
+            <p class="item-description">Вёрстка лендинга для столовой "АВРОРА" компании "СПЕКТР"</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="stickers">
+          <div class="image-container">
+            <span class="item-tag">Иллюстрация</span>
+            <img src="case_19.png" alt="Тстикеры">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Стикеры для ТБанк</h3>
+            <p class="item-description">Разрабтка концепта, отрисовка векторной иллюстрации, подготовка к печати</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="cofee">
+          <div class="image-container">
+            <span class="item-tag">Векторная иллюстрация</span>
+            <img src="case_9.png" alt="дизайн_стаканчика">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Дизайн для кофейного стаканчика</h3>
+            <p class="item-description">Отрисовка векторной иллюстрации для печати на кофейном стаканчике</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="random">
+          <div class="image-container">
+            <span class="item-tag">Иллюстрация, SMM</span>
+            <img src="case_7.png" alt="Афиша">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Афиши мероприятий</h3>
+            <p class="item-description">Разработка иллюстраций для постов в соц. сетях, написание поста</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="journal">
+          <div class="image-container">
+            <span class="item-tag">Дизайн полиграфии</span>
+            <img src="case_10.png" alt="журнал">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Вёрстка журнала "Швейцарская школа графики 50-70ых годов"</h3>
+            <p class="item-description">Вёрстка в модернистическом стиле, поиск изображений</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="dolls">
+          <div class="image-container">
+            <span class="item-tag">Куклы, SMM</span>
+            <img src="case_13.png" alt="Эндрю">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Куклы на свбодную тематику</h3>
+            <p class="item-description">Создание кукол, съемка и обработка stop motion анимаций, ведение аккаунтов в соц. сетях</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="nashakuxnya">
+          <div class="image-container">
+            <span class="item-tag">Графический дизайн</span>
+            <img src="case_12.png" alt="наша_кухня">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Фирменный стиль для бренда "НАША КУХНЯ"</h3>
+            <p class="item-description">Разработка айдентики, дизайн кода, рекламной печатной и цифровой продукции</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="karmash">
+          <div class="image-container">
+            <span class="item-tag">Графический дизайн</span>
+            <img src="case_14.png" alt="Кармаш">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Разработка фирменного стиля для бренда Кармаш</h3>
+            <p class="item-description">Айдентика, макетирование упаковки, полиграфической продукции для бренда изделий ручной работы</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="tatoo">
+          <div class="image-container">
+            <span class="item-tag">Тату</span>
+            <img src="case_16.png" alt="Тату">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Татуировки</h3>
+            <p class="item-description">Несколько эскизов для татуировк на свободную таматику</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-project="logo">
+          <div class="image-container">
+            <span class="item-tag">Графический дизайн</span>
+            <img src="case_18.png" alt="Феникс">
+          </div>
+          <div class="item-info">
+            <h3 class="item-title">Логотип для спортивной команды "Феникс"</h3>
+            <p class="item-description">Разработка логотипа на основе эскиза</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="modal-overlay" id="portfolioModal">
+      <div class="modal-container">
+        <button class="close-modal">&times;</button>
+        <!-- Слайдер изображений -->
+        <div class="project-slider">
+          <div class="slider-container">
+            <img src="" alt="" class="active-slide">
+            <!-- Другие изображения будут добавляться динамически -->
+          </div>
+          <button class="slider-nav prev-slide">&lt;</button>
+          <button class="slider-nav next-slide">&gt;</button>
+        </div>
+        <!-- Контент проекта -->
+        <div class="project-content">
+          <div class="project-details">
+            <h2 class="project-title"></h2>
+            <div class="project-tags">
+              <!-- Теги будут добавляться динамически -->
+            </div>
+          </div>
+          <div class="project-description">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <section class="contacts" id="contacts">
+      <!-- Здесь должен быть контент секции контактов -->
+    </section>
+    <!-- Форма обратной связи -->
+    <div class="contact-form">
+      <form id="feedbackForm">
+        <!-- Содержимое формы -->
+      </form>
+    </div>
+    <!-- Подвал -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <div class="footer-contacts">
+            <a href="tel:+79067503950" class="footer-phone">
+              <i class="fas fa-phone-alt footer-icon"></i>
+              <h3> +7 (906) 750-3950 </h3>
+            </a>
+            <a href="mailto:nastyakarmash.7@gmail.com" class="footer-email">
+            <i class="fas fa-envelope footer-icon"></i>
+            nastyakarmash7@gmail.com
+            </a>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.behance.net/pocketname/projects" class="social-link" aria-label="Behance">
+            <i class="fab fa-behance"></i>
+            </a>
+            <a href="https://t.me/WillowKar" class="social-link" aria-label="Telegram">
+            <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a href="https://vk.com/karrmash" class="social-link" aria-label="VKontakte">
+            <i class="fab fa-vk"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-right">
+          <!-- Место для логотипа -->
+          <div class="footer-logo-placeholder">
+            <a href="#top" class="logo-link">
+            <img src="logo_white.svg" alt="Наверх" class="logo-img">
+             </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 Все права защищены</p>
+      </div>
+    </footer>
+  </body>
+
