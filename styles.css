@@ -1,14 +1,12 @@
 :root {
-    --primary-color: #5A6D5E; /* Основной темный серо-зеленый */
-    --secondary-color: #8A9B8D; /* Теплый серо-зеленый для заголовков */
-    --accent-color: #7D8E80; /* Нейтральный серо-зеленый для акцентов */
-    --bg-light: #F5F5F5; /* Светло-серый фон */
-    --bg-dark: #3E4E40; /* Темный серо-зеленый для футера */
-    --text-color: #333333; /* Основной цвет текста */
-    --light-text: #EAEAEA; /* Светлый текст */
-    --border-color: #D9DFD9; /* Светлая серая граница */
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Мягкая тень */
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --primary-color: #8B0000;
+        --secondary-color: #FFD700;
+        --bg-light: #FAF8F5;
+        --bg-dark: #1A1A1A;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+		--accent-color: #FF4500; /* или любой другой цвет */
+		--text-color: #333;      /* для формы */
         } 
     body {
       font-family: 'Roboto', sans-serif;
