@@ -109,10 +109,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: 'Создавание уникальной визуальной айдентики...',
                 tags: ['Figma', 'Photoshop', 'Illustrator', 'II Grock'],
                 images: [
-                    'img/logopotam/element1.png',
-                    'img/logopotam/element2.png',
-                    'img/logopotam/element3.png',
-                    'img/logopotam/element4.png'
+                    'element1.webp',
+                    'element2.webp',
+                    'element3.webp',
+                    'element4.webp'
                 ]
             },
             'mebelsoft': {
@@ -216,5 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 
