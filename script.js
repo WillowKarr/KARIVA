@@ -112,7 +112,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     'element1.webp',
                     'element2.webp',
                     'element3.webp',
-                    'element4.webp'
+                    'element4.webp',
+                    'element5.webp',
+                    'element6.webp',
+                    'element7.webp',
+                    'element8.webp',
+                    'element9.webp',
+                    'element10.webp',
+                    'element11.webp'
                 ]
             },
             'mebelsoft': {
@@ -216,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 
 
