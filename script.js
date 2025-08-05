@@ -173,8 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
          'element28.webp',
          'element29.webp',
         'element30.webp',
-         'element31.webp',
-         'element32.webp'
+         'element31.webp'
       ]
     },
   };
@@ -266,6 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 
 
