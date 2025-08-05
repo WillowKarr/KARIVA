@@ -112,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     'element1.webp',
                     'element2.webp',
                     'element3.webp',
-                    'element4.webp',
                     'element5.webp',
                     'element6.webp',
                     'element7.webp',
@@ -223,6 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 
 
