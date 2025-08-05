@@ -164,6 +164,21 @@ document.addEventListener('DOMContentLoaded', function() {
       ]
     },
   };
+         'marketplace': {
+      title: 'Создание карточек товара на WB и OZON"',
+      description: 'Процесс создания продающих карточек товаров для WB и Ozon для различных магазинов включает анализ ЦА и требований маркетплейсов, создание инфографики с УТП и техническими характеристиками в минималистичном стиле, оптимизацию текста с ключевыми словами и четким описанием, A/B-тестирование и доработку на основе аналитики. А также профессиональную фотосъемку с нейтральным фоном и несколькими ракурсами, ретушь.',
+      tags: ['Adobe Illustrator,Adobe Photoshop, Figma, Stable Diffusion'],
+      images: [
+        'element26.webp',
+         'element27.webp',
+         'element28.webp',
+         'element29.webp',
+        'element30.webp',
+         'element31.webp',
+         'element32.webp'
+      ]
+    },
+  };
         };
         
         let currentSlide = 0;
@@ -253,6 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 
 
