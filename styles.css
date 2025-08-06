@@ -106,13 +106,13 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
     align-items: center;
     transition: var(--transition);
     width: auto; /* Изменено с 10px */
-    height: 25px; /* Фиксированная высота как у меню */
+    height: 20px; /* Фиксированная высота как у меню */
 }
 
 .logo-img {
     height: 100%; /* Занимает всю высоту контейнера */
     width: auto; /* Ширина подстраивается пропорционально */
-    max-height: 38px; /* Ограничение по высоте */
+    max-height: 20px; /* Ограничение по высоте */
     object-fit: contain; /* Сохраняет пропорции */
 }
 
@@ -1544,6 +1544,7 @@ letter-spacing: 0.2em;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
