@@ -248,6 +248,13 @@ padding: 20px 40px;
 }
 
    /* Современный дизайн для секции "Обо мне" */
+.about-section {
+    padding: 150px 20px 100px; /* Увеличиваем верхний отступ до 150px */
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
         .about-container {
             display: grid;
             grid-template-columns: 30% 60%;
@@ -1328,6 +1335,7 @@ padding: 20px 40px;
     /* Галерея */
     .portfolio-gallery {
         padding: 1rem;
+	margin: 0 auto 100px;
     }
     
     .gallery-grid {
@@ -1503,6 +1511,7 @@ padding: 20px 40px;
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
