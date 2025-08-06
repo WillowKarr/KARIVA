@@ -99,7 +99,7 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
     align-items: center;
     transition: var(--transition);
     width: auto; /* Изменено с 10px */
-    height: 40px; /* Фиксированная высота как у меню */
+    height: 20px; /* Фиксированная высота как у меню */
 }
 
 .logo-img {
@@ -196,6 +196,7 @@ nav {
 
 .hero h1 {
     font-family: 'AmbassadoreTypeShura', sans-serif; /* Обновляем название шрифта */
+letter-spacing: 0.3em;
     font-size: 6rem;
     color: #FFFFFF;
     margin-bottom: 2rem;
@@ -260,6 +261,8 @@ padding: 20px 40px;
 .skills-title, 
 .timeline-section .section-title, 
 .portfolio-gallery .section-title {
+	font-family: 'AmbassadoreTypeShura', sans-serif; /* Обновляем название шрифта */
+letter-spacing: 0.3em;
     font-size: 2rem; /* Увеличиваем размер */
     margin-bottom: 50px;
     text-align: center;
@@ -1535,6 +1538,7 @@ padding: 20px 40px;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
