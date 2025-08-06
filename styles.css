@@ -9,8 +9,22 @@
     --border-color: #D9DFD9; /* Светлая серая граница */
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Мягкая тень */
         } 
+@font-face {
+  font-family: 'OpenSans';
+  src: url('fonts/OpenSans.ttf') format('ttf'),
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AmbassadoreTypeShura';
+  src: url('ambassadoretypeshura.ttf') format('ttf'),
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'OpenSans', sans-serif;
 	      background-color: var(--bg-light);
             transition: var(--transition);
             overflow-x: hidden;
@@ -169,7 +183,7 @@ nav {
 }
 
 .hero h1 {
-    font-family: 'a PlakatTitul', sans-serif; /* Обновляем название шрифта */
+    font-family: 'AmbassadoreTypeShura', sans-serif; /* Обновляем название шрифта */
     font-size: 6rem;
     color: #FFFFFF;
     margin-bottom: 2rem;
@@ -1510,6 +1524,7 @@ padding: 20px 40px;
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
