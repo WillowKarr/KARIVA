@@ -138,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 tags: ['Adobe Illustrator', 'Adobe Photoshop'],
                 images: [
                    'element16.webp',
-                    'element17.webp',
                     'element18.webp',
                     'element19.webp'
                 ]
@@ -265,6 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 
 
