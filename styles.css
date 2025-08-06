@@ -11,14 +11,15 @@
         } 
 @font-face {
   font-family: 'OpenSans';
-  src: url('fonts/OpenSans.ttf') format('.ttf'),
+  src: url('fonts/OpenSans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'AmbassadoreTypeShura';
-  src: url('ambassadoretypeshura.ttf') format('.ttf'),
+  src: url('fonts/ambassadoretypeshura.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -90,8 +91,7 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
         border-radius: 30px; /* Скругленные углы */
         }
 
-        .logo {
-		
+        .logo {	
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1526,6 +1526,7 @@ padding: 20px 40px;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
