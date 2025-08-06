@@ -156,6 +156,7 @@ nav {
     overflow: hidden;
     padding: 0 2rem;
     z-index: 1; /* Добавляем z-index */
+border-bottom: none;
 }
 
 .hero-background {
@@ -265,15 +266,22 @@ padding: 20px 40px;
             position: relative;
         }
 
-        .section-title {
-            font-size: 3rem;
-            margin-bottom: 50px;
-    padding-bottom: 15px;
+        .section-title, 
+.skills-title, 
+.timeline-section .section-title, 
+.portfolio-gallery .section-title {
+    font-size: 3rem; /* Увеличиваем размер */
+    margin-bottom: 50px;
     text-align: center;
-            color: #31673b;
-            position: relative;
-            display: inline-block;
-        }
+    width: 100%;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding: 0;
+}
 
         .about-text {
             font-size: 1.1rem;
@@ -283,16 +291,6 @@ padding: 20px 40px;
         }
 
         /* Стили для блока навыков */
-	.skills-title {
-            font-size: 4rem;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-		text-align: center;
-            position: relative;
-            display: inline-block;
-			font-weight: 600; /* Явно задаем такую же жирность */
-    font-family: 'Roboto', sans-serif; /* Явно задаем тот же шрифт */
-        }
 		
         .skills-container {
             display: flex;
@@ -1527,6 +1525,7 @@ padding: 20px 40px;
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
