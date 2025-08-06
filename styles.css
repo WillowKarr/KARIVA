@@ -171,8 +171,7 @@ nav {
 .hero h1 {
     font-family: 'a PlakatTitul', sans-serif; /* Обновляем название шрифта */
     font-size: 6rem;
-    color: var(--secondary-color);
-    text-shadow: 3px 3px 0 var(--primary-color);
+    color: #FFFFFF;
     margin-bottom: 2rem;
 padding: 20px 40px;
     opacity: 0;
@@ -182,12 +181,6 @@ padding: 20px 40px;
     z-index: 2; /* Добавляем z-index */
 }
 
-.hero h1, .hero p, .contact-btn {
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    padding: 15px 30px;
-    border-radius: 10px;
-}
 .hero p {
     font-size: 1.5rem;
     color: #F3F2EF;
@@ -204,8 +197,8 @@ padding: 20px 40px;
     position: relative; /* Меняем fixed на relative */
     display: inline-block; /* Делаем кнопку inline-block */
     padding: 1rem 2rem;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: white;
+    color: var(--primary-color);
     border: none;
     border-radius: 50px;
     font-weight: bold;
@@ -234,7 +227,8 @@ padding: 20px 40px;
         .contact-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            background-color: #4f8a5a;
+            background-color: var(--primary-color);
+	color: white;
         }
 
    /* Современный дизайн для секции "Обо мне" */
@@ -272,7 +266,7 @@ padding: 20px 40px;
         }
 
         .section-title {
-            font-size: 4rem;
+            font-size: 3rem;
             margin-bottom: 50px;
     padding-bottom: 15px;
     text-align: center;
@@ -293,6 +287,7 @@ padding: 20px 40px;
             font-size: 4rem;
             margin-bottom: 50px;
             color: var(--primary-color);
+		text-align: center;
             position: relative;
             display: inline-block;
 			font-weight: 600; /* Явно задаем такую же жирность */
@@ -1532,6 +1527,7 @@ padding: 20px 40px;
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
