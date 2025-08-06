@@ -12,6 +12,7 @@
 @font-face {
   font-family: 'OpenSans';
   src: url('fonts/OpenSans.ttf') format('truetype');
+	url('fonts/OpenSans.woff') format('woff'),
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -20,6 +21,7 @@
 @font-face {
   font-family: 'AmbassadoreTypeShura';
   src: url('fonts/ambassadoretypeshura.ttf') format('truetype');
+	url('fonts/ambassadoretypeshura.woff') format('woff'),
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -1526,6 +1528,7 @@ padding: 20px 40px;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
