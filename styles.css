@@ -11,8 +11,8 @@
         } 
 @font-face {
   font-family: 'OpenSans';
-  src: url('fonts/OpenSans.ttf') format('truetype');
-	url('fonts/OpenSans.woff') format('woff'),
+  src: url('fonts/OpenSans.ttf') format('truetype'),
+	url('fonts/OpenSans.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -20,8 +20,8 @@
 
 @font-face {
   font-family: 'AmbassadoreTypeShura';
-  src: url('fonts/ambassadoretypeshura.ttf') format('truetype');
-	url('fonts/ambassadoretypeshura.woff') format('woff'),
+  src: url('fonts/ambassadoretypeshura.ttf') format('truetype'),
+	url('fonts/ambassadoretypeshura.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -97,7 +97,7 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
         backdrop-filter: blur(10px);
         box-shadow: var(--shadow);
         transition: var(--transition);
-        border-radius: 38px; /* Скругленные углы */
+        border-radius: 25px; /* Скругленные углы */
         }
 
       .logo {
@@ -106,7 +106,7 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
     align-items: center;
     transition: var(--transition);
     width: auto; /* Изменено с 10px */
-    height: 30px; /* Фиксированная высота как у меню */
+    height: 25px; /* Фиксированная высота как у меню */
 }
 
 .logo-img {
@@ -187,7 +187,7 @@ nav {
     text-align: center;
     position: relative;
     overflow: hidden;
-    padding: 0 2rem;
+    padding: 0 1rem;
     z-index: 1; /* Добавляем z-index */
 }
 
@@ -276,7 +276,6 @@ letter-spacing: 0.2em;
     width: 100%;
     color: var(--primary-color);
     font-weight: 600;
-    font-family: 'OpenSans', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
@@ -1545,6 +1544,7 @@ letter-spacing: 0.2em;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
