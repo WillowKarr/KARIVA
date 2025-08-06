@@ -31,7 +31,14 @@
 	      background-color: var(--bg-light);
             transition: var(--transition);
             overflow-x: hidden;
+	    
     }
+.section-title, 
+.skills-title, 
+.timeline-section .section-title, 
+.portfolio-gallery .section-title {
+      font-family: 'AmbassadoreTypeShura', sans-serif;
+	}
         * {
             margin: 0;
             padding: 0;
@@ -90,7 +97,7 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
         backdrop-filter: blur(10px);
         box-shadow: var(--shadow);
         transition: var(--transition);
-        border-radius: 30px; /* Скругленные углы */
+        border-radius: 38px; /* Скругленные углы */
         }
 
       .logo {
@@ -105,7 +112,7 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
 .logo-img {
     height: 100%; /* Занимает всю высоту контейнера */
     width: auto; /* Ширина подстраивается пропорционально */
-    max-height: 20px; /* Ограничение по высоте */
+    max-height: 38px; /* Ограничение по высоте */
     object-fit: contain; /* Сохраняет пропорции */
 }
 
@@ -261,7 +268,7 @@ padding: 20px 40px;
 .skills-title, 
 .timeline-section .section-title, 
 .portfolio-gallery .section-title {
-	font-family: 'AmbassadoreTypeShura', sans-serif;
+	font-family: 'AmbassadoreTypeShura';
 letter-spacing: 0.2em;
     font-size: 2rem; 
     margin-bottom: 50px;
@@ -1538,6 +1545,7 @@ letter-spacing: 0.2em;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
