@@ -254,7 +254,7 @@ padding: 20px 40px;
     width: 100%;
     color: var(--primary-color);
     font-weight: 600;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'OpenSans', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
@@ -833,7 +833,6 @@ padding: 20px 40px;
     background-color: var(--primary-color);
     color: #fff;
     padding: 50px 0 20px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .footer-container {
@@ -1292,7 +1291,7 @@ padding: 20px 40px;
     
     /* Герой */
     .hero h1 {
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'AmbassadoreTypeShura', sans-serif;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -1513,7 +1512,7 @@ padding: 20px 40px;
 
 /* Загрузка шрифта для заголовка */
 @font-face {
-    font-family: 'a PlakatTitul';
+    font-family: 'AmbassadoreTypeShura';
     src: url('https://fonts.cdnfonts.com/css/aplakattitul') format('woff2');
     font-display: swap;
 }
@@ -1521,9 +1520,10 @@ padding: 20px 40px;
 /* Применяем шрифт только для десктопной версии */
 @media (min-width: 769px) {
     .hero h1 {
-        font-family: 'a PlakatTitul', sans-serif;
+        font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
