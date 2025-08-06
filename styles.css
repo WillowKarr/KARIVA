@@ -99,13 +99,13 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
     align-items: center;
     transition: var(--transition);
     width: auto; /* Изменено с 10px */
-    height: 20px; /* Фиксированная высота как у меню */
+    height: 30px; /* Фиксированная высота как у меню */
 }
 
 .logo-img {
     height: 100%; /* Занимает всю высоту контейнера */
     width: auto; /* Ширина подстраивается пропорционально */
-    max-height: 40px; /* Ограничение по высоте */
+    max-height: 20px; /* Ограничение по высоте */
     object-fit: contain; /* Сохраняет пропорции */
 }
 
@@ -196,7 +196,7 @@ nav {
 
 .hero h1 {
     font-family: 'AmbassadoreTypeShura', sans-serif; /* Обновляем название шрифта */
-letter-spacing: 0.3em;
+letter-spacing: 0.2rem;
     font-size: 6rem;
     color: #FFFFFF;
     margin-bottom: 2rem;
@@ -261,9 +261,9 @@ padding: 20px 40px;
 .skills-title, 
 .timeline-section .section-title, 
 .portfolio-gallery .section-title {
-	font-family: 'AmbassadoreTypeShura', sans-serif; /* Обновляем название шрифта */
-letter-spacing: 0.3em;
-    font-size: 2rem; /* Увеличиваем размер */
+	font-family: 'AmbassadoreTypeShura', sans-serif;
+letter-spacing: 0.2em;
+    font-size: 2rem; 
     margin-bottom: 50px;
     text-align: center;
     width: 100%;
@@ -1538,6 +1538,7 @@ letter-spacing: 0.3em;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
