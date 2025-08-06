@@ -91,10 +91,13 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
         }
 
         .logo {
+		
         display: flex;
         justify-content: center;
         align-items: center;
         transition: var(--transition);
+	width: 60px; /* Подберите подходящий размер */
+    height: auto;
         }
 
 nav {
@@ -1523,6 +1526,7 @@ padding: 20px 40px;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
