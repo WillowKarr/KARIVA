@@ -96,7 +96,7 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
         justify-content: center;
         align-items: center;
         transition: var(--transition);
-	width: 60px; /* Подберите подходящий размер */
+	width: 10px; /* Подберите подходящий размер */
     height: auto;
         }
 
@@ -1526,6 +1526,7 @@ padding: 20px 40px;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
