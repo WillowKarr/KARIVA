@@ -230,6 +230,23 @@ padding: 20px 40px;
             background-color: #f0f0f0;
         }
 
+.section-title, 
+.skills-title, 
+.timeline-section .section-title, 
+.portfolio-gallery .section-title {
+    font-size: 2rem; /* Увеличиваем размер */
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding: 0;
+}
+
    /* Современный дизайн для секции "Обо мне" */
         .about-container {
             display: grid;
@@ -255,23 +272,6 @@ padding: 20px 40px;
         .about-content {
             position: relative;
         }
-
-        .section-title, 
-.skills-title, 
-.timeline-section .section-title, 
-.portfolio-gallery .section-title {
-    font-size: 2rem; /* Увеличиваем размер */
-    margin-bottom: 50px;
-    text-align: center;
-    width: 100%;
-    color: var(--primary-color);
-    font-weight: 600;
-    font-family: 'Josefin Sans', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    padding: 0;
-}
 
         .about-text {
             font-size: 1.1rem;
@@ -505,18 +505,6 @@ padding: 20px 40px;
     font-size: 1.5rem;
     color: var(--primary-color);
 }
-
-.timeline-content:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.15);
-	    display: grid;
-    grid-template-areas: 
-        "date title"
-        "desc desc";
-    grid-template-columns: auto 1fr;
-    align-items: center;
-}
-
 
 .timeline-date {
     font-weight: bold;
@@ -1515,6 +1503,7 @@ padding: 20px 40px;
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
