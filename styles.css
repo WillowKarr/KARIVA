@@ -227,7 +227,7 @@ padding: 20px 40px;
         .contact-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            background-color: #f0f0f0;
+            background-color: #C6BDA9;
         }
 
 .section-title, 
@@ -1510,6 +1510,7 @@ padding: 20px 40px;
         font-family: 'a PlakatTitul', sans-serif;
     }
 }
+
 
 
 
