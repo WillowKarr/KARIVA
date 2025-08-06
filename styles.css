@@ -93,14 +93,21 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
         border-radius: 30px; /* Скругленные углы */
         }
 
-        .logo {	
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: var(--transition);
-	width: 10px; /* Подберите подходящий размер */
-    height: auto;
-        }
+      .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    width: auto; /* Изменено с 10px */
+    height: 40px; /* Фиксированная высота как у меню */
+}
+
+.logo-img {
+    height: 100%; /* Занимает всю высоту контейнера */
+    width: auto; /* Ширина подстраивается пропорционально */
+    max-height: 40px; /* Ограничение по высоте */
+    object-fit: contain; /* Сохраняет пропорции */
+}
 
 nav {
     margin-left: auto; /* Прижимаем навигацию к центру */
@@ -1528,6 +1535,7 @@ padding: 20px 40px;
         font-family: 'AmbassadoreTypeShura'
     }
 }
+
 
 
 
