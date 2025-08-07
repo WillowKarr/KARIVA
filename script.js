@@ -1,54 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ========== Theme Toggle ==========
-    const themeToggle = document.querySelector('.theme-toggle');
-    if (themeToggle) {
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
-        
-        // Проверяем сохранённую тему в localStorage
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark-mode') {
-            body.classList.add('dark-mode');
-            if (icon) icon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark-mode');
-                if (icon) icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                localStorage.setItem('theme', 'light-mode');
-                if (icon) icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-    }
-
-    // ========== Burger Menu ==========
-   document.addEventListener('DOMContentLoaded', function() {
+    // Удалить дублирующийся DOMContentLoaded
+    
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
     
-    burger.addEventListener('click', function() {
+    // Бургер-меню
+    burger.addEventListener('click', function(e) {
+        e.stopPropagation();
         this.classList.toggle('active');
         nav.classList.toggle('active');
-        
-        // Блокировка скролла при открытом меню
-        if (nav.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+        document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
     });
     
-    // Закрытие меню при клике на ссылку
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+    // Закрытие при клике на ссылку
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
             burger.classList.remove('active');
             nav.classList.remove('active');
             document.body.style.overflow = '';
         });
+    });
+    
+    // Закрытие при клике вне меню
+    document.addEventListener('click', function(e) {
+        if (!nav.contains(e.target) && !burger.contains(e.target)) {
+            burger.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 });
     // ========== Smooth Scrolling ==========
@@ -325,3 +304,5 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+});
+
