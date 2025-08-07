@@ -133,7 +133,7 @@ margin-left: auto;
 
 /* Мобильное меню */
 nav {
-    display: flex; /* По умолчанию видно на десктопе */
+    display: 0 auto;
 }
 
 nav ul {
@@ -185,6 +185,7 @@ nav ul {
     }
 }
       .logo {
+	 margin-right: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,6 +204,7 @@ nav {
     margin-left: auto; /* Прижимаем навигацию к центру */
     margin-right: auto;
     transform: translateX(-50px); /* Корректировка позиции */
+margin: 0 auto; 
 }
 
         nav ul {
@@ -213,6 +215,7 @@ nav {
 
         nav ul li {
             margin-left: 1.5rem;
+		margin: 0 1.5rem;
         }
 
         nav ul li a {
