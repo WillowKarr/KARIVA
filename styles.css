@@ -1058,6 +1058,8 @@ letter-spacing: 0.2em;
     .hero-background {
         background-image: url('adaptivebg.webp');
 	background-size: contain;
+	     background-repeat: no-repeat;
+    background-position: center center;
     }
     .hero h1 {
         font-size: 8rem;
@@ -1383,6 +1385,7 @@ letter-spacing: 0.2em;
         font-size: 0.9rem;
     }
 }
+
 
 
 
