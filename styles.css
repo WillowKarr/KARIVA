@@ -151,8 +151,8 @@ nav ul li {
 	 margin-right: auto;
     display: flex;
     justify-content: center;
-	top: 2px;
-	 padding-bottom: 3px;
+	top: 3px;
+	 padding-bottom: 1.5px;
     transition: var(--transition);
     width: auto; /* Изменено с 10px */
 	align-items: flex-end;
@@ -421,7 +421,7 @@ letter-spacing: 0.2em;
         }
 
         .modal-header {
-            height: 600px;
+            height: 400px;
             position: relative;
             overflow: hidden;
         }
@@ -1520,6 +1520,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
