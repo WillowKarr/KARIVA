@@ -1440,27 +1440,6 @@ justify-content: flex-end;
         60% {transform: translateY(-10px) translateX(-50%);}
     }
 }
-
-/* Подгрузка мобильных изображений */
-@media (max-width: 768px) {
-    .gallery-item[data-project="logopotam"] .image-container img {
-        content: url('elementmobile1.webp');
-    }
-    .gallery-item[data-project="mebelsoft"] .image-container img {
-        content: url('elementmobile12.webp');
-    }
-    .gallery-item[data-project="cofee"] .image-container img {
-        content: url('elementmobile16.webp');
-    }
-    .gallery-item[data-project="nashakuxnya"] .image-container img {
-        content: url('elementmobile20.webp');
-    }
-    .gallery-item[data-project="stickers"] .image-container img {
-        content: url('elementmobile24.webp');
-    }
-    .gallery-item[data-project="marketplace"] .image-container img {
-        content: url('elementmobile26.webp');
-    }
     /* Подвал */
     .footer {
         padding: 40px 20px;
@@ -1517,6 +1496,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
