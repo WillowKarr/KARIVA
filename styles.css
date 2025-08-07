@@ -1193,7 +1193,7 @@ justify-content: flex-end;
     background-position: center center;
     }
     .hero h1 {
-        font-size: 8rem;
+        font-size: 4rem;
         padding: 10px 30px;
         margin-bottom: 1,5rem;
     }
@@ -1496,6 +1496,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
