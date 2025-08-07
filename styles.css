@@ -151,9 +151,11 @@ nav ul li {
 	 margin-right: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+	top: 2px;
+	 padding-bottom: 3px;
     transition: var(--transition);
     width: auto; /* Изменено с 10px */
+	align-items: flex-end;
     height: 20px; /* Фиксированная высота как у меню */
 }
 .logo-img {
@@ -651,7 +653,8 @@ letter-spacing: 0.2em;
 .timeline-content {
     background: white;
     border-radius: 15px;
-    padding: 30px 35px 30px 50px; /* Увеличили внутренние отступы */
+    padding: 35px 40px 35px 50px; /* Увеличили внутренние отступы */
+	min-height: 220px;
     min-width: 280px; /* Минимальная ширина плашек */
     width: 100%; /* Занимают всю доступную ширину */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -759,7 +762,7 @@ letter-spacing: 0.2em;
     overflow: hidden;
      transition: all 0.3s ease;
     height: auto; /* Было 100% - меняем на auto */
-    min-height: 500px; /* Добавляем минимальную высоту */
+    min-height: 650px;
 }
 
 .gallery-item:hover {
@@ -875,7 +878,9 @@ letter-spacing: 0.2em;
 .project-slider {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 80vh; /* Увеличили высоту на 33% */
+  min-height: 700px; /* Минимальная высота */
+  max-height: 900px; /* Максимальная высота */
   overflow: hidden;
 }
 
@@ -887,9 +892,11 @@ letter-spacing: 0.2em;
 }
 
 .slider-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Показываем все изображение без обрезки */
+  height: 100%; /* Занимаем всю высоту */
+  width: auto; /* Ширина подстраивается */
+  max-width: 100%; /* Не выходим за границы */
+  margin: 0 auto; /* Центрируем */
   flex-shrink: 0;
 }
 
@@ -1513,6 +1520,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
