@@ -148,21 +148,22 @@ nav ul li {
     margin: 0 1rem; /* Уменьшили отступы между пунктами */
 }
       .logo {
-	 margin-right: auto;
+  margin-right: auto;
     display: flex;
     justify-content: center;
-	top: 4px;
-	 padding-bottom: 4px;
-    transition: var(--transition);
-    width: auto; /* Изменено с 10px */
-	align-items: flex-end;
-    height: 20px; /* Фиксированная высота как у меню */
+    align-items: center;
+    height: 20px;
+    position: relative;
+    top: 0; 
+    transform: none;
+    padding-bottom: 0;
 }
 .logo-img {
     height: 100%; /* Занимает всю высоту контейнера */
     width: auto; /* Ширина подстраивается пропорционально */
     max-height: 20px; /* Ограничение по высоте */
     object-fit: contain; /* Сохраняет пропорции */
+	 top: -1px;
 }
         nav ul {
             display: flex;
@@ -380,6 +381,32 @@ letter-spacing: 0.2em;
         .projects {
             padding: 5rem 2rem;
         }
+.project-slider {
+    height: 50vh; /* Ровно половина экрана */
+    min-height: 400px; /* Минимум для мобильных */
+    max-height: 600px; /* Максимум для больших экранов */
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    height: 100%;
+    width: 100%;
+}
+
+.slider-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Обрезаем изображения по заданной высоте */
+    object-position: center top; /* Фокусируемся на верхней части изображения */
+}
+
+/* Фиксируем нижнюю часть без изменений */
+.project-content {
+    height: auto; /* Автоматическая высота */
+    padding: 30px;
+    overflow-y: auto; /* Прокрутка если контент не помещается */
+}
 
         .section-title {
             text-align: center;
@@ -1520,6 +1547,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
