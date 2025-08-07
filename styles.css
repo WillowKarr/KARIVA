@@ -1139,16 +1139,15 @@ justify-content: flex-end;
 
     /* Шапка */
     header {
-        width: 90%;
-        top: 10px;
-        padding: 0.8rem 1.2rem;
-        border-radius: 20px;
-        justify-content: space-between;
+       width: 95%; /* Занимает почти всю ширину */
+    top: 10px;
+    padding: 0.8rem 1rem; /* Уменьшенные отступы */
+    border-radius: 20px; /* Меньше скругление */
     }
 
     /* Увеличиваем логотип */
     .logo {
-        height: 20px;
+        height: 18px;
     }
     .logo-img {
         max-height: 20px;
@@ -1311,12 +1310,10 @@ justify-content: flex-end;
     }
     
     .timeline-content {
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        width: 100%;
-        margin: 0 auto;
-        border: 1px solid rgba(139, 0, 0, 0.1);
+        ppadding: 20px;
+    min-height: auto; /* Убираем фиксированную высоту */
+    width: 90%; /* Уже чем экран */
+    margin: 0 auto 25px; /* Центрируем */
     }
     
     .timeline-date {
@@ -1395,78 +1392,37 @@ justify-content: flex-end;
         margin-bottom: 15px;
     }
     
-    /* Модальное окно */
-    .modal-overlay {
-        padding: 20px 0;
-    }
-    
     .modal-container {
-        width: 95%;
-        max-width: none;
-        border-radius: 0;
-        height: auto;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .project-slider {
-        height: 60vh;
-        order: 1;
-    }
-    
-    .slider-container img {
-        object-fit: contain;
-        background-color: #f5f5f5;
-    }
-    
-    .slider-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-        background: rgba(0,0,0,0.7);
-        transform: translateY(-50%);
-    }
-    
-    .prev-slide {
-        left: 10px;
-    }
-    
-    .next-slide {
-        right: 10px;
-    }
-    
-    .project-content {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
-        order: 2;
-    }
-    
-    .project-title {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-    }
-    
-    .project-description p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-    
-    .project-tags {
-        margin-bottom: 15px;
-    }
-    
-    .project-tag {
-        font-size: 0.8rem;
-        padding: 4px 12px;
-    }
-    
-    .close-modal {
-        top: 10px;
-        right: 10px;
-        background: rgba(0,0,0,0.7);
-    }
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .project-slider {
+    height: 35vh;
+    min-height: 250px;
+    max-height: 350px;
+  }
+
+  .project-content {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .slider-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .close-modal {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
     
     /* Индикатор скролла */
     .scroll-indicator {
@@ -1489,18 +1445,35 @@ justify-content: flex-end;
     }
 }
     /* Подвал */
-    .footer {
-        padding: 40px 20px;
-    }
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-    }
-    .footer-social {
-        justify-content: center;
-    }
+   footer {
+    padding: 40px 20px 20px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .footer-left {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+    order: -1; /* Логотип сверху */
+    margin-bottom: 20px;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    margin-top: 20px;
+    padding-top: 15px;
+  }
 }
 
 /* Дополнительные корректировки для очень маленьких экранов */
@@ -1544,6 +1517,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
