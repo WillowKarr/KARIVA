@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Удалить дублирующийся DOMContentLoaded
-    
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
     
-    // Бургер-меню
     burger.addEventListener('click', function(e) {
         e.stopPropagation();
         this.classList.toggle('active');
         nav.classList.toggle('active');
-        document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        document.body.classList.toggle('menu-open');
     });
     
     // Закрытие при клике на ссылку
@@ -17,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => {
             burger.classList.remove('active');
             nav.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
         });
     });
     
@@ -26,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!nav.contains(e.target) && !burger.contains(e.target)) {
             burger.classList.remove('active');
             nav.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
         }
     });
 });
@@ -259,22 +256,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-document.addEventListener('DOMContentLoaded', function() {
-    // Индикатор скролла для мобильных
-    if (window.innerWidth <= 768) {
-        const scrollIndicator = document.createElement('div');
-        scrollIndicator.className = 'scroll-indicator';
-        scrollIndicator.innerHTML = '⌄';
-        document.body.appendChild(scrollIndicator);
-        
-        // Показываем индикатор только в начале страницы
-        window.addEventListener('scroll', function() {
-            if (window.scrollY < 100) {
-                scrollIndicator.style.display = 'block';
-            } else {
-                scrollIndicator.style.display = 'none';
-            }
-        });
         
         // Прячем индикатор после первого скролла
         let scrolled = false;
@@ -305,5 +286,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 
