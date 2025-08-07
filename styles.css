@@ -446,13 +446,22 @@ letter-spacing: 0.2em;
             opacity: 1;
             transform: translateY(0);
         }
+.modal-container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+}
 
-        .modal-header {
-            height: 400px;
-            position: relative;
-            overflow: hidden;
-        }
-
+.project-slider {
+    height: 50vh;
+    min-height: 400px;
+    max-height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-light); /* Фон на случай загрузки */
+}
         .modal-slider {
             display: flex;
             width: 100%;
@@ -465,11 +474,19 @@ letter-spacing: 0.2em;
             height: 100%;
         }
 
-        .modal-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+ .slider-container {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slider-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    flex-shrink: 0;
+}
 
         .modal-nav {
             position: absolute;
@@ -970,7 +987,11 @@ letter-spacing: 0.2em;
 }
 
   .project-slider {
-    height: 40vh;
+    height: 50vh; /* Фиксированная высота */
+    min-height: 400px;
+    max-height: 600px;
+    position: relative;
+    overflow: hidden;
   }
 }
 
@@ -1523,6 +1544,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
