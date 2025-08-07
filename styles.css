@@ -108,7 +108,10 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
     width: auto; /* Изменено с 10px */
     height: 20px; /* Фиксированная высота как у меню */
 }
-
+.burger {
+    display: none; /* По умолчанию скрыт */
+    z-index: 1001;
+}
 .logo-img {
     height: 100%; /* Занимает всю высоту контейнера */
     width: auto; /* Ширина подстраивается пропорционально */
@@ -1054,17 +1057,21 @@ letter-spacing: 0.2em;
     }
     .hero-background {
         background-image: url('adaptivebg.webp');
+	background-size: contain;
     }
     .hero h1 {
-        font-size: 4rem;
-        padding: 15px 25px;
-        margin-bottom: 1rem;
+        font-size: 8rem;
+        padding: 10px 30px;
+        margin-bottom: 1,5rem;
     }
     .hero p {
         font-size: 1.1rem;
         padding: 0 20px;
     }
-
+.contact-btn {
+    margin-top: 0; /* Убираем отступ сверху */
+    transform: translateY(-20px); /* Поднимаем кнопку выше */
+}
     /* Объединенные заголовки разделов */
     .section-title, 
     .skills-title, 
@@ -1090,10 +1097,11 @@ letter-spacing: 0.2em;
 
     /* Таймлайн - вертикальный */
  .timeline-section {
-        padding: 30px 15px;
+        padding: 100px 5%;
     }
     
     .timeline-track {
+	max-width: 1200px;
         grid-template-columns: 1fr;
         gap: 25px;
         width: 100%;
@@ -1142,7 +1150,6 @@ letter-spacing: 0.2em;
     .timeline-content h3 {
         font-size: 1.3rem;
         margin-bottom: 15px;
-        color: var(--secondary-color);
     }
     
     .timeline-content p {
@@ -1351,7 +1358,7 @@ letter-spacing: 0.2em;
     }
 }
 .timeline-content {
-        padding: 20px;
+        padding: 10px;
     }
     
     .timeline-content h3 {
@@ -1376,6 +1383,7 @@ letter-spacing: 0.2em;
         font-size: 0.9rem;
     }
 }
+
 
 
 
