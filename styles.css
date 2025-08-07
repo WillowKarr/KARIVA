@@ -131,7 +131,44 @@ margin-left: auto;
 .burger.active div:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
+nav {
+    display: flex;
+    margin: 0 auto;
+}
 
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+    margin: 0 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
 /* Мобильное меню */
 .mobile-menu-container {
     position: fixed;
@@ -1394,5 +1431,6 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
