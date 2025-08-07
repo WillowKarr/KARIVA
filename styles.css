@@ -151,8 +151,8 @@ nav ul li {
 	 margin-right: auto;
     display: flex;
     justify-content: center;
-	top: 3px;
-	 padding-bottom: 1.5px;
+	top: 4px;
+	 padding-bottom: 4px;
     transition: var(--transition);
     width: auto; /* Изменено с 10px */
 	align-items: flex-end;
@@ -1520,6 +1520,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
