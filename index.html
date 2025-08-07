@@ -20,24 +20,33 @@
     <div class="cursor-follower"></div>
 
     <header>
-        <div class="logo">
-		<a href="#top" class="logo-link">
-                    <img src="logo.gif" alt="Наверх" class="logo-img">
-</div>
-        <nav>
-            <ul>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#projects">Проекты</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-        </nav>
-        <button class="theme-toggle" aria-label="Toggle theme">
-        </button>
-        <div class="burger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+           <!-- Логотип -->
+    <div class="logo">
+        <a href="#top" class="logo-link">
+            <img src="logo.gif" alt="Наверх" class="logo-img">
+        </a>
+    </div>
+    
+    <!-- Основная навигация -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Кнопка темы -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i> <!-- Добавляем иконку для темы -->
+    </button>
+    
+    <!-- Бургер-меню (только для мобильных) -->
+    <button class="burger" aria-label="Menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+    </button>
     </header>
   <!-- Hero Section -->
 <section class="hero" id="home">
@@ -252,6 +261,7 @@
         </div>
     </footer>
 </body>
+
 
 
 
