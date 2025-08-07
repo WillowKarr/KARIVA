@@ -264,6 +264,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Индикатор скролла для мобильных
+    if (window.innerWidth <= 768) {
+        const scrollIndicator = document.createElement('div');
+        scrollIndicator.className = 'scroll-indicator';
+        scrollIndicator.innerHTML = '⌄';
+        document.body.appendChild(scrollIndicator);
+        
+        // Показываем индикатор только в начале страницы
+        window.addEventListener('scroll', function() {
+            if (window.scrollY < 100) {
+                scrollIndicator.style.display = 'block';
+            } else {
+                scrollIndicator.style.display = 'none';
+            }
+        });
+        
+        // Прячем индикатор после первого скролла
+        let scrolled = false;
+        window.addEventListener('scroll', function() {
+            if (!scrolled) {
+                scrollIndicator.style.opacity = '0';
+                setTimeout(() => {
+                    scrollIndicator.style.display = 'none';
+                }, 500);
+                scrolled = true;
+            }
+        });
+    }
+    
+    // Для модального окна - адаптация изображений
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const projectId = this.dataset.project;
+                const project = projects[projectId];
+                
+                if (project) {
+                    project.images = project.images.map(img => 
+                        img.replace(/(element)(\d+)/, '$1mobile$2')
+                    );
+                }
+            });
+        });
+    }
+});
 
 
 
