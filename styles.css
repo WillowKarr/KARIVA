@@ -954,6 +954,8 @@ letter-spacing: 0.2em;
         width: 120px;
         height: 50px;
     }
+
+
 /* ==================== */
 /* MOBILE ADAPTATION */
 /* ==================== */
@@ -983,10 +985,10 @@ letter-spacing: 0.2em;
 
     /* Увеличиваем логотип */
     .logo {
-        height: 30px;
+        height: 20px;
     }
     .logo-img {
-        max-height: 30px;
+        max-height: 20px;
     }
 
     /* Бургер-меню */
@@ -1051,7 +1053,7 @@ letter-spacing: 0.2em;
         padding-top: 80px;
     }
     .hero-background {
-        background-image: url('adaptivebg.png');
+        background-image: url('adaptivebg.webp');
     }
     .hero h1 {
         font-size: 4rem;
@@ -1168,6 +1170,7 @@ letter-spacing: 0.2em;
         font-size: 0.9rem;
     }
 }
+
 
 
 
