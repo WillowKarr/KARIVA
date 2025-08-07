@@ -1,29 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ========== Theme Toggle ==========
-    const themeToggle = document.querySelector('.theme-toggle');
-    if (themeToggle) {
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
-        
-        // Проверяем сохранённую тему в localStorage
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark-mode') {
-            body.classList.add('dark-mode');
-            if (icon) icon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark-mode');
-                if (icon) icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                localStorage.setItem('theme', 'light-mode');
-                if (icon) icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-    }
-
     // ========== Burger Menu ==========
    document.addEventListener('DOMContentLoaded', function() {
     const burger = document.querySelector('.burger');
@@ -326,3 +301,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
