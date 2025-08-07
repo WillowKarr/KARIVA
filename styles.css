@@ -133,9 +133,10 @@ margin-left: auto;
 
 /* Мобильное меню */
 nav {
-    display: 0 auto;
+    display: flex; /* Добавляем правильное display */
+    margin: 0 auto; /* Центрируем навигацию */
+    /* Удаляем transform: translateX(-50px) - это ломает выравнивание */
 }
-
 nav ul {
     display: flex;
     list-style: none;
@@ -146,11 +147,11 @@ nav ul {
     .burger {
         display: flex; /* Показываем бургер на мобильных */
 	 margin-left: auto;
-        order: 2; /*
+        order: 2; 
     }
     
     nav {
-        position: fixed;
+        position: static;
         top: 0;
         left: 0;
         width: 100%;
@@ -200,14 +201,6 @@ nav ul {
     max-height: 20px; /* Ограничение по высоте */
     object-fit: contain; /* Сохраняет пропорции */
 }
-
-nav {
-    margin-left: auto; /* Прижимаем навигацию к центру */
-    margin-right: auto;
-    transform: translateX(-50px); /* Корректировка позиции */
-margin: 0 auto; 
-}
-
         nav ul {
             display: flex;
             list-style: none;
@@ -632,6 +625,8 @@ letter-spacing: 0.2em;
     padding: 5px 10px;
     border-radius: 20px;
     margin-left: -15px; /* Сдвигаем влево для выравнивания */
+	width: fit-content;
+    margin-left: 0;
 }
 
 .timeline-content h3 {
@@ -1431,6 +1426,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
