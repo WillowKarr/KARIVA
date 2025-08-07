@@ -1273,7 +1273,6 @@ letter-spacing: 0.2em;
     .gallery-item[data-project="marketplace"] .image-container img {
         content: url('elementmobile26.webp');
     }
-}
     /* Подвал */
     .footer {
         padding: 40px 20px;
@@ -1314,6 +1313,7 @@ letter-spacing: 0.2em;
         font-size: 0.9rem;
     }
 }
+
 
 
 
