@@ -762,7 +762,7 @@ letter-spacing: 0.2em;
 .image-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4/5;
     overflow: hidden;
     flex-shrink: 0; /* Запрещаем сжатие контейнера с изображением */
 }
@@ -1517,5 +1517,6 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
