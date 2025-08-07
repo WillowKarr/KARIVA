@@ -902,30 +902,6 @@ letter-spacing: 0.2em;
 }
 
 /* Стили слайдера */
-.project-slider {
-  position: relative;
-  width: 100%;
-  height: 80vh; /* Увеличили высоту на 33% */
-  min-height: 700px; /* Минимальная высота */
-  max-height: 900px; /* Максимальная высота */
-  overflow: hidden;
-}
-
-.slider-container {
-  display: flex;
-  width: 100%;
-  height: 60%;
-  transition: transform 0.5s ease;
-}
-
-.slider-container img {
-  object-fit: contain; /* Показываем все изображение без обрезки */
-  height: 100%; /* Занимаем всю высоту */
-  width: auto; /* Ширина подстраивается */
-  max-width: 100%; /* Не выходим за границы */
-  margin: 0 auto; /* Центрируем */
-  flex-shrink: 0;
-}
 
 .slider-nav {
   position: absolute;
@@ -1547,6 +1523,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
