@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Удалить дублирующийся DOMContentLoaded
-    
+    // Общие элементы
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
     
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
     });
-});
+
     // ========== Smooth Scrolling ==========
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -44,9 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 // Закрываем мобильное меню, если открыто
-                if (nav && nav.classList.contains('open')) {
-                    nav.classList.remove('open');
-                    if (burger) burger.classList.remove('active');
+                if (nav && nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    burger.classList.remove('active');
                 }
             }
         });
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
         });
 
-        // Эффекты при наведении
         const hoverElements = document.querySelectorAll('a, button, .gallery-item, .social-link, .burger');
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -83,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
     // ========== Portfolio Modal ==========
     const galleryItems = document.querySelectorAll('.gallery-item');
     const modal = document.getElementById('portfolioModal');
@@ -305,4 +302,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
