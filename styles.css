@@ -751,7 +751,8 @@ letter-spacing: 0.2em;
     border-radius: 0;
     overflow: hidden;
      transition: all 0.3s ease;
-    height: 100%; /* Добавляем высоту 100% */
+    height: auto; /* Было 100% - меняем на auto */
+    min-height: 500px; /* Добавляем минимальную высоту */
 }
 
 .gallery-item:hover {
@@ -1516,4 +1517,5 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
