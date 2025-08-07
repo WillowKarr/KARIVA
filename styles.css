@@ -103,6 +103,7 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
 .burger {
     display: none; /* По умолчанию скрыт */
     flex-direction: column;
+margin-left: auto;
     justify-content: space-between;
     width: 30px;
     height: 22px;
@@ -1428,6 +1429,7 @@ letter-spacing: 0.2em;
         font-size: 0.9rem;
     }
 }
+
 
 
 
