@@ -763,25 +763,6 @@ letter-spacing: 0.2em;
 .timeline-item:hover .timeline-arrow {
     opacity: 1;
 }
-/* Адаптивность */
-@media (max-width: 768px) {
-    .timeline-section {
-        padding: 60px 10px;
-    }
-    
-    .timeline-track {
-        padding: 0 20px;
-    }
-    
-    .timeline-item {
-        flex: 0 0 260px;
-        padding: 0 30px;
-    }
-    
-    .timeline-content {
-        padding: 25px;
-    }
-}
 		
 		 /* Стили галереи */
 .portfolio-gallery {
@@ -1119,404 +1100,226 @@ justify-content: flex-end;
     }
 
 
+
+
+
 /* ==================== */
-/* MOBILE ADAPTATION */
+/* MOBILE ADAPTATION (768px и меньше) */
 /* ==================== */
 @media (max-width: 768px) {
-    /* Общие стили */
-    body {
-        font-size: 16px;
-        overflow-x: hidden;
-    }
-    
-    /* Курсор - отключаем на мобильных */
-    .cursor, .cursor-follower {
-        display: none;
-    }
-    * {
-        cursor: auto !important;
-    }
+  /* 1. Общие стили */
+  body {
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+  .cursor, .cursor-follower {
+    display: none;
+  }
 
-    /* Шапка */
-    header {
-       width: 95%; /* Занимает почти всю ширину */
+  /* 2. Шапка */
+  header {
+    width: 95% !important;
     top: 10px;
-    padding: 0.8rem 1rem; /* Уменьшенные отступы */
-    border-radius: 20px; /* Меньше скругление */
-    }
+    padding: 0.8rem 1rem !important;
+    border-radius: 20px;
+  }
+  
+  .logo {
+    height: 18px;
+  }
+  
+  .burger {
+    display: flex !important;
+    width: 28px;
+    height: 20px;
+  }
 
-    /* Увеличиваем логотип */
-    .logo {
-        height: 18px;
-    }
-    .logo-img {
-        max-height: 20px;
-    }
-
- 
-    /* Мобильное меню */
-    nav {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(250, 248, 245, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    nav.mobile-open {
-        display: flex;
-        opacity: 1;
-    }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    nav ul li {
-        margin: 1.5rem 0;
-    }
-    nav ul li a {
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
-
-	   /* Бургер */
-.burger {
-        display: flex; /* Показываем бургер на мобильных */
-	 margin-left: auto;
-        order: 2; 
-    }
-    
-    nav {
-        position: static;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(250, 248, 245, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-    }
-    
-    nav.active {
-        opacity: 1;
-        pointer-events: all;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav ul li {
-        margin: 1.5rem 0;
-    }
-    
-    nav ul li a {
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
-    /* Главный экран */
-    .hero {
-        padding-top: 80px;
-    }
-    .hero-background {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('adaptivebg.webp');
-	background-size: cover;
-	background-repeat: no-repeat;
-    background-position: center center;
-    }
-    .hero h1 {
-        font-size: 4rem;
-        padding: 10px 30px;
-        margin-bottom: 1,5rem;
-    }
-    .hero p {
-        font-size: 1.1rem;
-        padding: 0 20px;
-    }
-.contact-btn {
-    margin-top: 0; /* Убираем отступ сверху */
-    transform: translateY(-20px); /* Поднимаем кнопку выше */
-}
-    /* Объединенные заголовки разделов */
-    .section-title, 
-    .skills-title, 
-    .timeline-section .section-title, 
-    .portfolio-gallery .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-        letter-spacing: 0.1em;
-    }
-
-    /* Секция "Обо мне" */
-    .about-section {
-        padding: 80px 20px;
-    }
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .photo-frame {
-        max-width: 280px;
-        margin: 0 auto;
-    }
-
-    /* Таймлайн - вертикальный */
- .timeline-section {
-        padding: 100px 5%;
-    }
-    
-    .timeline-track {
-	max-width: 1200px;
-        grid-template-columns: 1fr;
-        gap: 25px;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .timeline-line {
-        display: none;
-    }
-    
-    .timeline-item {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    
-    .timeline-item:not(:last-child)::after {
-        content: '↓';
-        right: 50%;
-        top: 100%;
-        left: auto;
-        transform: translateX(50%) translateY(-50%);
-        font-size: 1.8rem;
-        color: var(--primary-color);
-        opacity: 0.5;
-    }
-    
-    .timeline-content {
-        ppadding: 20px;
-    min-height: auto; /* Убираем фиксированную высоту */
-    width: 90%; /* Уже чем экран */
-    margin: 0 auto 25px; /* Центрируем */
-    }
-    
-    .timeline-date {
-        font-size: 1rem;
-        margin-bottom: 15px;
-        padding: 6px 12px;
-        display: inline-block;
-        background-color: rgba(79, 138, 90, 0.1);
-        margin-left: 0;
-	     width: fit-content
-    }
-    
-    .timeline-content h3 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-    
-    .timeline-content p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-    .timeline-item:not(:last-child)::after {
-        content: '↓';
-        right: 50%;
-        top: 100%;
-        left: auto;
-        transform: translateX(50%) translateY(-50%);
-    }
-    .timeline-content {
-        padding: 20px;
-    }
-
-    /* Портфолио */
-   .portfolio-gallery {
-        padding: 40px 15px 80px;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .gallery-item {
-        width: 95%;
-        margin: 0 auto 30px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    .image-container {
-        aspect-ratio: 9/16; /* Более вертикальное соотношение */
-        position: relative;
-    }
-    
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .item-info {
-        padding: 18px;
-        border-top: none;
-    }
-    
-    .item-title {
-        font-size: 1.1rem;
-        line-height: 1.4;
-        margin-bottom: 10px;
-    }
-    
-    .item-description {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-bottom: 15px;
-    }
-    
-    .modal-container {
+  /* 3. Мобильное меню */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0;
-    border-radius: 0;
-    max-height: 100vh;
+    height: 100vh;
+    background: rgba(250, 248, 245, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+  }
+  
+  nav.mobile-open {
+    display: flex;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 1.5rem 0 !important;
+  }
+  
+  nav ul li a {
+    font-size: 1.3rem !important;
+    font-weight: 600;
   }
 
+  /* 4. Герой */
+  .hero {
+    padding-top: 80px;
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    padding: 10px 20px;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    padding: 0 15px;
+  }
+  
+  .contact-btn {
+    margin-top: 0;
+  }
+
+  /* 5. Секции */
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-section {
+    padding: 60px 15px !important;
+  }
+  
+  .about-container {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  /* 6. Таймлайн */
+  .timeline-section {
+    padding: 60px 15px !important;
+  }
+  
+  .timeline-track {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  
+  .timeline-content {
+    width: 95% !important;
+    padding: 20px !important;
+    margin: 0 auto 20px !important;
+    min-height: auto !important;
+  }
+  
+  .timeline-item:not(:last-child)::after {
+    content: '↓' !important;
+    right: 50% !important;
+    top: 100% !important;
+    transform: translateX(50%) translateY(-50%) !important;
+  }
+
+  /* 7. Портфолио */
+  .portfolio-gallery {
+    padding: 40px 15px !important;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    width: 95%;
+    margin: 0 auto 25px;
+    border-radius: 12px;
+  }
+  
+  .image-container {
+    aspect-ratio: 16/9;
+    height: 220px;
+  }
+
+  /* 8. Модальное окно */
+  .modal-container {
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  
   .project-slider {
-    height: 35vh;
-    min-height: 250px;
-    max-height: 350px;
+    height: 35vh !important;
+    min-height: 250px !important;
+    max-height: none !important;
   }
-
+  
   .project-content {
-    grid-template-columns: 1fr;
-    padding: 20px;
+    grid-template-columns: 1fr !important;
+    padding: 20px !important;
     gap: 15px;
   }
-
-  .slider-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-
+  
   .close-modal {
-    top: 10px;
-    right: 10px;
-    width: 35px;
-    height: 35px;
-  }
-    
-    /* Индикатор скролла */
-    .scroll-indicator {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: bounce 2s infinite;
-        z-index: 1000;
-        color: var(--primary-color);
-        font-size: 2rem;
-        opacity: 0.7;
-        display: none; /* По умолчанию скрыт */
-    }
-    
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
-        40% {transform: translateY(-20px) translateX(-50%);}
-        60% {transform: translateY(-10px) translateX(-50%);}
-    }
-}
-    /* Подвал */
-   footer {
-    padding: 40px 20px 20px;
+    top: 10px !important;
+    right: 10px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
 
+  /* 9. Подвал */
+  .footer {
+    padding: 40px 20px 20px !important;
+  }
+  
   .footer-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 25px;
-  }
-
-  .footer-left {
-    grid-template-columns: 1fr;
-    gap: 20px;
     text-align: center;
   }
-
+  
+  .footer-left {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  
   .footer-right {
-    justify-content: center;
-    order: -1; /* Логотип сверху */
+    order: -1;
+    justify-content: center !important;
     margin-bottom: 20px;
   }
-
+  
   .footer-social {
     justify-content: center;
   }
+}
 
-  .footer-bottom {
-    margin-top: 20px;
-    padding-top: 15px;
+/* Дополнительно для очень маленьких экранов */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .contact-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
   }
 }
 
-/* Дополнительные корректировки для очень маленьких экранов */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 3rem;
-    }
-    .section-title, 
-    .skills-title, 
-    .timeline-section .section-title, 
-    .portfolio-gallery .section-title {
-        font-size: 1.5rem;
-    }
-    .about-text, .timeline-content p {
-        font-size: 0.95rem;
-    }
-}
-.timeline-content {
-        padding: 10px;
-    }
-    
-    .timeline-content h3 {
-        font-size: 1.2rem;
-    }
-    
-    .timeline-content p {
-        font-size: 0.95rem;
-    }
-    
-    .timeline-date {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 360px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .contact-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-    }
-}
 
 
 
