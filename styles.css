@@ -86,12 +86,12 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
         top: 15px; /* Отступ сверху */
         left: 50%;
         transform: translateX(-50%);
-        width: 50%; /* Уже чем на всю ширину */
-        max-width: 1000px; /* Максимальная ширина */
+        width: 40%; 
+        max-width: 800px;
  	grid-template-columns: auto 1fr auto;
-        padding: 0.5rem 1.5rem; /* Меньше padding */
+        padding: 0.5rem 1rem; /* Уменьшили отступы */
         display: flex;
-        justify-content: space-between;
+        justify-content: center; /* Центрируем содержимое */
         align-items: center;
         z-index: 1000;
         background: rgba(255, 248, 225, 0.6);
@@ -139,8 +139,13 @@ nav {
     /* Удаляем transform: translateX(-50px) - это ломает выравнивание */
 }
 nav ul {
+	justify-content: center; /* Центрируем элементы навигации */
+    padding: 0; /* Убираем лишние отступы */
     display: flex;
     list-style: none;
+}
+nav ul li {
+    margin: 0 1rem; /* Уменьшили отступы между пунктами */
 }
       .logo {
 	 margin-right: auto;
@@ -646,7 +651,9 @@ letter-spacing: 0.2em;
 .timeline-content {
     background: white;
     border-radius: 15px;
-    padding: 25px 25px 25px 40px; /* Увеличил левый padding для выравнивания */
+    padding: 30px 35px 30px 50px; /* Увеличили внутренние отступы */
+    min-width: 280px; /* Минимальная ширина плашек */
+    width: 100%; /* Занимают всю доступную ширину */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     height: 100%;
@@ -967,18 +974,48 @@ letter-spacing: 0.2em;
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
+	 display: grid;
+    grid-template-columns: 1fr auto; /* Два столбца */
+    align-items: start;
+    gap: 40px;
+    padding: 30px 20px; /* Уменьшили отступы */
 }
 
 .footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два столбца внутри левой части */
+    gap: 30px;
+}
+
+.footer-right {
+    justify-content: flex-start; /* Логотип теперь слева (перенесется вправо из-за grid) */
+    order: 2; /* Перемещаем вправо */
+}
+
+.footer-bottom {
+    margin-top: 30px; /* Уменьшили отступ */
+    padding-top: 15px; /* Уменьшили высоту подвала */
+}
+
+/* Для правильного расположения логотипа справа */
+.footer-container {
+    grid-template-areas: 
+        "content logo"
+        "bottom bottom";
+}
+
+.footer-left {
+    grid-area: content;
+}
+
+.footer-right {
+    grid-area: logo;
+}
+
+.footer-bottom {
+    grid-area: bottom;
 }
 
 .footer-contacts {
@@ -1033,12 +1070,6 @@ letter-spacing: 0.2em;
 	 text-decoration: none;
 }
 
-.footer-right {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: flex-end;
-}
-
 .footer-logo-placeholder {
     width: 150px;
     height: 60px;
@@ -1051,20 +1082,6 @@ letter-spacing: 0.2em;
 justify-content: flex-end;
 }
 
-.footer-bottom {
-    max-width: 1200px;
-    margin: 50px auto 0;
-    padding: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-}
-    
-    .footer-right {
-        justify-content: flex-start;
-        width: 100%;
-        margin-top: 30px;
-    }
-    
     .footer-logo-placeholder {
         width: 120px;
         height: 50px;
@@ -1496,6 +1513,7 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
 
 
 
