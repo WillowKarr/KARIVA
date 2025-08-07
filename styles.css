@@ -1089,18 +1089,66 @@ letter-spacing: 0.2em;
     }
 
     /* Таймлайн - вертикальный */
-    .timeline-section {
-        padding: 60px 20px;
+ .timeline-section {
+        padding: 60px 15px;
     }
+    
     .timeline-track {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
+        width: 100%;
+        max-width: 100%;
     }
+    
     .timeline-line {
         display: none;
     }
+    
     .timeline-item {
         width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .timeline-item:not(:last-child)::after {
+        content: '↓';
+        right: 50%;
+        top: 100%;
+        left: auto;
+        transform: translateX(50%) translateY(-50%);
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        opacity: 0.5;
+    }
+    
+    .timeline-content {
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        width: 100%;
+        margin: 0 auto;
+        border: 1px solid rgba(139, 0, 0, 0.1);
+    }
+    
+    .timeline-date {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        padding: 6px 12px;
+        display: inline-block;
+        background-color: rgba(79, 138, 90, 0.1);
+        margin-left: 0;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--secondary-color);
+    }
+    
+    .timeline-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
     }
     .timeline-item:not(:last-child)::after {
         content: '↓';
@@ -1313,6 +1361,7 @@ letter-spacing: 0.2em;
         font-size: 0.9rem;
     }
 }
+
 
 
 
