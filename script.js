@@ -25,16 +25,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== Burger Menu ==========
+   document.addEventListener('DOMContentLoaded', function() {
     const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
+    const nav = document.querySelector('nav');
     
-    if (burger && nav) {
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('open');
-            burger.classList.toggle('active');
+    burger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+        
+        // Блокировка скролла при открытом меню
+        if (nav.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Закрытие меню при клике на ссылку
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            burger.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.style.overflow = '';
         });
-    }
-
+    });
+});
     // ========== Smooth Scrolling ==========
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -310,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
 
 
 
