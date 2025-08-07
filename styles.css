@@ -1114,22 +1114,166 @@ letter-spacing: 0.2em;
     }
 
     /* Портфолио */
-    .portfolio-gallery {
-        padding: 60px 20px 100px; /* Увеличили нижний отступ */
+   .portfolio-gallery {
+        padding: 40px 15px 80px;
     }
+    
     .gallery-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
+    
     .gallery-item {
-        margin-bottom: 20px;
+        width: 95%;
+        margin: 0 auto 30px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
+    
     .image-container {
-        aspect-ratio: 3/4; /* Вертикальное изображение */
+        aspect-ratio: 9/16; /* Более вертикальное соотношение */
+        position: relative;
     }
+    
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
     .item-info {
-        padding: 15px;
+        padding: 18px;
+        border-top: none;
     }
+    
+    .item-title {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+    
+    .item-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+    
+    /* Модальное окно */
+    .modal-overlay {
+        padding: 20px 0;
+    }
+    
+    .modal-container {
+        width: 95%;
+        max-width: none;
+        border-radius: 0;
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-slider {
+        height: 60vh;
+        order: 1;
+    }
+    
+    .slider-container img {
+        object-fit: contain;
+        background-color: #f5f5f5;
+    }
+    
+    .slider-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        background: rgba(0,0,0,0.7);
+        transform: translateY(-50%);
+    }
+    
+    .prev-slide {
+        left: 10px;
+    }
+    
+    .next-slide {
+        right: 10px;
+    }
+    
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        order: 2;
+    }
+    
+    .project-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .project-description p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .project-tags {
+        margin-bottom: 15px;
+    }
+    
+    .project-tag {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+    
+    .close-modal {
+        top: 10px;
+        right: 10px;
+        background: rgba(0,0,0,0.7);
+    }
+    
+    /* Индикатор скролла */
+    .scroll-indicator {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+        z-index: 1000;
+        color: var(--primary-color);
+        font-size: 2rem;
+        opacity: 0.7;
+        display: none; /* По умолчанию скрыт */
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+        40% {transform: translateY(-20px) translateX(-50%);}
+        60% {transform: translateY(-10px) translateX(-50%);}
+    }
+}
 
+/* Подгрузка мобильных изображений */
+@media (max-width: 768px) {
+    .gallery-item[data-project="logopotam"] .image-container img {
+        content: url('elementmobile1.webp');
+    }
+    .gallery-item[data-project="mebelsoft"] .image-container img {
+        content: url('elementmobile12.webp');
+    }
+    .gallery-item[data-project="cofee"] .image-container img {
+        content: url('elementmobile16.webp');
+    }
+    .gallery-item[data-project="nashakuxnya"] .image-container img {
+        content: url('elementmobile20.webp');
+    }
+    .gallery-item[data-project="stickers"] .image-container img {
+        content: url('elementmobile24.webp');
+    }
+    .gallery-item[data-project="marketplace"] .image-container img {
+        content: url('elementmobile26.webp');
+    }
+}
     /* Подвал */
     .footer {
         padding: 40px 20px;
@@ -1170,6 +1314,7 @@ letter-spacing: 0.2em;
         font-size: 0.9rem;
     }
 }
+
 
 
 
