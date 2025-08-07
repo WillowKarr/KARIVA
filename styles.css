@@ -502,13 +502,105 @@ letter-spacing: 0.2em;
             transform: rotate(90deg);
             background-color: #6B0000;
         }
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--primary-color);
-            color: white;
-        }
+.footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 50px 0 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.footer-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-phone, .footer-email {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-phone:hover, .footer-email:hover {
+    color: #0066ff;
+}
+
+.footer-icon {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+	 text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: #0066ff;
+    transform: translateY(-3px);
+	 text-decoration: none;
+}
+
+.footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-logo-placeholder {
+    width: 150px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
 /* Таймлайн */
 .timeline-section {
     padding: 100px 20px;
@@ -1424,3 +1516,4 @@ justify-content: flex-end;
         font-size: 0.9rem;
     }
 }
+
