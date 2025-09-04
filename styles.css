@@ -1127,7 +1127,40 @@ justify-content: flex-end;
     padding: 0.7rem 0.8rem !important;
     border-radius: 20px;
   }
-  
+   header nav {
+    position: fixed;
+    inset: 0;                    /* top/right/bottom/left: 0 */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    background: rgba(250, 248, 245, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    opacity: 0;
+  }
+header nav.mobile-open {
+    display: flex;
+    animation: menuIn .25s ease forwards;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  header nav ul li a {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  @keyframes menuIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
   .logo {
     height: 18px;
   }
@@ -1152,24 +1185,6 @@ justify-content: flex-end;
     align-items: center;
     z-index: 1000;
     display: none;
-  }
-  
-  nav.mobile-open {
-    display: flex;
-  }
-  
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  nav ul li {
-    margin: 1.5rem 0 !important;
-  }
-  
-  nav ul li a {
-    font-size: 1.3rem !important;
-    font-weight: 600;
   }
 
   /* 4. Герой */
@@ -1330,6 +1345,7 @@ justify-content: flex-end;
     font-size: 1rem;
   }
 }
+
 
 
 
