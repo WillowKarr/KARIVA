@@ -73,6 +73,35 @@ document.addEventListener('DOMContentLoaded', () => {
       burger.setAttribute('aria-expanded', 'false');
     };
 
+     const burger = document.querySelector('.burger');
+  const nav = document.querySelector('header nav');
+
+  /* === подложка === */
+  let overlay = document.querySelector('.nav-overlay');
+  if (!overlay) {                 // если в HTML не добавили — создадим
+    overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  const openMenu = () => {
+    burger.classList.add('active');
+    nav.classList.add('mobile-open');
+    overlay.classList.add('visible');    // показать подложку
+    document.body.style.overflow = 'hidden';
+    burger.setAttribute('aria-expanded', 'true');
+  };
+
+  const closeMenu = () => {
+    burger.classList.remove('active');
+    nav.classList.remove('mobile-open');
+    overlay.classList.remove('visible'); // скрыть подложку
+    document.body.style.overflow = '';
+    burger.setAttribute('aria-expanded', 'false');
+  };
+
+  // клик по подложке закрывает меню
+  overlay.addEventListener('click', closeMenu);
     burger.setAttribute('aria-label', 'Открыть меню');
     burger.setAttribute('aria-expanded', 'false');
     burger.setAttribute('aria-controls', 'site-nav');
@@ -250,5 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleIndicator();
   }
 });
+
 
 
