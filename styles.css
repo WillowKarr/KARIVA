@@ -1122,24 +1122,66 @@ justify-content: flex-end;
     padding: 0.7rem 0.8rem !important;
     border-radius: 20px;
   }
-   header nav {
+ .nav-overlay {
+    display: none;
     position: fixed;
-    inset: 0;                    /* top/right/bottom/left: 0 */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35); /* чуть темнее шапки */
+    backdrop-filter: blur(2px);
+    z-index: 1001; /* между header (1000) и панелью навигации (1002) */
+  }
+  .nav-overlay.visible { display: block; }
+
+  /* панель навигации выпадает из header вниз */
+  header { z-index: 1000; }                /* у вас уже есть */
+  .burger { position: relative; z-index: 1003; } /* бургер выше панели */
+
+  header nav {
+    position: absolute;
+    top: calc(100% + 8px);  /* сразу под шапкой, с зазором */
+    left: 0;
+    right: 0;
     display: none;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    background: rgba(250, 248, 245, 0.98);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    opacity: 0;
+    align-items: stretch;
+    gap: 8px;
+    padding: 14px;
+    border-radius: 16px;
+    z-index: 1002;
+    background: rgba(34, 40, 38, 0.92); /* тёмная панель */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   }
-header nav.mobile-open {
-    display: flex;
-    animation: menuIn .25s ease forwards;
-  }
+  header nav.mobile-open { display: flex; }
 
+  /* список ссылок — колонкой, белые кликабельные элементы */
+  header nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+  header nav ul li { margin: 0; }
+
+  header nav ul li a {
+    display: block;
+    width: 100%;
+    color: #fff;                   /* белые пункты */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform .15s ease, background-color .15s ease, opacity .15s ease;
+  }
+  /* отключаем вашу нижнюю «подчёркивающую» полоску для мобилы */
+  header nav ul li a::after { display: none; }
+
+  /* hover/active эффекты */
+  header nav ul li a:hover { background: rgba(255,255,255,0.12); }
+  header nav ul li a:active { transform: scale(0.98); }
+}
   header nav ul {
     flex-direction: column;
     align-items: center;
@@ -1323,6 +1365,7 @@ header nav.mobile-open {
     font-size: 1rem;
   }
 }
+
 
 
 
