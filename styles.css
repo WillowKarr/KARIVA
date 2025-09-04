@@ -88,7 +88,6 @@ a, button, .gallery-item, .burger, .theme-toggle, .social-link, .contact-btn {
         transform: translateX(-50%);
         width: 40%; 
         max-width: 800px;
- 	grid-template-columns: auto 1fr auto;
         padding: 0.5rem 1rem; /* Уменьшили отступы */
         display: flex;
         justify-content: center; /* Центрируем содержимое */
@@ -683,7 +682,7 @@ letter-spacing: 0.2em;
 }
 
 .timeline-item {
-    flex: 1px;
+    flex: 1;
     opacity: 1;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
@@ -728,7 +727,6 @@ letter-spacing: 0.2em;
     border-radius: 20px;
     margin-left: -15px; /* Сдвигаем влево для выравнивания */
 	width: fit-content;
-    margin-left: 0;
 }
 
 .timeline-content h3 {
@@ -821,7 +819,6 @@ letter-spacing: 0.2em;
     padding: 8px 20px;
     background-color: var(--primary-color);
     color: white;
-    font-size: 0.4 rem;
     font-weight: 200;
     letter-spacing: 0.5px;
     border-radius: 15px 0 0 15px;
@@ -852,7 +849,6 @@ letter-spacing: 0.2em;
 
 .item-description {
     font-size: 1rem;
-	ine-height: 2;
     margin: 0;
     color: #666;
     line-height: 1.4;
@@ -974,7 +970,6 @@ letter-spacing: 0.2em;
     position: relative;
     overflow: hidden;
   }
-}
 
 /* Основные стили подвала */
 .footer {
@@ -1328,6 +1323,7 @@ header nav.mobile-open {
     font-size: 1rem;
   }
 }
+
 
 
 
