@@ -202,32 +202,40 @@ header nav ul li { margin: 0; }
             width: 100%;
         }
 @media (min-width: 769px) {
-  header {
-    justify-content: center;   /* центрируем общий контейнер */
-    gap: 24px;                 /* расстояние между логотипом и навигацией */
-  }
-  nav {
-    flex: 0 1 auto;
+	.burger { display: none !important; }
+ header nav {
+    position: static;
+    transform: none;
+    width: auto;
     display: flex;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    z-index: 1000; /* как в твоих базовых стилях */
   }
+
+  /* пункты меню по центру */
+  header {
+    justify-content: center;   /* центрируем содержимое в шапке */
+    gap: 24px;                  /* расстояние между логотипом и меню */
+  }
+
   nav ul {
     display: flex;
-    justify-content: center;   /* пункты по центру */
+    flex-direction: row;
+    justify-content: center;    /* сами пункты — по центру */
     align-items: center;
-    gap: 24px;                 /* интервал между пунктами */
+    gap: 24px;                  /* интервал между пунктами */
+    margin: 0;
+    padding: 0;
   }
-  /* аккуратный отступ от логотипа до меню */
-  .logo { margin-right: 24px; }
-}
-        .theme-toggle {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: var(--transition);
-        }
 
+  /* лёгкий отступ от логотипа, чтобы меню не «липло» */
+  .logo { margin-right: 24px; }
+
+  /* на десктопе ссылки обычного цвета */
+  header nav ul li a { color: var(--primary-color); }
+}
         .hero {
     height: 100vh;
     display: flex;
@@ -1121,7 +1129,7 @@ justify-content: flex-end;
 /* ==================== */
 /* MOBILE ADAPTATION (768px и меньше) */
 /* ==================== */
-@media (max-width: 768px) {
+@media (max-width: 768px){
   /* 1. Общие стили */
   body {
     font-size: 15px;
@@ -1208,8 +1216,6 @@ justify-content: flex-end;
 
   /* на мобилке бургер вправо — логотип «толкает» контент */
   .logo { margin-right: auto; }
-}
-
 @keyframes menuIn {
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1365,8 +1371,7 @@ justify-content: flex-end;
     margin-top: 20px !important;
     width: 100% !important;
   }
-}
-
+ }
 /* Дополнительно для очень маленьких экранов */
 @media (max-width: 480px) {
   .hero h1 {
@@ -1382,6 +1387,7 @@ justify-content: flex-end;
     font-size: 1rem;
   }
 }
+
 
 
 
