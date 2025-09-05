@@ -232,7 +232,10 @@ header nav ul li { margin: 0; }
 
   /* лёгкий отступ от логотипа, чтобы меню не «липло» */
   .logo { margin-right: 24px; }
-
+	
+ .theme-toggle { 
+    display: none !important; 
+  }
   /* на десктопе ссылки обычного цвета */
   header nav ul li a { color: var(--primary-color); }
 }
@@ -1387,6 +1390,7 @@ justify-content: flex-end;
     font-size: 1rem;
   }
 }
+
 
 
 
