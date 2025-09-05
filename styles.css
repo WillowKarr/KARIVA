@@ -1396,6 +1396,16 @@ justify-content: flex-end;
   }
 }
 
+.timeline-content .timeline-date {
+  padding-left: 0 !important;         /* раньше было 10px */
+  margin-left: 0 !important;
+}
+
+.timeline-content > h3,
+.timeline-content > p {
+  padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
+  margin-left: 0 !important;
+}
 
 
 
