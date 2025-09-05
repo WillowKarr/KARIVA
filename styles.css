@@ -132,20 +132,24 @@ margin-left: auto;
 }
 
 /* Мобильное меню */
-nav {
-    display: flex; /* Добавляем правильное display */
-    margin: 0 auto; /* Центрируем навигацию */
-    /* Удаляем transform: translateX(-50px) - это ломает выравнивание */
+header nav {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-nav ul {
-	justify-content: center; /* Центрируем элементы навигации */
-    padding: 0; /* Убираем лишние отступы */
-    display: flex;
-    list-style: none;
+
+header nav ul {
+  display: flex;
+  flex-direction: row;   /* горизонтально */
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-nav ul li {
-    margin: 0 1rem; /* Уменьшили отступы между пунктами */
-}
+
+header nav ul li { margin: 0; }
       .logo {
   margin-right: auto;
     display: flex;
@@ -1116,87 +1120,67 @@ justify-content: flex-end;
   }
 
   /* 2. Шапка */
-  header {
-    width: 80% !important;
-    top: 10px;
-    padding: 0.7rem 0.8rem !important;
-    border-radius: 20px;
-  }
- .nav-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35); /* чуть темнее шапки */
-    backdrop-filter: blur(2px);
-    z-index: 1001; /* между header (1000) и панелью навигации (1002) */
-  }
-  .nav-overlay.visible { display: block; }
-
-  /* панель навигации выпадает из header вниз */
-  header { z-index: 1000; }                /* у вас уже есть */
-  .burger { position: relative; z-index: 1003; } /* бургер выше панели */
-
-  header nav {
-    position: absolute;
-    top: calc(100% + 8px);  /* сразу под шапкой, с зазором */
-    left: 0;
-    right: 0;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    padding: 14px;
-    border-radius: 16px;
-    z-index: 1002;
-    background: rgba(34, 40, 38, 0.92); /* тёмная панель */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  }
-  header nav.mobile-open { display: flex; }
-
-  /* список ссылок — колонкой, белые кликабельные элементы */
-  header nav ul {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    width: 100%;
-  }
-  header nav ul li { margin: 0; }
-
-  header nav ul li a {
-    display: block;
-    width: 100%;
-    color: #fff;                   /* белые пункты */
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    font-weight: 600;
-    padding: 12px 16px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: transform .15s ease, background-color .15s ease, opacity .15s ease;
-  }
-  /* отключаем вашу нижнюю «подчёркивающую» полоску для мобилы */
-  header nav ul li a::after { display: none; }
-
-  /* hover/active эффекты */
-  header nav ul li a:hover { background: rgba(255,255,255,0.12); }
-  header nav ul li a:active { transform: scale(0.98); }
+	.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  z-index: 1001;
 }
-  header nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-  }
+.nav-overlay.visible { display: block; }
 
-  header nav ul li a {
-    font-size: 1.3rem;
-    font-weight: 600;
-  }
+/* панель навигации выпадает из header вниз */
+header { z-index: 1000; }
+.burger { display: flex !important; position: relative; z-index: 1003; }
 
-  @keyframes menuIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+header nav {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  display: none;                 /* скрыто пока закрыто */
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 16px;
+  z-index: 1002;
+  background: rgba(34, 40, 38, 0.92);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  animation: menuIn .25s ease both;
+}
+header nav.mobile-open { display: flex; }
+
+/* пункты меню вертикально, белым */
+header nav ul {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+header nav ul li { margin: 0; }
+
+header nav ul li a {
+  display: block;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform .15s ease, background-color .15s ease, opacity .15s ease;
+}
+header nav ul li a:hover { background: rgba(255,255,255,0.12); }
+header nav ul li a::after { display: none; }
+
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
   .logo {
     height: 18px;
   }
@@ -1365,6 +1349,7 @@ justify-content: flex-end;
     font-size: 1rem;
   }
 }
+
 
 
 
