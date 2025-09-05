@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'marketplace': {
       title: 'Создание карточек товара на WB и OZON',
       description: 'Создание продающих карточек товаров для Wildberries и Ozon для магазинов из разных ниш. Процесс включает анализ целевой аудитории и требований площадок, разработку инфографики с УТП и характеристиками в минималистичном стиле, оптимизацию описаний с ключевыми словами, A/B-тестирование и итерационные доработки. Выполнены профессиональная предметная съемка на нейтральном фоне, многоракурсные кадры и ретушь.',
-      tags: ['Adobe Illustrator,Adobe Photoshop, Figma, Stable Diffusion'],
+      tags: ['Adobe Illustrator', 'Adobe Photoshop', 'Figma', 'Stable Diffusion'],
       images: ['element26.webp','element27.webp','element28.webp','element29.webp','element30.webp','element31.webp']
     }
   };
@@ -245,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleIndicator();
   }
 });
+
 
 
 
