@@ -151,15 +151,14 @@ header nav ul {
 
 header nav ul li { margin: 0; }
       .logo {
-  margin-right: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20px;
-    position: relative;
-    top: 0; 
-    transform: none;
-    padding-bottom: 0;
+  margin-right: 0;          /* было auto — из-за него всё съезжало вправо */
+  display: flex;
+  align-items: center;
+  height: 20px;
+  position: relative;
+  top: 0;
+  transform: none;
+  padding-bottom: 0;
 }
 .logo-img {
     height: 100%; /* Занимает всю высоту контейнера */
@@ -202,7 +201,24 @@ header nav ul li { margin: 0; }
         nav ul li a:hover::after {
             width: 100%;
         }
-
+@media (min-width: 769px) {
+  header {
+    justify-content: center;   /* центрируем общий контейнер */
+    gap: 24px;                 /* расстояние между логотипом и навигацией */
+  }
+  nav {
+    flex: 0 1 auto;
+    display: flex;
+  }
+  nav ul {
+    display: flex;
+    justify-content: center;   /* пункты по центру */
+    align-items: center;
+    gap: 24px;                 /* интервал между пунктами */
+  }
+  /* аккуратный отступ от логотипа до меню */
+  .logo { margin-right: 24px; }
+}
         .theme-toggle {
             background: none;
             border: none;
@@ -1120,62 +1136,79 @@ justify-content: flex-end;
   }
 
   /* 2. Шапка */
-	.nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(2px);
-  z-index: 1001;
-}
-.nav-overlay.visible { display: block; }
+ header {
+    width: 94% !important;     /* было 80% */
+    top: 10px;
+    padding: 0.7rem 0.8rem !important;
+    border-radius: 20px;
+    z-index: 2000;             /* ВАЖНО: выше подложки */
+  }
 
-/* панель навигации выпадает из header вниз */
-header { z-index: 1000; }
-.burger { display: flex !important; position: relative; z-index: 1003; }
+  /* подложка — ниже header/nav, чтобы не блокировала клики по меню */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    z-index: 1500;             /* ниже header(2000) и nav(2200) */
+  }
+  .nav-overlay.visible { display: block; }
 
-header nav {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
-  display: none;                 /* скрыто пока закрыто */
-  flex-direction: column;
-  align-items: stretch;
-  gap: 8px;
-  padding: 14px;
-  border-radius: 16px;
-  z-index: 1002;
-  background: rgba(34, 40, 38, 0.92);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  animation: menuIn .25s ease both;
-}
-header nav.mobile-open { display: flex; }
+  .burger { position: relative; z-index: 2300; }
 
-/* пункты меню вертикально, белым */
-header nav ul {
-  flex-direction: column;
-  align-items: stretch;
-  gap: 8px;
-  width: 100%;
-}
-header nav ul li { margin: 0; }
+  /* выпадашка: делаем шире и поверх подложки */
+  header nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(96vw, 640px);   /* шире, чем сам header, и центрировано по экрану */
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 16px;
+    z-index: 2200;             /* выше .nav-overlay */
+    background: rgba(34, 40, 38, 0.92);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+  header nav.mobile-open { display: flex; }
 
-header nav ul li a {
-  display: block;
-  width: 100%;
-  color: #fff;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  font-weight: 600;
-  padding: 12px 16px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: transform .15s ease, background-color .15s ease, opacity .15s ease;
+  /* список — колонкой, по всей ширине выпадашки */
+  header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  header nav ul li { margin: 0; }
+
+  header nav ul li a {
+    display: block;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform .15s ease, background-color .15s ease, opacity .15s ease;
+  }
+  header nav ul li a::after { display: none; }
+  header nav ul li a:hover  { background: rgba(255,255,255,0.12); }
+  header nav ul li a:active { transform: scale(0.98); }
+
+  /* на мобилке бургер вправо — логотип «толкает» контент */
+  .logo { margin-right: auto; }
 }
-header nav ul li a:hover { background: rgba(255,255,255,0.12); }
-header nav ul li a::after { display: none; }
 
 @keyframes menuIn {
   from { opacity: 0; transform: translateY(-10px); }
@@ -1349,6 +1382,7 @@ header nav ul li a::after { display: none; }
     font-size: 1rem;
   }
 }
+
 
 
 
