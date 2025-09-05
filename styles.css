@@ -723,7 +723,13 @@ letter-spacing: 0.2em;
     opacity: 1;
     transform: translateY(0);
 }
-
+.timeline-content .timeline-date {
+  margin-left: 0 !important;
+}
+.timeline-content h3,
+.timeline-content p {
+  padding-left: 10px; /* совпадает с левым padding у .timeline-date */
+}
 .timeline-content {
     background: white;
     border-radius: 15px;
@@ -1389,6 +1395,7 @@ justify-content: flex-end;
     font-size: 1rem;
   }
 }
+
 
 
 
