@@ -727,7 +727,7 @@ letter-spacing: 0.2em;
 .timeline-content {
     background: white;
     border-radius: 15px;
-    padding: 35px 40px 35px 50px; /* Увеличили внутренние отступы */
+    padding: 35px 40px; 
 	min-height: 220px;
     min-width: 280px; /* Минимальная ширина плашек */
     width: 100%; /* Занимают всю доступную ширину */
@@ -756,7 +756,6 @@ letter-spacing: 0.2em;
     display: block; /* Изменил на block для переноса на новую строку */
     padding: 5px 10px;
     border-radius: 20px;
-    margin-left: -15px; /* Сдвигаем влево для выравнивания */
 	width: fit-content;
 }
 
@@ -1390,6 +1389,7 @@ justify-content: flex-end;
     font-size: 1rem;
   }
 }
+
 
 
 
