@@ -1403,12 +1403,11 @@ justify-content: flex-end;
   }
   /* 4. Герой */
 .hero-background {
-    /* переопределяем весь background */
     background: 
       linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
       url('homebg-mobile.webp') center/cover no-repeat;
-    /* при желании можно чуток сдвинуть композицию: */
     background-position: 50% 20%;
+	}
   .hero h1 {
     font-size: 3.5rem;
     padding: 10px 20px;
@@ -1437,6 +1436,7 @@ justify-content: flex-end;
   }
   
   .about-container {
+	 display: block !important;
     grid-template-columns: 1fr !important;
     gap: 30px;
   }
@@ -1572,6 +1572,7 @@ justify-content: flex-end;
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
