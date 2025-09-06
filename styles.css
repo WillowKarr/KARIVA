@@ -1436,7 +1436,6 @@ justify-content: flex-end;
   }
   
   .about-container {
-	 display: block !important;
     grid-template-columns: 1fr !important;
     gap: 30px;
   }
@@ -1585,6 +1584,7 @@ body.modal-open header {
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
