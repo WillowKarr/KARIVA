@@ -1487,6 +1487,19 @@ justify-content: flex-end;
   }
 
   /* 8. Модальное окно */
+.modal, .modal-overlay, .modal-container { z-index: 3000 !important; }
+
+/* Когда открыта модалка — блокируем скролл и прячем шапку */
+body.modal-open { overflow: hidden; }
+body.modal-open header {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+/* На всякий — подложка меню ниже модалки */
+.nav-overlay { z-index: 1500; }
+	
   .modal-container {
     width: 100% !important;
     margin: 0 !important;
@@ -1572,6 +1585,7 @@ justify-content: flex-end;
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
