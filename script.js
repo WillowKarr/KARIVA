@@ -56,6 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+// ==== TOOLS: анимация шкал по скроллу ====
+const toolCards = document.querySelectorAll('.tool-card');
+
+if (toolCards.length) {
+  // проставляем CSS-переменную уровня на карточку
+  toolCards.forEach(card => {
+    const level = Math.max(0, Math.min(100, Number(card.dataset.level) || 0));
+    card.style.setProperty('--tool-level', level + '%');
+    const meter = card.querySelector('.tool-bar');
+    if (meter) meter.setAttribute('aria-valuenow', String(level));
+  });
+
+  // наблюдаем за появлением карточек
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        // если не нужно анимировать повторно — можно отключить наблюдение
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.35 });
+
+  toolCards.forEach(card => obs.observe(card));
+}
+
   // Элементы модалки портфолио
   const modal = document.getElementById('portfolioModal');
   const closeBtn = modal ? modal.querySelector('.close-modal') : null;
@@ -245,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleIndicator();
   }
 });
+
 
 
 
