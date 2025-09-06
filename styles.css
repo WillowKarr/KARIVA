@@ -343,6 +343,125 @@ letter-spacing: 0.2em;
     padding: 0;
 }
 
+.tools-section {
+  padding: 90px 20px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.tool-card {
+  background: #fff;
+  border: 1px solid rgba(139, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 18px 18px 22px;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+  will-change: transform;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.12);
+}
+
+.tool-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.tool-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.15);
+  user-select: none;
+}
+.tool-icon::after {
+  content: attr(data-letters);
+  font-size: 0.95rem;
+}
+
+/* заголовок + бейдж */
+.tool-title h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  color: var(--primary-color);
+}
+.tool-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: .75rem;
+  border-radius: 999px;
+  background: rgba(53,63,55,.06);
+  color: var(--primary-color);
+  border: 1px solid rgba(53,63,55,.15);
+}
+.tool-tag--code { background: rgba(34, 110, 200, .07); border-color: rgba(34,110,200,.18); }
+.tool-tag--ai   { background: rgba(120, 60, 180, .07); border-color: rgba(120,60,180,.18); }
+
+/* шкала */
+.tool-bar {
+  position: relative;
+  height: 16px;
+  margin-top: 10px;
+}
+.tool-track {
+  position: absolute; inset: 0;
+  display: block;
+  height: 4px;
+  top: 50%; transform: translateY(-50%);
+  border-radius: 999px;
+  background: rgba(0,0,0,.08);
+}
+.tool-fill {
+  position: absolute; left: 0;
+  top: 50%; transform: translateY(-50%);
+  height: 4px; width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+  transition: width .8s cubic-bezier(.16,1,.3,1);
+}
+.tool-marker {
+  --size: 12px;
+  position: absolute; left: 0%;
+  top: 50%; transform: translate(-50%,-50%);
+  width: var(--size); height: var(--size);
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  opacity: 0;
+  transition:
+    left .9s cubic-bezier(.16,1,.3,1),
+    opacity .4s ease .2s;
+}
+
+/* состояние когда карточка стала видимой */
+.tool-card.in-view .tool-fill   { width: var(--tool-level, 0%); }
+.tool-card.in-view .tool-marker { left: var(--tool-level, 0%); opacity: 1; }
+
+/* адаптив */
+@media (max-width: 768px) {
+  .tools-section { padding: 60px 15px 40px; }
+  .tools-grid { gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .tool-card { padding: 16px; }
+  .tool-icon { width: 42px; height: 42px; border-radius: 10px; }
+  .tool-title h3 { font-size: 1rem; }
+}
+
    /* Современный дизайн для секции "Обо мне" */
 .about-section {
     padding: 150px 20px 100px; /* Увеличиваем верхний отступ до 150px */
@@ -1406,6 +1525,7 @@ justify-content: flex-end;
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
