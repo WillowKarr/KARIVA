@@ -1406,7 +1406,7 @@ justify-content: flex-end;
     /* переопределяем весь background */
     background: 
       linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-      url('homebg-mobile.png') center/cover no-repeat;
+      url('homebg-mobile.webp') center/cover no-repeat;
     /* при желании можно чуток сдвинуть композицию: */
     background-position: 50% 20%;
   .hero h1 {
@@ -1572,6 +1572,7 @@ justify-content: flex-end;
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
