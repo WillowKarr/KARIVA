@@ -259,7 +259,7 @@ header nav ul li { margin: 0; }
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('homebg.png') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('homebgpc.gif') center/cover no-repeat;
 }
 
 .hero h1 {
@@ -1405,7 +1405,7 @@ justify-content: flex-end;
 .hero-background {
     background: 
       linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-      url('homebg-mobile.webp') center/cover no-repeat;
+      url('homebgmob.gif') center/cover no-repeat;
     background-position: 50% 20%;
 	}
   .hero h1 {
@@ -1584,6 +1584,7 @@ body.modal-open header {
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
