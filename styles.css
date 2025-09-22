@@ -1465,47 +1465,20 @@ justify-content: flex-end;
   }
 
   /* 7. Портфолио */
-  .portfolio-gallery {
-    padding: 40px 15px !important;
-  }
-  
-  .gallery-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px;
-  }
-  
-  .gallery-item {
-    min-height: 500px !important; /* Увеличиваем минимальную высоту */
-    width: 100% !important;
-    margin: 0 auto 30px !important;
-  }
-  
-  .image-container {
- height: 280px !important;          /* единая высота карточек */
-    aspect-ratio: auto !important;      /* отключаем соотношение сторон */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #fff;                    /* фон под "письма" (letterbox) */
-    overflow: hidden;     
-  }
-	
- .gallery-item img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;      /* ключ: не обрезать */
-    object-position: center center !important;
-    display: block;
-  }
-	 /* Убираем зум на hover на мобилке */
-  .gallery-item:hover img {
-    transform: none !important;
-  }
-
-  /* Чтобы карточки не «вытягивались» лишним минимумом */
-  .gallery-item {
-    min-height: auto !important;
-  }
+ .portfolio-gallery { 
+	 padding: 40px 15px !important; } 
+	.gallery-grid { 
+		grid-template-columns: 1fr !important; gap: 20px; 
+	} 
+	.gallery-item { 
+		min-height: 500px !important; /* Увеличиваем минимальную высоту */ 
+		width: 100% !important; 
+		margin: 0 auto 30px !important; 
+	} 
+	.image-container { 
+		height: 280px !important; 
+		 aspect-ratio: 3/4 !important; 
+	}
 
   /* 8. Модальное окно */
 .modal, .modal-overlay, .modal-container { z-index: 3000 !important; }
@@ -1606,6 +1579,7 @@ body.modal-open header {
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
