@@ -1481,15 +1481,31 @@ justify-content: flex-end;
   }
   
   .image-container {
-width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
+ height: 280px !important;          /* единая высота карточек */
+    aspect-ratio: auto !important;      /* отключаем соотношение сторон */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fff;                    /* фон под "письма" (letterbox) */
+    overflow: hidden;     
   }
-	.gallery-item img {
-  display: block;
-  width: 100%;
-  height: auto; /* убери cover, если нужен полный рендер */
-}
+	
+ .gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;      /* ключ: не обрезать */
+    object-position: center center !important;
+    display: block;
+  }
+	 /* Убираем зум на hover на мобилке */
+  .gallery-item:hover img {
+    transform: none !important;
+  }
+
+  /* Чтобы карточки не «вытягивались» лишним минимумом */
+  .gallery-item {
+    min-height: auto !important;
+  }
 
   /* 8. Модальное окно */
 .modal, .modal-overlay, .modal-container { z-index: 3000 !important; }
@@ -1590,6 +1606,7 @@ body.modal-open header {
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
