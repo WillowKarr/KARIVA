@@ -1501,9 +1501,12 @@ body.modal-open header {
   }
   
   .project-slider {
-    height: 35vh !important;
+    height: auto !important;
     min-height: 250px !important;
     max-height: none !important;
+	display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .project-content {
@@ -1579,6 +1582,7 @@ body.modal-open header {
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
