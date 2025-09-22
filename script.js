@@ -120,7 +120,8 @@ if (toolCards.length) {
       title: 'Фирменный стиль для бренда "НАША КУХНЯ"',
       description: 'Комплексная айдентика для придорожного кафе-магазина с акцентом на семейную, «домашнюю» атмосферу. Разработаны логотип в виде персонажа, наслаждающегося шаурмой, теплая палитра и графические элементы с фуд-мотивами. Выполнены макеты для фасада и рекламных носителей. Результат — цельный визуальный образ, поддерживающий рост посещаемости и лояльности.',
       tags: ['Adobe Photoshop','Adobe Illustrator', 'Krita'],
-      imagesDesktop: ['element20.webp','element21.webp','element22.webp','element23.webp']
+      imagesDesktop: ['element20.webp','element21.webp','element22.webp','element23.webp'],
+      imagesMobile: ['elementmobile59.webp','elementmobile60.webp','elementmobile61.webp','elementmobile62.webp','elementmobile63.webp','elementmobile64.webp','elementmobile65.webp']
     },
     'stickers': {
       title: 'Стикеры для Тбанк"',
@@ -279,6 +280,7 @@ if (window.innerWidth <= 768 && project.imagesMobile) {
     toggleIndicator();
   }
 });
+
 
 
 
