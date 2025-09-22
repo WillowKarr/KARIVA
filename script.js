@@ -99,40 +99,40 @@ if (toolCards.length) {
       title: 'Оформление соц. сетей Логопотам',
       description: 'Разработка визуальной айдентики для социальных сетей проекта «Логопотам» — сервиса онлайн-коррекции речи у детей. Созданы самостоятельные дизайн-коды под ключевые направления бренда с учетом целевой аудитории каждого. В зоне ответственности: верстка контента, оформление сторис и рекламных креативов, цветокоррекция и ретушь, отрисовка векторных иконок и иллюстраций, применение AI-инструментов для вариативности визуалов. Работа велась для VK и Telegram в тесной связке с SMM-командой. Итог — более 300 креативов по всем направлениям.',
       tags: ['Figma', 'Photoshop', 'Illustrator', 'II Grock'],
-      images: [
+      imagesDesktop: [
         'element1.webp','element2.webp','element3.webp','element5.webp','element6.webp',
-        'element7.webp','element8.webp','element9.webp','element10.webp','element11.webp'
-      ]
+        'element7.webp','element8.webp','element9.webp'],
+       imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile3.webp','elementmobile4.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp','elementmobile11.webp','elementmobile12.webp','elementmobile13.webp','elementmobile14.webp','elementmobile15.webp','elementmobile16.webp','elementmobile17.webp','elementmobile18.webp','elementmobile19.webp','elementmobile20.webp','elementmobile21.webp','elementmobile22.webp','elementmobile23.webp']
     },
     'mebelsoft': {
       title: 'Фирменный стиль для мебельной фирмы МЕБЕЛЬ-SOFT',
       description: 'Разработка логотипа мебельного магазина: красное кресло в обрамлении желтого окна стало смысловым и визуальным ядром айдентики. Знак транслирует ценности бренда — современная элегантность, уют и индивидуальность. Контрастная пара «красный–желтый» формирует теплые ассоциации и динамику, силуэт кресла отсылает к классическим формам ар-нуво, подчеркивая связь с историей дизайна. Также на основе логотипа были созданы атрибуты фирменного стиля.',
       tags: ['Adobe Illustrator', 'Adobe Photoshop'],
-      images: ['element12.webp','element13.webp','element14.webp','element15.webp']
+      imagesDesktop: ['element12.webp','element13.webp','element14.webp','element15.webp']
     },
     'cofee': {
       title: 'Дизайн для кофейного стаканчика',
       description: 'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Первая иллюстрация — «весенний лес» с нейтральной, мягкой палитрой; силуэты сов, «выглядывающих» из листвы, создают фирменную атмосферу пространства. Позднее разработан летний вариант с абстрактными динамичными элементами, передающими ощущение зноя.',
       tags: ['Adobe Illustrator', 'Adobe Photoshop'],
-      images: ['element16.webp','element18.webp','element19.webp']
+      imagesDesktop: ['element16.webp','element18.webp','element19.webp']
     },
     'nashakuxnya': {
       title: 'Фирменный стиль для бренда "НАША КУХНЯ"',
       description: 'Комплексная айдентика для придорожного кафе-магазина с акцентом на семейную, «домашнюю» атмосферу. Разработаны логотип в виде персонажа, наслаждающегося шаурмой, теплая палитра и графические элементы с фуд-мотивами. Выполнены макеты для фасада и рекламных носителей. Результат — цельный визуальный образ, поддерживающий рост посещаемости и лояльности.',
       tags: ['Adobe Photoshop','Adobe Illustrator', 'Krita'],
-      images: ['element20.webp','element21.webp','element22.webp','element23.webp']
+      imagesDesktop: ['element20.webp','element21.webp','element22.webp','element23.webp']
     },
     'stickers': {
       title: 'Стикеры для Тбанк"',
       description: 'Стикерпак для корпоративного мероприятия KidsDay. Цели: укрепить взаимопонимание между родителями и детьми и повысить лояльность сотрудников и их семей. В результате создана серия забавных персонажей-детей, унаследовавших характерные черты работающих родителей.',
       tags: ['Adobe Illustrator'],
-      images: ['element24.webp','element25.webp']
+      imagesDesktop: ['element24.webp','element25.webp']
     },
     'marketplace': {
       title: 'Создание карточек товара на WB и OZON',
       description: 'Создание продающих карточек товаров для Wildberries и Ozon для магазинов из разных ниш. Процесс включает анализ целевой аудитории и требований площадок, разработку инфографики с УТП и характеристиками в минималистичном стиле, оптимизацию описаний с ключевыми словами, A/B-тестирование и итерационные доработки. Выполнены профессиональная предметная съемка на нейтральном фоне, многоракурсные кадры и ретушь.',
       tags: ['Adobe Illustrator', 'Adobe Photoshop', 'Figma', 'Stable Diffusion'],
-      images: ['element26.webp','element27.webp','element28.webp','element29.webp','element30.webp','element31.webp']
+      imagesDesktop: ['element26.webp','element27.webp','element28.webp','element29.webp','element30.webp','element31.webp']
     }
   };
 
@@ -271,6 +271,7 @@ if (toolCards.length) {
     toggleIndicator();
   }
 });
+
 
 
 
