@@ -114,7 +114,7 @@ if (toolCards.length) {
       description: 'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Первая иллюстрация — «весенний лес» с нейтральной, мягкой палитрой; силуэты сов, «выглядывающих» из листвы, создают фирменную атмосферу пространства. Позднее разработан летний вариант с абстрактными динамичными элементами, передающими ощущение зноя.',
       tags: ['Adobe Illustrator', 'Adobe Photoshop'],
       imagesDesktop: ['element16.webp','element18.webp','element19.webp'],
-      imagesMobile: ['elementmobile32.webp','elementmobile33.webp','elementmobile34.webp','elementmobile35.webp','elementmobile36.webp','elementmobile37.webp']
+      imagesMobile: ['elementmobile31.webp','elementmobile32.webp','elementmobile33.webp','elementmobile34.webp','elementmobile35.webp','elementmobile36.webp','elementmobile37.webp']
     },
     'nashakuxnya': {
       title: 'Фирменный стиль для бренда "НАША КУХНЯ"',
@@ -277,6 +277,7 @@ if (window.innerWidth <= 768 && project.imagesMobile) {
     toggleIndicator();
   }
 });
+
 
 
 
