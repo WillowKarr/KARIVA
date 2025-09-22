@@ -108,6 +108,8 @@ if (toolCards.length) {
       tags: ['Adobe Illustrator', 'Adobe Photoshop'],
       imagesDesktop: ['element12.webp','element13.webp','element14.webp','element15.webp']
     },
+     imagesMobile: ['elementmobile24.webp','elementmobile25.webp','elementmobile26.webp','elementmobile27.webp','elementmobile28.webp','elementmobile29.webp','elementmobile30.webp']
+    },
     'cofee': {
       title: 'Дизайн для кофейного стаканчика',
       description: 'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Первая иллюстрация — «весенний лес» с нейтральной, мягкой палитрой; силуэты сов, «выглядывающих» из листвы, создают фирменную атмосферу пространства. Позднее разработан летний вариант с абстрактными динамичными элементами, передающими ощущение зноя.',
@@ -275,6 +277,7 @@ if (window.innerWidth <= 768 && project.imagesMobile) {
     toggleIndicator();
   }
 });
+
 
 
 
