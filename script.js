@@ -197,10 +197,16 @@ if (toolCards.length) {
           projectTags.appendChild(tagEl);
         });
 
-        // Картинки: если ширина ≤768 — подменяем путь на мобильные версии "elementmobileN.webp"
-        const imagesToUse = (window.innerWidth <= 768)
-          ? project.images.map(img => img.replace(/(element)(\d+)/, '$1mobile$2'))
-          : project.images;
+let imagesToUse = [];
+
+if (window.innerWidth <= 768 && project.imagesMobile) {
+  imagesToUse = project.imagesMobile;
+} else if (project.imagesDesktop) {
+  imagesToUse = project.imagesDesktop;
+} else {
+  // на случай если остались старые проекты с project.images
+  imagesToUse = project.images;
+}
 
         sliderContainer.innerHTML = '';
         imagesToUse.forEach((img, index) => {
@@ -269,6 +275,7 @@ if (toolCards.length) {
     toggleIndicator();
   }
 });
+
 
 
 
