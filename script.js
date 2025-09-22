@@ -106,8 +106,7 @@ if (toolCards.length) {
       title: 'Фирменный стиль для мебельной фирмы МЕБЕЛЬ-SOFT',
       description: 'Разработка логотипа мебельного магазина: красное кресло в обрамлении желтого окна стало смысловым и визуальным ядром айдентики. Знак транслирует ценности бренда — современная элегантность, уют и индивидуальность. Контрастная пара «красный–желтый» формирует теплые ассоциации и динамику, силуэт кресла отсылает к классическим формам ар-нуво, подчеркивая связь с историей дизайна. Также на основе логотипа были созданы атрибуты фирменного стиля.',
       tags: ['Adobe Illustrator', 'Adobe Photoshop'],
-      imagesDesktop: ['element12.webp','element13.webp','element14.webp','element15.webp']
-    },
+      imagesDesktop: ['element12.webp','element13.webp','element14.webp','element15.webp'],
      imagesMobile: ['elementmobile24.webp','elementmobile25.webp','elementmobile26.webp','elementmobile27.webp','elementmobile28.webp','elementmobile29.webp','elementmobile30.webp']
     },
     'cofee': {
@@ -277,6 +276,7 @@ if (window.innerWidth <= 768 && project.imagesMobile) {
     toggleIndicator();
   }
 });
+
 
 
 
