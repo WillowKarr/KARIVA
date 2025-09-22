@@ -1481,9 +1481,15 @@ justify-content: flex-end;
   }
   
   .image-container {
-    height: 280px !important; /* Увеличиваем высоту изображения */
-    aspect-ratio: 3/4 !important;
+width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
   }
+	.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto; /* убери cover, если нужен полный рендер */
+}
 
   /* 8. Модальное окно */
 .modal, .modal-overlay, .modal-container { z-index: 3000 !important; }
@@ -1584,6 +1590,7 @@ body.modal-open header {
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
 
 
 
