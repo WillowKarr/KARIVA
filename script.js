@@ -100,7 +100,7 @@ if (toolCards.length) {
       description: 'Разработка визуальной айдентики для социальных сетей проекта «Логопотам» — сервиса онлайн-коррекции речи у детей. Созданы самостоятельные дизайн-коды под ключевые направления бренда с учетом целевой аудитории каждого. В зоне ответственности: верстка контента, оформление сторис и рекламных креативов, цветокоррекция и ретушь, отрисовка векторных иконок и иллюстраций, применение AI-инструментов для вариативности визуалов. Работа велась для VK и Telegram в тесной связке с SMM-командой. Итог — более 300 креативов по всем направлениям.',
       tags: ['Figma', 'Photoshop', 'Illustrator', 'II Grock'],
       imagesDesktop: ['element1.webp','element2.webp','element3.webp','element5.webp','element6.webp','element7.webp','element8.webp','element9.webp'],
-       imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile4.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp','elementmobile11.webp','elementmobile12.webp','elementmobile13.webp','elementmobile14.webp','elementmobile15.webp','elementmobile16.webp','elementmobile17.webp','elementmobile18.webp','elementmobile19.webp','elementmobile20.webp','elementmobile21.webp','elementmobile22.webp','elementmobile23.webp']
+       imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile3.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp','elementmobile11.webp','elementmobile12.webp','elementmobile13.webp','elementmobile14.webp','elementmobile15.webp','elementmobile16.webp','elementmobile17.webp','elementmobile18.webp','elementmobile19.webp','elementmobile20.webp','elementmobile21.webp','elementmobile22.webp','elementmobile23.webp']
     },
     'mebelsoft': {
       title: 'Фирменный стиль для мебельной фирмы МЕБЕЛЬ-SOFT',
@@ -275,6 +275,7 @@ if (window.innerWidth <= 768 && project.imagesMobile) {
     toggleIndicator();
   }
 });
+
 
 
 
