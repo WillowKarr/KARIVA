@@ -177,14 +177,14 @@
       imagesDesktop: ['element26.webp','element27.webp','element50.webp'],
       imagesMobile: ['elementmobile38.webp','elementmobile39.webp']
     },
-    
+
  marketplace: {
       title: 'Создание карточек товара на WB и OZON',
       description:
         'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки. Как результат в Meidiannas оформила ≈480 карточек и внедрила единую визуальную систему — рост продаж +175% за месяц, выручка +169% после обновления контента и 9 место в категории обувь OZON. В ADORE SWIM обновила 160+ карточек, повысив CTR обложки на +12% и конверсию в заказ на +6%, ускорив подготовку контента на ~25% благодаря шаблонам.',
       tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion', 'Photoroom', 'Midjourney'],
       imagesDesktop: ['element28.webp','element29.webp','element30.webp','element51.webp'],
-      imagesMobile: ['elementmobile40.webp','elementmobile41.webp''elementmobile42.webp']
+      imagesMobile: ['elementmobile40.webp','elementmobile41.webp','elementmobile42.webp']
     },
 
      meidianas: {
@@ -193,7 +193,7 @@
         'Дизайн для ≈480 карточек товаров . Провела полный редизайн магазина: внедрила единый визуальный стиль бренда, оформила магазин, разработала rich-контент. Внедрила стандарты оформления карточек и оформила брендбук, который стал основой единой системы дизайна для WB и Ozon. Также занималась разработкой рекламных баннеров. Обновление визуальной системы и структуры контента позволило вывести магазин на 9 место в категории «Обувь» на Ozon, обеспечить рост продаж на +175% за месяц и увеличить выручку на 169% за счёт усиления контента и презентации товаров.',
       tags: ['Photoshop', 'Adobe Illustrator', 'Figma', 'Stable Diffusion', 'Midjourney', 'Photoroom', 'Homiwork'],
       imagesDesktop: ['element52.webp','element53.webp','element54.webp','element55.webp'],
-      imagesMobile: ['elementmobile40.webp','elementmobile41.webp''elementmobile42.webp']
+      imagesMobile: ['elementmobile40.webp','elementmobile41.webp','elementmobile42.webp']
     },
 
      nashakuxnya: {
@@ -204,7 +204,7 @@
       imagesDesktop: ['element20.webp','element21.webp','element22.webp','element23.webp'],
       imagesMobile: ['elementmobile59.webp','elementmobile60.webp','elementmobile61.webp','elementmobile62.webp']
     },
-    
+
       mebelsoft: {
       title: 'Фирменный стиль для мебельной фирмы МЕБЕЛЬ-SOFT',
       description:
@@ -230,7 +230,7 @@
       imagesDesktop: ['element24.webp','element25.webp'],
       imagesMobile: ['elementmobile54.webp','elementmobile55.webp','elementmobile56.webp','elementmobile57.webp']
     },
-    
+
       cofee: {
       title: 'Дизайн для кофейного стаканчика',
       description:
@@ -239,7 +239,7 @@
       imagesDesktop: ['element16.webp','element18.webp','element19.webp'],
       imagesMobile: ['elementmobile31.webp','elementmobile32.webp','elementmobile33.webp','elementmobile34.webp']
     },
-    
+
     logopotam: {
       title: 'Оформление соц. сетей Логопотам',
       description:
@@ -249,7 +249,7 @@
       imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile3.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp']
     },
 };
-  
+
   let current = 0;
   let slidesCount = 0;
   let currentProjectId = null;
