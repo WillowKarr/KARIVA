@@ -1,12 +1,10 @@
-// script.js
+// script.js (UPDATED)
 (() => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ===== Smooth scroll (respect reduced motion) =====
-  const scrollToHash = (hash) => {
-    const el = document.querySelector(hash);
-    if (!el) return;
-    const y = el.getBoundingClientRect().top + window.scrollY - 86;
+  // ===== Smooth scroll =====
+  const scrollToEl = (el, offset = 86) => {
+    const y = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
   };
 
@@ -20,7 +18,7 @@
     if (!target) return;
 
     e.preventDefault();
-    scrollToHash(href);
+    scrollToEl(target, 86);
     history.pushState(null, '', href);
   });
 
@@ -53,16 +51,12 @@
       isOpen ? closeNav() : openNav();
     });
     overlay.addEventListener('click', closeNav);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeNav();
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 820) closeNav();
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 820) closeNav(); });
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
   }
 
-  // ===== Reveal on scroll =====
+  // ===== Reveal on scroll (supports LR) =====
   const revealEls = Array.from(document.querySelectorAll('.reveal'));
   if (!prefersReduced && revealEls.length) {
     const io = new IntersectionObserver(
@@ -90,7 +84,7 @@
     raf = requestAnimationFrame(() => {
       raf = 0;
       const y = window.scrollY || 0;
-      const offset = Math.min(24, y * 0.04);
+      const offset = Math.min(26, y * 0.04);
       heroBg.style.transform = `translate3d(0, ${offset}px, 0)`;
     });
   };
@@ -123,7 +117,7 @@
     document.addEventListener('mousemove', move, { passive: true });
     requestAnimationFrame(tick);
 
-    const hoverables = 'a, button, .gallery-item, .social, .btn, .burger';
+    const hoverables = 'a, button, .social, .btn, .burger, [data-open], .case-hero__read, .nav-btn, .icon-btn';
     document.addEventListener('mouseover', (e) => {
       if (e.target.closest(hoverables)) document.body.classList.add('cursor-hover');
     });
@@ -132,7 +126,7 @@
     });
   }
 
-  // ===== Portfolio modal gallery =====
+  // ===== Portfolio modal gallery (tall image + “read” scroll) =====
   const modal = document.getElementById('portfolioModal');
   const track = modal?.querySelector('.slider__track');
   const titleEl = modal?.querySelector('.modal__title');
@@ -140,6 +134,8 @@
   const tagsEl = modal?.querySelector('.modal__tags');
   const prevBtn = modal?.querySelector('.nav-btn--prev');
   const nextBtn = modal?.querySelector('.nav-btn--next');
+  const readBtn = modal?.querySelector('[data-read]');
+  const caseText = modal?.querySelector('#caseText');
 
   const projects = {
     logopotam: {
@@ -194,6 +190,7 @@
 
   let current = 0;
   let slidesCount = 0;
+  let currentProjectId = null;
 
   const getImagesForViewport = (project) => {
     const isMobile = window.innerWidth <= 720;
@@ -236,6 +233,8 @@
     const project = projects[projectId];
     if (!project) return;
 
+    currentProjectId = projectId;
+
     titleEl.textContent = project.title;
     descEl.textContent = project.description;
 
@@ -254,7 +253,6 @@
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
 
-    // focus close button for a11y
     modal.querySelector('[data-close]')?.focus({ preventScroll: true });
   };
 
@@ -263,24 +261,34 @@
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
+    currentProjectId = null;
   };
 
-  // Open from grid
-  document.querySelectorAll('.gallery-item[data-project]').forEach((btn) => {
-    btn.addEventListener('click', () => openModal(btn.dataset.project));
+  // open modal from “case cards”
+  document.querySelectorAll('[data-open]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const card = e.currentTarget.closest('.case-card');
+      const pid = card?.dataset.project;
+      if (pid) openModal(pid);
+    });
   });
 
-  // Close
+  // close
   modal?.addEventListener('click', (e) => {
     const target = e.target;
     if (target?.matches?.('[data-close]')) closeModal();
   });
 
-  // Buttons
   prevBtn?.addEventListener('click', () => go(-1));
   nextBtn?.addEventListener('click', () => go(1));
 
-  // Keyboard
+  // “Читать про кейс” — прокрутить чуть ниже до текста
+  readBtn?.addEventListener('click', () => {
+    if (!caseText) return;
+    scrollToEl(caseText, 24);
+  });
+
+  // keyboard
   document.addEventListener('keydown', (e) => {
     if (!modal?.classList.contains('is-open')) return;
     if (e.key === 'Escape') closeModal();
@@ -288,7 +296,7 @@
     if (e.key === 'ArrowRight') go(1);
   });
 
-  // Swipe (mobile)
+  // swipe
   if (modal && track) {
     let startX = 0;
     let dx = 0;
@@ -320,13 +328,14 @@
     modal.addEventListener('touchend', onEnd, { passive: true });
   }
 
-  // If viewport changes while modal open — rebuild slides for proper set
+  // rebuild slides on resize (mobile/desktop sets)
   window.addEventListener('resize', () => {
     if (!modal?.classList.contains('is-open')) return;
-    const id = Object.keys(projects).find((k) => titleEl?.textContent === projects[k].title);
-    if (!id) return;
-    const images = getImagesForViewport(projects[id]);
-    buildSlides(images, projects[id].title);
+    if (!currentProjectId) return;
+    const project = projects[currentProjectId];
+    const images = getImagesForViewport(project);
+    buildSlides(images, project.title);
   });
 })();
+
 
