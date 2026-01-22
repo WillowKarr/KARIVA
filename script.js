@@ -1,303 +1,339 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // ====== КЭШ DOM ======
+// script.js (UPDATED)
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===== Smooth scroll =====
+  const scrollToEl = (el, offset = 86) => {
+    const y = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
+  };
+
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    e.preventDefault();
+    scrollToEl(target, 86);
+    history.pushState(null, '', href);
+  });
+
+  // ===== Mobile menu =====
   const burger = document.querySelector('.burger');
-  const nav = document.querySelector('header nav');
-  const links = nav ? nav.querySelectorAll('a') : [];
+  const nav = document.querySelector('.nav');
+  const overlay = document.getElementById('navOverlay');
 
-  if (burger && nav) {
-    // Подложка
-    let overlay = document.querySelector('.nav-overlay');
-    if (!overlay) {
-      overlay = document.createElement('div');
-      overlay.className = 'nav-overlay';
-      document.body.appendChild(overlay);
-    }
-
-    // Открыть/закрыть
-    const openMenu = () => {
-      burger.classList.add('active');
-      nav.classList.add('mobile-open');
-      overlay.classList.add('visible');
-      document.body.style.overflow = 'hidden';
-      burger.setAttribute('aria-expanded', 'true');
-    };
-    const closeMenu = () => {
-      burger.classList.remove('active');
-      nav.classList.remove('mobile-open');
-      overlay.classList.remove('visible');
-      document.body.style.overflow = '';
-      burger.setAttribute('aria-expanded', 'false');
-    };
-
-    burger.setAttribute('aria-label', 'Открыть меню');
-    burger.setAttribute('aria-controls', 'site-nav');
+  const closeNav = () => {
+    if (!burger || !nav || !overlay) return;
+    burger.classList.remove('is-open');
+    nav.classList.remove('is-open');
+    overlay.hidden = true;
     burger.setAttribute('aria-expanded', 'false');
-    nav.setAttribute('id', 'site-nav');
+    document.body.style.overflow = '';
+  };
 
-    burger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      nav.classList.contains('mobile-open') ? closeMenu() : openMenu();
+  const openNav = () => {
+    if (!burger || !nav || !overlay) return;
+    burger.classList.add('is-open');
+    nav.classList.add('is-open');
+    overlay.hidden = false;
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  };
+
+  if (burger && nav && overlay) {
+    burger.addEventListener('click', () => {
+      const isOpen = burger.classList.contains('is-open');
+      isOpen ? closeNav() : openNav();
     });
-    overlay.addEventListener('click', closeMenu);
-    links.forEach(a => a.addEventListener('click', closeMenu));
-    document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target) && !burger.contains(e.target)) closeMenu();
-    });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+    overlay.addEventListener('click', closeNav);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 820) closeNav(); });
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
   }
 
-  // Плавный скролл
-  document.querySelectorAll('header nav a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+  // ===== Reveal on scroll (supports LR) =====
+  const revealEls = Array.from(document.querySelectorAll('.reveal'));
+  if (!prefersReduced && revealEls.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add('in-view');
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: '0px 0px -10% 0px' }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('in-view'));
+  }
+
+  // ===== Lightweight parallax for hero bg =====
+  const heroBg = document.querySelector('.hero__bg');
+  let raf = 0;
+  const onScroll = () => {
+    if (prefersReduced || !heroBg) return;
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      const y = window.scrollY || 0;
+      const offset = Math.min(26, y * 0.04);
+      heroBg.style.transform = `translate3d(0, ${offset}px, 0)`;
     });
-  });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-// ==== TOOLS: анимация шкал по скроллу ====
-const toolCards = document.querySelectorAll('.tool-card');
+  // ===== Custom cursor (square rounded) =====
+  const cursor = document.querySelector('.cursor');
+  const follower = document.querySelector('.cursor-follower');
+  const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
-if (toolCards.length) {
-  // проставляем CSS-переменную уровня на карточку
-  toolCards.forEach(card => {
-    const level = Math.max(0, Math.min(100, Number(card.dataset.level) || 0));
-    card.style.setProperty('--tool-level', level + '%');
-    const meter = card.querySelector('.tool-bar');
-    if (meter) meter.setAttribute('aria-valuenow', String(level));
-  });
+  if (!prefersReduced && cursor && follower && !isCoarse) {
+    let fx = 0, fy = 0, x = 0, y = 0;
+    const speed = 0.18;
 
-  // наблюдаем за появлением карточек
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        // если не нужно анимировать повторно — можно отключить наблюдение
-        obs.unobserve(entry.target);
-      }
+    const move = (e) => {
+      x = e.clientX; y = e.clientY;
+      cursor.style.left = `${x}px`;
+      cursor.style.top = `${y}px`;
+    };
+
+    const tick = () => {
+      fx += (x - fx) * speed;
+      fy += (y - fy) * speed;
+      follower.style.left = `${fx}px`;
+      follower.style.top = `${fy}px`;
+      requestAnimationFrame(tick);
+    };
+
+    document.addEventListener('mousemove', move, { passive: true });
+    requestAnimationFrame(tick);
+
+    const hoverables = 'a, button, .social, .btn, .burger, [data-open], .case-hero__read, .nav-btn, .icon-btn';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverables)) document.body.classList.add('cursor-hover');
     });
-  }, { threshold: 0.35 });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(hoverables)) document.body.classList.remove('cursor-hover');
+    });
+  }
 
-  toolCards.forEach(card => obs.observe(card));
-}
-
-  // Элементы модалки портфолио
+  // ===== Portfolio modal gallery (tall image + “read” scroll) =====
   const modal = document.getElementById('portfolioModal');
-  const closeBtn = modal ? modal.querySelector('.close-modal') : null;
-  const sliderContainer = modal ? modal.querySelector('.slider-container') : null;
-  const prevBtn = modal ? modal.querySelector('.prev-slide') : null;
-  const nextBtn = modal ? modal.querySelector('.next-slide') : null;
-  const projectTitle = modal ? modal.querySelector('.project-title') : null;
-  const projectDesc = modal ? modal.querySelector('.project-description p') : null;
-  const projectTags = modal ? modal.querySelector('.project-tags') : null;
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  const track = modal?.querySelector('.slider__track');
+  const titleEl = modal?.querySelector('.modal__title');
+  const descEl = modal?.querySelector('.modal__desc');
+  const tagsEl = modal?.querySelector('.modal__tags');
+  const prevBtn = modal?.querySelector('.nav-btn--prev');
+  const nextBtn = modal?.querySelector('.nav-btn--next');
+  const readBtn = modal?.querySelector('[data-read]');
+  const caseText = modal?.querySelector('#caseText');
 
-  // ====== ДАННЫЕ ПРОЕКТОВ (ВАШИ) ======
   const projects = {
-    'logopotam': {
+    logopotam: {
       title: 'Оформление соц. сетей Логопотам',
-      description: 'Разработка визуальной айдентики для социальных сетей проекта «Логопотам» — сервиса онлайн-коррекции речи у детей. Созданы самостоятельные дизайн-коды под ключевые направления бренда с учетом целевой аудитории каждого. В зоне ответственности: верстка контента, оформление сторис и рекламных креативов, цветокоррекция и ретушь, отрисовка векторных иконок и иллюстраций, применение AI-инструментов для вариативности визуалов. Работа велась для VK и Telegram в тесной связке с SMM-командой. Итог — более 300 креативов по всем направлениям.',
-      tags: ['Figma', 'Photoshop', 'Illustrator', 'II Grock'],
+      description:
+        'Разработка визуальной айдентики для социальных сетей проекта «Логопотам» — сервиса онлайн-коррекции речи у детей. Созданы самостоятельные дизайн-коды под ключевые направления бренда с учетом целевой аудитории каждого. В зоне ответственности: верстка контента, оформление сторис и рекламных креативов, цветокоррекция и ретушь, отрисовка векторных иконок и иллюстраций, применение AI-инструментов для вариативности визуалов. Работа велась для VK и Telegram в тесной связке с SMM-командой. Итог — более 300 креативов по всем направлениям.',
+      tags: ['Figma', 'Photoshop', 'Illustrator', 'AI'],
       imagesDesktop: ['element1.webp','element2.webp','element3.webp','element5.webp','element6.webp','element7.webp','element8.webp','element9.webp'],
-       imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile3.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp','elementmobile11.webp','elementmobile12.webp','elementmobile13.webp','elementmobile14.webp','elementmobile15.webp','elementmobile16.webp','elementmobile17.webp','elementmobile18.webp','elementmobile19.webp','elementmobile20.webp','elementmobile21.webp','elementmobile22.webp','elementmobile23.webp']
+      imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile3.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp','elementmobile11.webp','elementmobile12.webp','elementmobile13.webp','elementmobile14.webp','elementmobile15.webp','elementmobile16.webp','elementmobile17.webp','elementmobile18.webp','elementmobile19.webp','elementmobile20.webp','elementmobile21.webp','elementmobile22.webp','elementmobile23.webp']
     },
-    'mebelsoft': {
+    mebelsoft: {
       title: 'Фирменный стиль для мебельной фирмы МЕБЕЛЬ-SOFT',
-      description: 'Разработка логотипа мебельного магазина: красное кресло в обрамлении желтого окна стало смысловым и визуальным ядром айдентики. Знак транслирует ценности бренда — современная элегантность, уют и индивидуальность. Контрастная пара «красный–желтый» формирует теплые ассоциации и динамику, силуэт кресла отсылает к классическим формам ар-нуво, подчеркивая связь с историей дизайна. Также на основе логотипа были созданы атрибуты фирменного стиля.',
-      tags: ['Adobe Illustrator', 'Adobe Photoshop'],
+      description:
+        'Разработка логотипа мебельного магазина: красное кресло в обрамлении желтого окна стало смысловым и визуальным ядром айдентики. Знак транслирует ценности бренда — современная элегантность, уют и индивидуальность. Контрастная пара «красный–желтый» формирует теплые ассоциации и динамику, силуэт кресла отсылает к классическим формам ар-нуво, подчеркивая связь с историей дизайна. Также на основе логотипа были созданы атрибуты фирменного стиля.',
+      tags: ['Illustrator', 'Photoshop'],
       imagesDesktop: ['element12.webp','element13.webp','element14.webp','element15.webp'],
-     imagesMobile: ['elementmobile24.webp','elementmobile25.webp','elementmobile26.webp','elementmobile27.webp','elementmobile28.webp','elementmobile29.webp','elementmobile30.webp']
+      imagesMobile: ['elementmobile24.webp','elementmobile25.webp','elementmobile26.webp','elementmobile27.webp','elementmobile28.webp','elementmobile29.webp','elementmobile30.webp']
     },
-    'cofee': {
+    cofee: {
       title: 'Дизайн для кофейного стаканчика',
-      description: 'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Первая иллюстрация — «весенний лес» с нейтральной, мягкой палитрой; силуэты сов, «выглядывающих» из листвы, создают фирменную атмосферу пространства. Позднее разработан летний вариант с абстрактными динамичными элементами, передающими ощущение зноя.',
-      tags: ['Adobe Illustrator', 'Adobe Photoshop'],
+      description:
+        'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Первая иллюстрация — «весенний лес» с нейтральной, мягкой палитрой; силуэты сов, «выглядывающих» из листвы, создают фирменную атмосферу пространства. Позднее разработан летний вариант с абстрактными динамичными элементами, передающими ощущение зноя.',
+      tags: ['Illustrator', 'Photoshop'],
       imagesDesktop: ['element16.webp','element18.webp','element19.webp'],
       imagesMobile: ['elementmobile31.webp','elementmobile32.webp','elementmobile33.webp','elementmobile34.webp','elementmobile35.webp','elementmobile36.webp','elementmobile37.webp']
     },
-    'nashakuxnya': {
+    nashakuxnya: {
       title: 'Фирменный стиль для бренда "НАША КУХНЯ"',
-      description: 'Комплексная айдентика для придорожного кафе-магазина с акцентом на семейную, «домашнюю» атмосферу. Разработаны логотип в виде персонажа, наслаждающегося шаурмой, теплая палитра и графические элементы с фуд-мотивами. Выполнены макеты для фасада и рекламных носителей. Результат — цельный визуальный образ, поддерживающий рост посещаемости и лояльности.',
-      tags: ['Adobe Photoshop','Adobe Illustrator', 'Krita'],
+      description:
+        'Комплексная айдентика для придорожного кафе-магазина с акцентом на семейную, «домашнюю» атмосферу. Разработаны логотип в виде персонажа, наслаждающегося шаурмой, теплая палитра и графические элементы с фуд-мотивами. Выполнены макеты для фасада и рекламных носителей. Результат — цельный визуальный образ, поддерживающий рост посещаемости и лояльности.',
+      tags: ['Photoshop', 'Illustrator', 'Krita'],
       imagesDesktop: ['element20.webp','element21.webp','element22.webp','element23.webp'],
       imagesMobile: ['elementmobile59.webp','elementmobile60.webp','elementmobile61.webp','elementmobile62.webp','elementmobile63.webp','elementmobile64.webp','elementmobile65.webp']
     },
-    'stickers': {
+    stickers: {
       title: 'Стикеры для Тбанк"',
-      description: 'Стикерпак для корпоративного мероприятия KidsDay. Цели: укрепить взаимопонимание между родителями и детьми и повысить лояльность сотрудников и их семей. В результате создана серия забавных персонажей-детей, унаследовавших характерные черты работающих родителей.',
-      tags: ['Adobe Illustrator'],
+      description:
+        'Стикерпак для корпоративного мероприятия KidsDay. Цели: укрепить взаимопонимание между родителями и детьми и повысить лояльность сотрудников и их семей. В результате создана серия забавных персонажей-детей, унаследовавших характерные черты работающих родителей.',
+      tags: ['Illustrator'],
       imagesDesktop: ['element24.webp','element25.webp'],
       imagesMobile: ['elementmobile54.webp','elementmobile55.webp','elementmobile56.webp','elementmobile57.webp','elementmobile58.webp']
     },
-    'marketplace': {
+    marketplace: {
       title: 'Создание карточек товара на WB и OZON',
-      description: 'Создание продающих карточек товаров для Wildberries и Ozon для магазинов из разных ниш. Процесс включает анализ целевой аудитории и требований площадок, разработку инфографики с УТП и характеристиками в минималистичном стиле, оптимизацию описаний с ключевыми словами, A/B-тестирование и итерационные доработки. Выполнены профессиональная предметная съемка на нейтральном фоне, многоракурсные кадры и ретушь.',
-      tags: ['Adobe Illustrator', 'Adobe Photoshop', 'Figma', 'Stable Diffusion'],
+      description:
+        'Создание продающих карточек товаров для Wildberries и Ozon для магазинов из разных ниш. Процесс включает анализ целевой аудитории и требований площадок, разработку инфографики с УТП и характеристиками в минималистичном стиле, оптимизацию описаний с ключевыми словами, A/B-тестирование и итерационные доработки. Выполнены профессиональная предметная съемка на нейтральном фоне, многоракурсные кадры и ретушь.',
+      tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion'],
       imagesDesktop: ['element26.webp','element27.webp','element28.webp','element29.webp','element30.webp'],
       imagesMobile: ['elementmobile38.webp','elementmobile39.webp','elementmobile40.webp','elementmobile41.webp','elementmobile42.webp','elementmobile43.webp','elementmobile44.webp','elementmobile45.webp','elementmobile46.webp','elementmobile47.webp','elementmobile48.webp','elementmobile49.webp','elementmobile50.webp','elementmobile51.webp','elementmobile52.webp']
     }
   };
 
-  // ====== Кастомный курсор (как у вас) ======
-  const cursor = document.querySelector('.cursor');
-  const cursorFollower = document.querySelector('.cursor-follower');
-  if (cursor && cursorFollower) {
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-      setTimeout(() => {
-        cursorFollower.style.left = `${e.clientX}px`;
-        cursorFollower.style.top = `${e.clientY}px`;
-      }, 100);
+  let current = 0;
+  let slidesCount = 0;
+  let currentProjectId = null;
+
+  const getImagesForViewport = (project) => {
+    const isMobile = window.innerWidth <= 720;
+    if (isMobile && project.imagesMobile?.length) return project.imagesMobile;
+    if (project.imagesDesktop?.length) return project.imagesDesktop;
+    return project.images || [];
+  };
+
+  const setTransform = () => {
+    if (!track) return;
+    track.style.transform = `translateX(${-current * 100}%)`;
+  };
+
+  const go = (dir) => {
+    if (!slidesCount) return;
+    current = (current + dir + slidesCount) % slidesCount;
+    setTransform();
+  };
+
+  const buildSlides = (images, altBase) => {
+    if (!track) return;
+    track.innerHTML = '';
+    images.forEach((src, idx) => {
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `${altBase} — ${idx + 1}`;
+      img.loading = 'eager';
+      slide.appendChild(img);
+      track.appendChild(slide);
     });
-    const hoverElements = document.querySelectorAll('a, button, .gallery-item, .social-link, .burger');
-    hoverElements.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'scale(2)';
-        cursorFollower.style.transform = 'scale(0.5)';
-        cursorFollower.style.backgroundColor = 'transparent';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'scale(1)';
-        cursorFollower.style.transform = 'scale(1)';
-        cursorFollower.style.backgroundColor = 'transparent';
-      });
-    });
-  }
+    slidesCount = images.length;
+    current = 0;
+    setTransform();
+  };
 
-  // ====== Портфолио: модалка и слайдер ======
-  let currentSlide = 0;
+  const openModal = (projectId) => {
+    if (!modal || !track || !titleEl || !descEl || !tagsEl) return;
+    const project = projects[projectId];
+    if (!project) return;
 
-  function showSlide(index, slides) {
-    if (!slides.length) return;
-    if (index >= slides.length) currentSlide = 0;
-    else if (index < 0) currentSlide = slides.length - 1;
-    else currentSlide = index;
+    currentProjectId = projectId;
 
-    const offset = -currentSlide * 100;
-    sliderContainer.style.transform = `translateX(${offset}%)`;
+    titleEl.textContent = project.title;
+    descEl.textContent = project.description;
 
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active-slide', i === currentSlide);
-    });
-  }
-
-  if (galleryItems.length && modal && sliderContainer && projectTitle && projectDesc && projectTags) {
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const projectId = item.dataset.project;
-        const project = projects[projectId];
-        if (!project) return;
-
-        // Заголовок/описание/теги
-        projectTitle.textContent = project.title;
-        projectDesc.textContent = project.description;
-
-        projectTags.innerHTML = '';
-        project.tags.forEach(tag => {
-          const tagEl = document.createElement('span');
-          tagEl.className = 'project-tag';
-          tagEl.textContent = tag;
-          projectTags.appendChild(tagEl);
-        });
-
-let imagesToUse = [];
-
-if (window.innerWidth <= 768 && project.imagesMobile) {
-  imagesToUse = project.imagesMobile;
-} else if (project.imagesDesktop) {
-  imagesToUse = project.imagesDesktop;
-} else {
-  // на случай если остались старые проекты с project.images
-  imagesToUse = project.images;
-}
-
-        sliderContainer.innerHTML = '';
-        imagesToUse.forEach((img, index) => {
-          const imgEl = document.createElement('img');
-          imgEl.src = img;
-          imgEl.alt = `${project.title} - ${index + 1}`;
-          if (index === 0) imgEl.classList.add('active-slide');
-          sliderContainer.appendChild(imgEl);
-        });
-
-        currentSlide = 0;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-      });
+    tagsEl.innerHTML = '';
+    project.tags.forEach((t) => {
+      const el = document.createElement('span');
+      el.className = 'tag';
+      el.textContent = t;
+      tagsEl.appendChild(el);
     });
 
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      });
-    }
+    const images = getImagesForViewport(project);
+    buildSlides(images, project.title);
 
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => {
-        const slides = sliderContainer.querySelectorAll('img');
-        showSlide(currentSlide - 1, slides);
-      });
-      nextBtn.addEventListener('click', () => {
-        const slides = sliderContainer.querySelectorAll('img');
-        showSlide(currentSlide + 1, slides);
-      });
-    }
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
+    modal.querySelector('[data-close]')?.focus({ preventScroll: true });
+  };
+
+  const closeModal = () => {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    currentProjectId = null;
+  };
+
+  // open modal from “case cards”
+  document.querySelectorAll('[data-open]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const card = e.currentTarget.closest('.case-card');
+      const pid = card?.dataset.project;
+      if (pid) openModal(pid);
     });
-  }
+  });
 
-  // ====== Индикатор скролла для мобильных (из второго DOMContentLoaded) ======
-  if (window.innerWidth <= 768) {
-    const scrollIndicator = document.createElement('div');
-    scrollIndicator.className = 'scroll-indicator';
-    scrollIndicator.innerHTML = '⌄';
-    document.body.appendChild(scrollIndicator);
+  // close
+  modal?.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target?.matches?.('[data-close]')) closeModal();
+  });
 
-    let firstScrollHandled = false;
+  prevBtn?.addEventListener('click', () => go(-1));
+  nextBtn?.addEventListener('click', () => go(1));
 
-    const toggleIndicator = () => {
-      if (window.scrollY < 100) {
-        scrollIndicator.style.display = 'block';
-      } else {
-        scrollIndicator.style.display = 'none';
-      }
-      if (!firstScrollHandled && window.scrollY > 0) {
-        firstScrollHandled = true;
-        scrollIndicator.style.opacity = '0';
-        setTimeout(() => { scrollIndicator.style.display = 'none'; }, 500);
-      }
+  // “Читать про кейс” — прокрутить чуть ниже до текста
+  readBtn?.addEventListener('click', () => {
+    if (!caseText) return;
+    scrollToEl(caseText, 24);
+  });
+
+  // keyboard
+  document.addEventListener('keydown', (e) => {
+    if (!modal?.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') go(-1);
+    if (e.key === 'ArrowRight') go(1);
+  });
+
+  // swipe
+  if (modal && track) {
+    let startX = 0;
+    let dx = 0;
+    let active = false;
+
+    const onStart = (e) => {
+      if (!modal.classList.contains('is-open')) return;
+      active = true;
+      dx = 0;
+      startX = (e.touches ? e.touches[0].clientX : e.clientX);
     };
 
-    window.addEventListener('scroll', toggleIndicator, { passive: true });
-    toggleIndicator();
+    const onMove = (e) => {
+      if (!active) return;
+      const x = (e.touches ? e.touches[0].clientX : e.clientX);
+      dx = x - startX;
+    };
+
+    const onEnd = () => {
+      if (!active) return;
+      active = false;
+      const threshold = 42;
+      if (dx > threshold) go(-1);
+      else if (dx < -threshold) go(1);
+    };
+
+    modal.addEventListener('touchstart', onStart, { passive: true });
+    modal.addEventListener('touchmove', onMove, { passive: true });
+    modal.addEventListener('touchend', onEnd, { passive: true });
   }
-});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // rebuild slides on resize (mobile/desktop sets)
+  window.addEventListener('resize', () => {
+    if (!modal?.classList.contains('is-open')) return;
+    if (!currentProjectId) return;
+    const project = projects[currentProjectId];
+    const images = getImagesForViewport(project);
+    buildSlides(images, project.title);
+  });
+})();
