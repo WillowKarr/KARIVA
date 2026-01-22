@@ -1,415 +1,434 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ffffff">
-<title>KARMASH - Дизайнер и художник</title>
-<link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=National+Park:wght@200..800&display=swap" rel="stylesheet">
-<!-- Добавляем шрифт для заголовка -->
-<link href="https://fonts.cdnfonts.com/css/aplakattitul" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0B0F0D" />
+  <title>Ивет Кармаш — дизайнер и креатор для брендов</title>
+
+  <!-- Fonts (Google Fonts, display + sans, swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
-<div class="nav-overlay" id="navOverlay"></div>
+
 <body>
- <a id="top"></a>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
 
-   <header>
-        <div class="logo">
-		<a href="#top" class="logo-link">
-                    <img src="logo.gif" alt="Наверх" class="logo-img">
-			 </a>
-</div>
-        <nav>
-            <ul>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#projects">Проекты</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-        </nav>
-        <button class="theme-toggle" aria-label="Toggle theme">
-        </button>
-        <div class="burger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </header>
-  <!-- Hero Section -->
-<section class="hero" id="home">
-<div class="hero-background"></div>
-    <h1>KARMASH</h1>
-    <a href="#contacts" class="contact-btn">Связаться</a>
-</section>
+  <!-- Custom Cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
 
-<section class="about-section" id="about">
-    <div class="about-container">
-        <div class="photo-frame">
-            <img src="about.png" alt="Фото" class="about-photo">
-        </div>
-        
-        <div class="about-content">
-            <h2 class="section-title animate-in">Обо мне</h2>
-            <div class="about-text animate-in" style="animation-delay: 0.2s">
-                <p> Я Ивет Кармаш, дизайнер с профессиональным опытом работы. </p>
-                <p>Мой дизайн — это не просто картинки, а продуманные визуальные решения, которые работают на ваши цели. Готова помочь с визуальной частью вашего проекта: от логотипа до упаковки, от соцсетей до рекламных материалов.</p>
-            </div>
-            
-            <div class="skills-title animate-in" style="animation-delay: 0.4s">Навыки</div>
-            <div class="skills-container">
-                <span class="skill-tag animate-in" style="animation-delay: 0.5s">Дизайн полиграфии</span>
-				<span class="skill-tag animate-in" style="animation-delay: 0.8s">POSM материалы</span>
-                <span class="skill-tag animate-in" style="animation-delay: 0.6s">Оформление соц. сетей</span>
-                <span class="skill-tag animate-in" style="animation-delay: 0.7s">Карточки товаров для WB и OZON</span>
-                <span class="skill-tag animate-in" style="animation-delay: 1.0s">Фирменный стиль</span>
-				<span class="skill-tag animate-in" style="animation-delay: 1.0s">Визуальная коммуникация</span>
-			  <span class="skill-tag animate-in" style="animation-delay: 1.0s">Маркетинговые материалы</span>
-            </div>
-        </div>
-    </div> <!-- Закрываем about-container -->
+  <header class="header" data-glass>
+    <div class="header__inner">
+      <a class="brand" href="#top" aria-label="Наверх">
+        <img src="logo.gif" alt="" class="brand__img" />
+      </a>
 
-    <!-- Таймлайн выносим за пределы about-container -->
-    <div class="timeline-section">
-        <h2 class="section-title animate-in" style="animation-delay: 0.4s">Мой профессиональный путь</h2>
-        <div class="timeline-scroll-container">
-            <div class="timeline-line"></div> <!-- Добавляем линию -->
-            <div class="timeline-track">              
-                <div class="timeline-item animate-in" style="animation-delay: 0.7s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2021 - 2024</div>
-                        <h3>Колледж ДПИ</h3>
-                        <p>Направление Дизайн IT: создание визуального контента, основы программирования.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item animate-in" style="animation-delay: 0.8s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023-2024</div>
-                        <h3>ЛК СПЕКТР</h3>
-                        <p>Разработка POSM-продукции, фирменных носителей от концепции и прототипа до готовых макетов и препресса. Верстка лендинга</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item animate-in" style="animation-delay: 0.9s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024-2025</div>
-                        <h3>ЛОГОПОТАМ</h3>
-                        <p>Дизайн визуального контента для соцсетей и адаптация фирменного стиля под форматы платформ.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item animate-in" style="animation-delay: 1.0s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024 - Наст. время</div>
-                        <h3>Фриланс</h3>
-                        <p>Сотрудничество с антикафе «Совиный дом»: печатные материалы; дизайн карточек товаров для маркетплейсов в разных категориях; векторная графика на заказ.</p>
-                    </div>
-                </div>
-            </div> <!-- Закрываем timeline-track -->
-        </div> <!-- Закрываем timeline-scroll-container -->
-    </div> <!-- Закрываем timeline-section -->
-</section> <!-- Закрываем about-section -->
+      <nav class="nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#about">Обо мне</a></li>
+          <li><a class="nav__link" href="#projects">Кейсы</a></li>
+          <li><a class="nav__link" href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
 
-<section id="tools" class="tools-section">
-  <h2 class="section-title">Программы использую</h2>
-
-  <div class="tools-grid">
-    <article class="tool-card" data-level="92" aria-label="Adobe Photoshop 92%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Ps"></span>
-        <div class="tool-title">
-          <h3>Adobe Photoshop</h3>
-          <span class="tool-tag">Дизайн</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="88" aria-label="Adobe Illustrator 88%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Ai"></span>
-        <div class="tool-title">
-          <h3>Adobe Illustrator</h3>
-          <span class="tool-tag">Дизайн</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="90" aria-label="Figma 90%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Fg"></span>
-        <div class="tool-title">
-          <h3>Figma</h3>
-          <span class="tool-tag">Дизайн</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="80" aria-label="Tilda 80%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Td"></span>
-        <div class="tool-title">
-          <h3>Tilda</h3>
-          <span class="tool-tag">Сайты</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="72" aria-label="Premiere Pro 72%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Pr"></span>
-        <div class="tool-title">
-          <h3>Premiere Pro</h3>
-          <span class="tool-tag">Видео</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="68" aria-label="After Effects 68%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Ae"></span>
-        <div class="tool-title">
-          <h3>After Effects</h3>
-          <span class="tool-tag">Анимация</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="76" aria-label="InDesign 76%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Id"></span>
-        <div class="tool-title">
-          <h3>InDesign</h3>
-          <span class="tool-tag">Печать</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="76">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-  </div>
-
- <div class="tools-extra">
-  <div class="extra-block">
-    <h3 class="extra-title">Языки программирования</h3>
-    <div class="pill-list">
-      <span class="pill">HTML</span>
-      <span class="pill">CSS</span>
-      <span class="pill">JavaScript</span>
+      <button class="burger" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </div>
+  </header>
 
-  <div class="extra-block">
-    <h3 class="extra-title">Нейросети</h3>
-    <div class="pill-list">
-      <span class="pill">Stable Diffusion</span>
-      <span class="pill">Grok</span>
-      <span class="pill">ChatGPT</span>
-    </div>
-  </div>
-</div>
-</section>
+  <div class="nav-overlay" id="navOverlay" hidden></div>
 
-<!-- Галерея проектов -->
-<section class="portfolio-gallery" id="projects">
-    <h2 class="section-title">Портфолио</h2>
-    <div class="gallery-grid">
-        <!-- Пример элемента -->
-        <div class="gallery-item" data-project="logopotam">
-            <div class="image-container">
-                <img src="case_1.webp" alt="Логопотам">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">оформление соц. сетей Логопотам</h3>
-                <p class="item-description"> Ведение соц. сетей, оформление постов<br>и креативов, дизайн площадок</p>
-            </div>
-        </div>
-	    
-        <div class="gallery-item" data-project="mebelsoft">
-            <div class="image-container">
-                <img src="case_21.webp" alt="Мебель_SOFT">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Фирменный стиль для мебельной фирмы «МЕБЕЛЬ-SOFT»</h3>
-                <p class="item-description">Разработка айдентики, корпоративной продукции</p>
-            </div>
-        </div>
+  <main id="main">
+    <a id="top" class="anchor" aria-hidden="true"></a>
 
-        <div class="gallery-item" data-project="marketplace">
-            <div class="image-container">
-                <img src="case_3.webp" alt="marketplace">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Оформление карточек товаров<br>для WB и OZON</h3>
-                <p class="item-description">Анализ рынка продукции, ретушь изображений, создание инфографики</p>
-            </div>
-        </div>
-		
-        <div class="gallery-item" data-project="stickers">
-            <div class="image-container">
-                <img src="case_4.webp" alt="Тстикеры">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Стикеры для ТБанк</h3>
-                <p class="item-description">Раззрабтка концепта, отрисовка векторной иллюстрации, подготовка к печати</p>
-            </div>
-        </div>
-		
-        <div class="gallery-item" data-project="cofee">
-            <div class="image-container">
-                <img src="case_5.webp" alt="дизайн_стаканчика">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Дизайн для кофейного стаканчика</h3>
-                <p class="item-description">Отрисовка векторной иллюстрации для печати<br>на кофейном стаканчике</p>
-            </div>
-        </div>
-				
-        <div class="gallery-item" data-project="nashakuxnya">
-            <div class="image-container">
-                <img src="case_6.webp" alt="наша_кухня">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Фирменный стиль для бренда «НАША КУХНЯ»</h3>
-                <p class="item-description">Разработка айдентики, дизайн кода, рекламной печатной и цифровой продукции</p>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true"></div>
 
-<!-- Модальное окно -->
-<div class="modal-overlay" id="portfolioModal">
-  <div class="modal-container">
-    <button class="close-modal">&times;</button>
-    <div class="project-slider">
-      <div class="slider-container"></div>
-      <button class="slider-nav prev-slide"><i class="fas fa-chevron-left"></i></button>
-      <button class="slider-nav next-slide"><i class="fas fa-chevron-right"></i></button>
-    </div>
-    <div class="project-content">
-      <div class="project-details">
-        <h2 class="project-title"></h2>
-        <div class="project-tags"></div>
+      <div class="container hero__content">
+        <p class="eyebrow reveal">Ивет Кармаш</p>
+        <h1 class="hero__title reveal" style="--d: 90ms">Дизайнер и креатор для брендов</h1>
+        <p class="hero__lead reveal" style="--d: 160ms">
+          Создаю айдентику, визуальные системы и коммерческий дизайн, который помогает бизнесу выглядеть сильнее,
+          выделяться среди конкурентов и продавать увереннее.
+        </p>
+
+        <div class="hero__actions reveal" style="--d: 220ms">
+          <a class="btn btn--secondary" href="#projects">Посмотреть кейсы</a>
+          <a class="btn btn--primary" href="#contacts">Обсудить проект</a>
+        </div>
       </div>
-      <div class="project-description">
-        <p></p>
-      </div>
-    </div>
-  </div>
-</div>
-	
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <section class="contacts" id="contacts">
-        <!-- Здесь должен быть контент секции контактов -->
     </section>
 
-    <!-- Форма обратной связи -->
-    <div class="contact-form">
-        <form id="feedbackForm">
-            <!-- Содержимое формы -->
-        </form>
+    <!-- ABOUT -->
+    <section class="section section--tight" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Обо мне</h2>
+        </div>
+
+        <div class="about">
+          <figure class="about__media reveal" style="--d: 80ms">
+            <img src="about.png" alt="Ивет Кармаш" class="about__img" />
+          </figure>
+
+          <div class="about__body">
+            <p class="text reveal" style="--d: 120ms">
+              Я дизайнер и креатор, работаю на стыке эстетики и коммерческого результата.
+              Помогаю брендам и продуктам выстраивать цельный визуальный образ: от айдентики и носителей до контента и маркетплейсов.
+            </p>
+
+            <p class="text reveal" style="--d: 170ms">Мне важно создать дизайн, который:</p>
+
+            <ul class="pixel-list reveal" style="--d: 220ms">
+              <li>выглядит профессионально и современно</li>
+              <li>вызывает доверие у аудитории</li>
+              <li>упрощает коммуникацию бренда</li>
+              <li>усиливает продажи и узнаваемость</li>
+            </ul>
+
+            <p class="text reveal" style="--d: 260ms">
+              Работаю аккуратно, системно и всегда держу фокус на задаче бизнеса.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline (оставил, но сделал спокойнее и премиальнее) -->
+        <div class="timeline">
+          <div class="section__head section__head--center">
+            <h3 class="h3 reveal">Мой профессиональный путь</h3>
+          </div>
+
+          <div class="timeline__grid">
+            <article class="tcard reveal" style="--d: 80ms">
+              <p class="tcard__meta">2021 — 2024</p>
+              <h4 class="tcard__title">Колледж ДПИ</h4>
+              <p class="tcard__text">Направление Дизайн IT: создание визуального контента, основы программирования.</p>
+            </article>
+
+            <article class="tcard reveal" style="--d: 130ms">
+              <p class="tcard__meta">2023 — 2024</p>
+              <h4 class="tcard__title">ЛК СПЕКТР</h4>
+              <p class="tcard__text">Разработка POSM и фирменных носителей от концепции до препресса. Верстка лендинга.</p>
+            </article>
+
+            <article class="tcard reveal" style="--d: 180ms">
+              <p class="tcard__meta">2024 — 2025</p>
+              <h4 class="tcard__title">ЛОГОПОТАМ</h4>
+              <p class="tcard__text">Дизайн контента для соцсетей и адаптация фирстиля под форматы платформ.</p>
+            </article>
+
+            <article class="tcard reveal" style="--d: 230ms">
+              <p class="tcard__meta">2024 — наст. время</p>
+              <h4 class="tcard__title">Фриланс</h4>
+              <p class="tcard__text">Печатные материалы, карточки маркетплейсов, векторная графика на заказ.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HELP -->
+    <section class="section" id="help">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Чем я могу быть полезна</h2>
+        </div>
+
+        <div class="stack">
+          <article class="glass-card reveal" style="--d: 80ms; --z: 4">
+            <h3 class="card-title">Айдентика и фирменный стиль</h3>
+            <p class="text">
+              Создаю визуальную основу бренда: логотип, цвет, типографика, графика и носители, которые работают как единая система.
+            </p>
+          </article>
+
+          <article class="glass-card reveal" style="--d: 140ms; --z: 3">
+            <h3 class="card-title">Дизайн для маркетплейсов (WB / Ozon)</h3>
+            <p class="text">
+              Оформляю карточки товаров, инфографику и визуальные блоки под конверсию: так, чтобы товар выделялся среди конкурентов и выглядел дороже.
+            </p>
+          </article>
+
+          <article class="glass-card reveal" style="--d: 200ms; --z: 2">
+            <h3 class="card-title">Визуальная система для соцсетей</h3>
+            <p class="text">
+              Делаю оформление, шаблоны и контентные элементы, которые помогают бренду быть узнаваемым и выглядеть цельно в каждом формате.
+            </p>
+          </article>
+
+          <article class="glass-card reveal" style="--d: 260ms; --z: 1">
+            <h3 class="card-title">Иллюстрации и key visual</h3>
+            <p class="text">
+              Создаю фирменную графику, стикеры и иллюстрации для упаковки, мерча, спецпроектов и коммуникаций.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY (accent light panel) -->
+    <section class="section section--accent" id="why">
+      <div class="container">
+        <div class="accent-panel reveal">
+          <div class="accent-panel__head">
+            <h2 class="h2 h2--dark">Почему со мной удобно работать</h2>
+            <span class="accent-chip">системно • точно • спокойно</span>
+          </div>
+
+          <ul class="check-list">
+            <li>Думаю задачей бренда, а не просто визуалом</li>
+            <li>Работаю системно: концепция → структура → финальные макеты</li>
+            <li>Соблюдаю сроки и договорённости</li>
+            <li>Умею адаптировать дизайн под разные носители (цифра + печать)</li>
+            <li>Делаю так, чтобы результат можно было масштабировать</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section section--dark" id="process">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Как проходит работа</h2>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal" style="--d: 60ms">
+            <div class="step__num"><span>0</span><span>1</span></div>
+            <div class="step__body">
+              <h3 class="card-title card-title--on-dark">Бриф и цель проекта</h3>
+              <p class="text text--muted">Погружаюсь в задачу, аудиторию и контекст, фиксируем ожидания.</p>
+            </div>
+          </article>
+
+          <article class="step reveal" style="--d: 120ms">
+            <div class="step__num"><span>0</span><span>2</span></div>
+            <div class="step__body">
+              <h3 class="card-title card-title--on-dark">Анализ и направление</h3>
+              <p class="text text--muted">Смотрю рынок и конкурентов, предлагаю визуальный вектор.</p>
+            </div>
+          </article>
+
+          <article class="step reveal" style="--d: 180ms">
+            <div class="step__num"><span>0</span><span>3</span></div>
+            <div class="step__body">
+              <h3 class="card-title card-title--on-dark">Концепция и дизайн</h3>
+              <p class="text text--muted">Делаю решения, показываю логику и варианты.</p>
+            </div>
+          </article>
+
+          <article class="step reveal" style="--d: 240ms">
+            <div class="step__num"><span>0</span><span>4</span></div>
+            <div class="step__body">
+              <h3 class="card-title card-title--on-dark">Правки и финализация</h3>
+              <p class="text text--muted">Уточняем детали, доводим до чистого результата.</p>
+            </div>
+          </article>
+
+          <article class="step reveal" style="--d: 300ms">
+            <div class="step__num"><span>0</span><span>5</span></div>
+            <div class="step__body">
+              <h3 class="card-title card-title--on-dark">Передача материалов</h3>
+              <p class="text text--muted">Подготовка всех файлов и форматов для использования.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO (оставил ваш текст/структуру, обновил классы/дизайн) -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Портфолио</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item reveal" data-project="logopotam" type="button" style="--d: 60ms">
+            <span class="image-container">
+              <img src="case_1.webp" alt="Логопотам" loading="lazy" />
+            </span>
+            <span class="item-info">
+              <span class="item-title">оформление соц. сетей Логопотам</span>
+              <span class="item-description"> Ведение соц. сетей, оформление постов<br />и креативов, дизайн площадок</span>
+            </span>
+          </button>
+
+          <button class="gallery-item reveal" data-project="mebelsoft" type="button" style="--d: 110ms">
+            <span class="image-container">
+              <img src="case_21.webp" alt="Мебель_SOFT" loading="lazy" />
+            </span>
+            <span class="item-info">
+              <span class="item-title">Фирменный стиль для мебельной фирмы «МЕБЕЛЬ-SOFT»</span>
+              <span class="item-description">Разработка айдентики, корпоративной продукции</span>
+            </span>
+          </button>
+
+          <button class="gallery-item reveal" data-project="marketplace" type="button" style="--d: 160ms">
+            <span class="image-container">
+              <img src="case_3.webp" alt="marketplace" loading="lazy" />
+            </span>
+            <span class="item-info">
+              <span class="item-title">Оформление карточек товаров<br />для WB и OZON</span>
+              <span class="item-description">Анализ рынка продукции, ретушь изображений, создание инфографики</span>
+            </span>
+          </button>
+
+          <button class="gallery-item reveal" data-project="stickers" type="button" style="--d: 210ms">
+            <span class="image-container">
+              <img src="case_4.webp" alt="Стикеры" loading="lazy" />
+            </span>
+            <span class="item-info">
+              <span class="item-title">Стикеры для ТБанк</span>
+              <span class="item-description">Раззрабтка концепта, отрисовка векторной иллюстрации, подготовка к печати</span>
+            </span>
+          </button>
+
+          <button class="gallery-item reveal" data-project="cofee" type="button" style="--d: 260ms">
+            <span class="image-container">
+              <img src="case_5.webp" alt="дизайн_стаканчика" loading="lazy" />
+            </span>
+            <span class="item-info">
+              <span class="item-title">Дизайн для кофейного стаканчика</span>
+              <span class="item-description">Отрисовка векторной иллюстрации для печати<br />на кофейном стаканчике</span>
+            </span>
+          </button>
+
+          <button class="gallery-item reveal" data-project="nashakuxnya" type="button" style="--d: 310ms">
+            <span class="image-container">
+              <img src="case_6.webp" alt="наша_кухня" loading="lazy" />
+            </span>
+            <span class="item-info">
+              <span class="item-title">Фирменный стиль для бренда «НАША КУХНЯ»</span>
+              <span class="item-description">Разработка айдентики, дизайн кода, рекламной печатной и цифровой продукции</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULLSCREEN GALLERY MODAL -->
+    <div class="modal" id="portfolioModal" aria-hidden="true">
+      <div class="modal__backdrop" data-close></div>
+
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__top">
+          <button class="icon-btn" type="button" data-close aria-label="Закрыть галерею">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal__media">
+          <button class="nav-btn nav-btn--prev" type="button" aria-label="Предыдущий слайд">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="slider" aria-live="polite">
+            <div class="slider__track"></div>
+          </div>
+
+          <button class="nav-btn nav-btn--next" type="button" aria-label="Следующий слайд">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="modal__content">
+          <div class="modal__head">
+            <h2 class="modal__title" id="modalTitle"></h2>
+            <div class="modal__tags" aria-label="Теги проекта"></div>
+          </div>
+          <p class="modal__desc"></p>
+        </div>
+      </div>
     </div>
 
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <div class="footer-contacts">
-                    <a href="tel:+79067503950" class="footer-phone">
-                        <i class="fas fa-phone-alt footer-icon"></i>
-                        <h3> +7 (906) 750-3950 </h3>
-                    </a>
-                    <a href="mailto:k4rrmash.7@gmail.com" class="footer-email">
-                        <i class="fas fa-envelope footer-icon"></i>
-                        k4rrmash@gmail.com
-                    </a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.behance.net/pocketname/projects" class="social-link" aria-label="Behance">
-                        <i class="fab fa-behance"></i>
-                    </a>
-                    <a href="https://t.me/Kardesign" class="social-link" aria-label="Telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <a href="https://vk.com/karrmash" class="social-link" aria-label="VKontakte">
-                        <i class="fab fa-vk"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-right">
-                <!-- Место для логотипа -->
-                <div class="footer-logo-placeholder">
-				<a href="#top" class="logo-link">
-                    <img src="logo_white.svg" alt="Наверх" class="logo-img">
-                </div>
-            </div>
+    <!-- FINAL CTA -->
+    <section class="section section--dark" id="contacts">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="h2 reveal">Готовы обсудить проект?</h2>
         </div>
-    </footer>
+
+        <div class="cta">
+          <div class="cta-card reveal">
+            <div class="cta-card__left">
+              <p class="cta-text">
+                Напишите мне, что нужно сделать, в какие сроки и какой у вас продукт —
+                я отвечу с вопросами, предложением и стоимостью.
+              </p>
+
+              <div class="cta-actions">
+                <a class="btn btn--primary" href="https://t.me/Kardesign" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-telegram"></i>
+                  Написать в Telegram
+                </a>
+                <a class="btn btn--secondary" href="mailto:k4rrmash.7@gmail.com">
+                  <i class="fa-regular fa-envelope"></i>
+                  Отправить сообщение
+                </a>
+              </div>
+            </div>
+
+            <div class="cta-card__right">
+              <img class="cta-photo" src="about.png" alt="Ивет Кармаш" loading="lazy" />
+              <div class="cta-mini">
+                <span class="cta-mini__name">Ивет Кармаш</span>
+                <span class="cta-mini__role">Brand Design • Visual Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (accent) -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <div class="footer__contacts">
+          <a class="footer__link" href="tel:+79067503950">
+            <i class="fa-solid fa-phone"></i>
+            <span>+7 (906) 750-3950</span>
+          </a>
+          <a class="footer__link" href="mailto:k4rrmash.7@gmail.com">
+            <i class="fa-regular fa-envelope"></i>
+            <span>k4rrmash.7@gmail.com</span>
+          </a>
+        </div>
+
+        <div class="footer__social" aria-label="Социальные сети">
+          <a class="social" href="https://www.behance.net/pocketname/projects" target="_blank" rel="noopener" aria-label="Behance">
+            <i class="fa-brands fa-behance"></i>
+          </a>
+          <a class="social" href="https://t.me/Kardesign" target="_blank" rel="noopener" aria-label="Telegram">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a class="social" href="https://vk.com/karrmash" target="_blank" rel="noopener" aria-label="VKontakte">
+            <i class="fa-brands fa-vk"></i>
+          </a>
+        </div>
+      </div>
+
+      <a class="footer__brand" href="#top" aria-label="Наверх">
+        <img src="logo_white.svg" alt="" class="footer__logo" />
+      </a>
+    </div>
+  </footer>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>
