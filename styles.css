@@ -1,4 +1,4 @@
-:root {
+ :root {
     --primary-color: #353f37; /* Основной темный серо-зеленый */
     --secondary-color: #4f8a5a; /* Теплый серо-зеленый для заголовков */
     --accent-color: #7D8E80; /* Нейтральный серо-зеленый для акцентов */
@@ -259,7 +259,7 @@ header nav ul li { margin: 0; }
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('homebg.png') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('homebgpc.gif') center/cover no-repeat;
 }
 
 .hero h1 {
@@ -388,7 +388,7 @@ letter-spacing: 0.2em;
   letter-spacing: .02em;
   color: #fff;
   /* градиент: тёмный → серо-бежевый */
-  background: linear-gradient(135deg, var(--primary-color), #C6BDA9);
+  background: linear-gradient(135deg, var(--primary-color), #62605b);
   box-shadow: inset 0 0 0 2px rgba(255,255,255,.15);
   user-select: none;
 }
@@ -407,6 +407,46 @@ letter-spacing: 0.2em;
   background: rgba(53,63,55,.06);
   color: var(--primary-color);
   border: 1px solid rgba(53,63,55,.15);
+}
+/* === НИЖНИЕ ПОДБЛОКИ: языки и нейросети === */
+.tools-extra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+.extra-block {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.extra-title {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  display: inline-block;
+  padding: 7px 14px;
+  font-size: .9rem;
+  line-height: 1;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--primary-color);
+  border: 1px solid rgba(53,63,55,.15); /* в стилистике сайта */
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  white-space: nowrap;
 }
 
 /* шкала */
@@ -452,6 +492,7 @@ letter-spacing: 0.2em;
 /* адаптив: 2 колонки на таблетах, 1 — на мобилках */
 @media (max-width: 1024px) {
   .tools-grid { grid-template-columns: repeat(2, 1fr); }
+.tools-extra { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .tools-section { padding: 60px 15px 40px; }
@@ -459,6 +500,8 @@ letter-spacing: 0.2em;
   .tool-card { padding: 16px; }
   .tool-icon { width: 42px; height: 42px; border-radius: 10px; }
   .tool-title h3 { font-size: 1rem; }
+ .extra-block { padding: 14px; }
+  .pill { font-size: .88rem; padding: 7px 12px; }
 }
 
    /* Современный дизайн для секции "Обо мне" */
@@ -1359,10 +1402,12 @@ justify-content: flex-end;
     display: none !important; 
   }
   /* 4. Герой */
-  .hero {
-    padding-top: 80px;
-  }
-  
+.hero-background {
+    background: 
+      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      url('homebgmob.gif') center/cover no-repeat;
+    background-position: 50% 20%;
+	}
   .hero h1 {
     font-size: 3.5rem;
     padding: 10px 20px;
@@ -1420,27 +1465,35 @@ justify-content: flex-end;
   }
 
   /* 7. Портфолио */
-  .portfolio-gallery {
-    padding: 40px 15px !important;
-  }
-  
-  .gallery-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px;
-  }
-  
-  .gallery-item {
-    min-height: 500px !important; /* Увеличиваем минимальную высоту */
-    width: 100% !important;
-    margin: 0 auto 30px !important;
-  }
-  
-  .image-container {
-    height: 280px !important; /* Увеличиваем высоту изображения */
-    aspect-ratio: 3/4 !important;
-  }
+ .portfolio-gallery { 
+	 padding: 40px 15px !important; } 
+	.gallery-grid { 
+		grid-template-columns: 1fr !important; gap: 20px; 
+	} 
+	.gallery-item { 
+		min-height: 500px !important; /* Увеличиваем минимальную высоту */ 
+		width: 100% !important; 
+		margin: 0 auto 30px !important; 
+	} 
+	.image-container { 
+		height: 280px !important; 
+		 aspect-ratio: 3/4 !important; 
+	}
 
   /* 8. Модальное окно */
+.modal, .modal-overlay, .modal-container { z-index: 3000 !important; }
+
+/* Когда открыта модалка — блокируем скролл и прячем шапку */
+body.modal-open { overflow: hidden; }
+body.modal-open header {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+/* На всякий — подложка меню ниже модалки */
+.nav-overlay { z-index: 1500; }
+	
   .modal-container {
     width: 100% !important;
     margin: 0 !important;
@@ -1448,9 +1501,12 @@ justify-content: flex-end;
   }
   
   .project-slider {
-    height: 35vh !important;
+    height: auto !important;
     min-height: 250px !important;
     max-height: none !important;
+	display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .project-content {
@@ -1526,3 +1582,45 @@ justify-content: flex-end;
   padding-left: 0 !important;         /* на всякий случай перекрываем ранние правила */
   margin-left: 0 !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
