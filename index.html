@@ -60,7 +60,7 @@
 
       <div class="container hero__grid">
         <div class="hero__left">
-          <!-- (4) имя крупнее x1.5 -->
+          <!-- (NEW 1) имя тем же стилем что и "IDENTITY..." -->
           <p class="hero__name reveal">Ивет Кармаш</p>
 
           <h1 class="hero__title reveal" style="--d: 90ms">
@@ -79,13 +79,12 @@
             выделяться среди конкурентов<br />и продавать увереннее.
           </p>
 
-          <!-- (3) больше воздуха внутри кнопок -->
           <div class="hero__actions reveal" style="--d: 230ms">
-            <a class="btn btn--secondary btn--hero" href="#projects">Посмотреть кейсы</a>
+            <!-- (NEW 2) зелёная + hover как "читать про кейс" -->
+            <a class="btn btn--accent btn--hero" href="#projects">Посмотреть кейсы</a>
             <a class="btn btn--primary btn--hero" href="#contacts">Обсудить проект</a>
           </div>
 
-          <!-- (2) больше расстояния между точками и текстом -->
           <div class="hero__signature reveal" style="--d: 300ms" aria-label="Направления работы">
             <span class="sig__dots" aria-hidden="true">
               <span class="sig__dot"></span><span class="sig__dot"></span><span class="sig__dot"></span>
@@ -125,7 +124,7 @@
               <li><span class="pixel" aria-hidden="true"></span>усиливает продажи и узнаваемость</li>
             </ul>
 
-            <!-- (5) зелёная прямоугольная плашка + анимация маркером -->
+            <!-- (NEW 3) маркер плавнее -->
             <p class="about__highlightWrap reveal" style="--d: 190ms">
               <span class="hl" data-highlight>
                 Работаю аккуратно, системно и всегда держу фокус на задаче бизнеса.
@@ -227,6 +226,7 @@
           </p>
         </div>
 
+        <!-- (NEW 7) круг + дистанция между плашками -->
         <div class="orbit" aria-label="Преимущества">
           <article class="orbitCard floaty" style="--a: 0deg;"><div class="orbitCard__inner">Думаю задачей бренда, а не просто визуалом</div></article>
           <article class="orbitCard floaty" style="--a: 72deg;"><div class="orbitCard__inner">Работаю системно: концепция → структура → финальные макеты</div></article>
@@ -237,7 +237,7 @@
       </div>
     </section>
 
-    <!-- PROCESS (7) убрали плашки, цифры огромные на всю площадь -->
+    <!-- PROCESS -->
     <section class="section section--dark" id="process">
       <div class="container">
         <div class="section__head">
@@ -300,8 +300,8 @@
             <button class="caseCard__media" type="button" data-open>
               <img src="case_1.webp" alt="Логопотам" loading="lazy" />
               <div class="caseCard__overlay">
-                <!-- (8) кнопка меньше + обычный шрифт -->
-                <span class="caseCard__cta">Читать про кейс</span>
+                <!-- (NEW 5) тот же стиль что hero, но зелёная -->
+                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
               </div>
             </button>
             <div class="caseCard__body">
@@ -314,7 +314,7 @@
             <button class="caseCard__media" type="button" data-open>
               <img src="case_21.webp" alt="МЕБЕЛЬ-SOFT" loading="lazy" />
               <div class="caseCard__overlay">
-                <span class="caseCard__cta">Читать про кейс</span>
+                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
               </div>
             </button>
             <div class="caseCard__body">
@@ -327,7 +327,7 @@
             <button class="caseCard__media" type="button" data-open>
               <img src="case_3.webp" alt="Маркетплейсы" loading="lazy" />
               <div class="caseCard__overlay">
-                <span class="caseCard__cta">Читать про кейс</span>
+                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
               </div>
             </button>
             <div class="caseCard__body">
@@ -340,7 +340,7 @@
             <button class="caseCard__media" type="button" data-open>
               <img src="case_4.webp" alt="Стикеры" loading="lazy" />
               <div class="caseCard__overlay">
-                <span class="caseCard__cta">Читать про кейс</span>
+                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
               </div>
             </button>
             <div class="caseCard__body">
@@ -353,7 +353,7 @@
             <button class="caseCard__media" type="button" data-open>
               <img src="case_5.webp" alt="Кофейный стаканчик" loading="lazy" />
               <div class="caseCard__overlay">
-                <span class="caseCard__cta">Читать про кейс</span>
+                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
               </div>
             </button>
             <div class="caseCard__body">
@@ -366,7 +366,7 @@
             <button class="caseCard__media" type="button" data-open>
               <img src="case_6.webp" alt="НАША КУХНЯ" loading="lazy" />
               <div class="caseCard__overlay">
-                <span class="caseCard__cta">Читать про кейс</span>
+                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
               </div>
             </button>
             <div class="caseCard__body">
@@ -378,7 +378,7 @@
       </div>
     </section>
 
-    <!-- CASE MODAL (9) скроллится весь кейс, без видимого скроллбара -->
+    <!-- CASE MODAL -->
     <div class="modal" id="portfolioModal" aria-hidden="true">
       <div class="modal__backdrop" data-close></div>
 
@@ -399,8 +399,8 @@
               <div class="slider__track"></div>
             </div>
 
-            <!-- (9) кнопка-тоггл + автоскролл -->
-            <button class="readBtn" type="button" data-read aria-controls="caseContent">
+            <!-- toggle -->
+            <button class="readBtn" type="button" data-read aria-controls="caseContent" aria-expanded="false">
               <span class="readBtn__label">Читать про кейс</span>
               <i class="fa-solid fa-arrow-down readBtn__icon" aria-hidden="true"></i>
             </button>
@@ -427,7 +427,7 @@
 
       <div class="container">
         <div class="section__head section__head--onDark">
-          <!-- (10) заголовок салатовый, непрозрачность 100% -->
+          <!-- (NEW 8) 100% непрозрачность -->
           <h2 class="h2 h2--accent reveal">Готовы обсудить проект?</h2>
         </div>
 
