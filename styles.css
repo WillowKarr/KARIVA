@@ -1,5 +1,4 @@
 :root{
-  /* Colors */
   --bg: #0B0F0D;
   --bg2:#0D1411;
 
@@ -81,20 +80,14 @@ button{ font:inherit; color:inherit; }
   margin: 0 auto;
 }
 
-.section{
-  padding: clamp(76px, 7.2vw, 132px) 0;
-}
-.section--tight{
-  padding: clamp(64px, 6.2vw, 108px) 0;
-}
+.section{ padding: clamp(76px, 7.2vw, 132px) 0; }
+.section--tight{ padding: clamp(64px, 6.2vw, 108px) 0; }
 .section--dark{
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
-.section__head{
-  margin-bottom: clamp(30px, 3.4vw, 58px);
-}
+.section__head{ margin-bottom: clamp(30px, 3.4vw, 58px); }
 .section__head--onAccent{ margin-bottom: clamp(28px, 3.2vw, 54px); }
 .section__head--onDark{ margin-bottom: clamp(24px, 3.0vw, 48px); }
 
@@ -108,8 +101,10 @@ button{ font:inherit; color:inherit; }
   margin: 0;
 }
 .h2--dark{ color: var(--darkText); }
-.h2--white{ color: rgba(255,255,255,.96); }
-.h2--accent{ color: var(--accent); opacity: 1; }
+.h2--accent{
+  color: var(--accent) !important;
+  opacity: 1 !important; /* NEW 8: не полупрозрачный */
+}
 
 .text{
   margin: 0 0 14px;
@@ -133,7 +128,6 @@ button{ font:inherit; color:inherit; }
   align-items:center;
   justify-content: space-between;
   gap: 18px;
-
   padding: 12px 22px;
 
   border-radius: 999px;
@@ -191,12 +185,8 @@ button{ font:inherit; color:inherit; }
   transition: width var(--tMed) var(--ease);
   border-radius: 2px;
 }
-.nav__link:hover{
-  color: var(--accent);
-  opacity: 1;
-}
+.nav__link:hover{ color: var(--accent); opacity: 1; }
 .nav__link:hover::after{ width: 76%; }
-
 .nav__link:focus-visible{
   outline: 2px solid rgba(201,255,87,.6);
   outline-offset: 6px;
@@ -298,13 +288,14 @@ button{ font:inherit; color:inherit; }
 .hero__left{ display:grid; gap: 10px; }
 .hero__right{ display:grid; gap: 18px; justify-items:start; }
 
-/* (4) имя больше в 1.5 раза */
+/* NEW 1: имя тем же стилем что "IDENTITY..." */
 .hero__name{
   margin: 0 0 6px;
-  font-weight: 600;
-  letter-spacing: .02em;
-  color: rgba(255,255,255,.88);
-  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.74);
 }
 
 .hero__title{
@@ -349,7 +340,7 @@ button{ font:inherit; color:inherit; }
   flex-wrap: wrap;
 }
 
-/* (2) больше воздуха перед подписью + расстояние между dots и текстом */
+/* signature */
 .hero__signature{
   margin-top: clamp(22px, 3.6vw, 48px);
   border-radius: var(--r);
@@ -366,7 +357,7 @@ button{ font:inherit; color:inherit; }
   display:inline-flex;
   align-items:center;
   gap: 10px;
-  margin-right: 18px; /* ключевой отступ между точками и текстом */
+  margin-right: 18px;
 }
 .sig__dot{
   width: 6px; height: 6px;
@@ -376,6 +367,7 @@ button{ font:inherit; color:inherit; }
 }
 .sig__text{
   font-size: 12px;
+  font-weight: 500;
   letter-spacing: .10em;
   text-transform: uppercase;
   color: rgba(255,255,255,.74);
@@ -393,7 +385,6 @@ button{ font:inherit; color:inherit; }
   justify-content:center;
   gap: 10px;
 
-  /* базово чуть больше воздуха */
   min-height: 46px;
   padding: 10px 16px;
 
@@ -411,11 +402,29 @@ button{ font:inherit; color:inherit; }
   will-change: transform;
 }
 
-/* (3) hero-кнопки — ещё больше вертикального воздуха */
+/* hero air */
 .btn--hero{
   padding-top: 14px;
   padding-bottom: 14px;
   min-height: 54px;
+}
+
+/* NEW 2/5: общая зелёная кнопка + hover как "читать про кейс" */
+.btn--accent{
+  background: var(--accent);
+  color: var(--darkText);
+  border-color: rgba(11,15,13,.18);
+}
+.btn--accent:hover{
+  transform: translateY(-1px);
+  background: var(--accentHover);
+}
+
+/* case: можно чуть компактнее, но стиль тот же */
+.btn--case{
+  min-height: 46px;
+  padding: 10px 14px;
+  font-weight: 700;
 }
 
 .btn--primary{
@@ -426,15 +435,6 @@ button{ font:inherit; color:inherit; }
   transform: translateY(-1px);
   background: rgba(201,255,87,.14);
   border-color: rgba(201,255,87,.30);
-}
-.btn--secondary{
-  background: transparent;
-  border-color: rgba(255,255,255,.16);
-}
-.btn--secondary:hover{
-  transform: translateY(-1px);
-  border-color: rgba(201,255,87,.35);
-  color: rgba(255,255,255,.96);
 }
 
 /* ABOUT */
@@ -504,21 +504,19 @@ button{ font:inherit; color:inherit; }
   .fireflies .pixel{ animation: none; }
 }
 
-/* (5) зелёная прямоугольная плашка + анимация текстовыделителем */
+/* (5) highlight marker — NEW 3: плавнее */
 .about__highlightWrap{ margin: 8px 0 0; }
 .hl{
   display:inline-block;
   position: relative;
 
-  /* прямоугольник без скругления */
   border-radius: 0;
   padding: 10px 12px;
 
-  /* старт: белый текст на чёрном */
+  /* старт */
   background: rgba(0,0,0,.92);
   color: rgba(255,255,255,.96);
 
-  /* важно: чтобы маркер был "под текстом" */
   overflow: hidden;
   isolation: isolate;
 }
@@ -527,19 +525,35 @@ button{ font:inherit; color:inherit; }
   position:absolute;
   inset:0;
   background: var(--accent);
+
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 760ms var(--ease);
+
+  /* плавнее + чуть дольше */
+  transition: transform 1200ms cubic-bezier(.12,1,.24,1);
   z-index: -1;
 }
-
-/* активируем при скролле */
-.hl.is-on{
-  color: var(--darkText); /* финал: чёрный текст */
-  transition: color 380ms var(--ease);
+/* дополнительный мягкий "свип" для ощущения маркера */
+.hl::after{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.22) 45%, transparent 70%);
+  transform: translateX(-120%);
+  opacity: .0;
+  z-index: -1;
+  pointer-events:none;
 }
-.hl.is-on::before{
-  transform: scaleX(1); /* появление плашки-маркера */
+
+.hl.is-on{
+  color: var(--darkText);
+  transition: color 560ms cubic-bezier(.16,1,.3,1) 160ms;
+}
+.hl.is-on::before{ transform: scaleX(1); }
+.hl.is-on::after{
+  opacity: .35;
+  transform: translateX(120%);
+  transition: transform 1400ms cubic-bezier(.16,1,.3,1) 120ms, opacity 300ms ease 120ms;
 }
 
 /* PATH green section */
@@ -590,19 +604,6 @@ button{ font:inherit; color:inherit; }
 }
 
 .tcard--glitch{ animation: glitchJitter 2.9s steps(2, end) infinite; }
-.tcard--glitch::before,
-.tcard--glitch::after{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background: linear-gradient(90deg, rgba(11,15,13,.18), transparent 35%, rgba(11,15,13,.12));
-  opacity: 0;
-  mix-blend-mode: multiply;
-  pointer-events:none;
-}
-.tcard--glitch::before{ transform: translateX(-2px); }
-.tcard--glitch::after{ transform: translateX(2px); }
-
 @keyframes glitchJitter{
   0%   { filter: none; }
   18%  { filter: none; }
@@ -649,12 +650,6 @@ button{ font:inherit; color:inherit; }
   border: 1px solid rgba(201,255,87,.18);
   transform: translateX(-18px);
 }
-.helpCard__gif img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  border-radius: inherit;
-}
 .cardTitle{
   margin: 0 0 10px;
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -673,14 +668,10 @@ button{ font:inherit; color:inherit; }
 /* WHY */
 .why{
   position: relative;
-
-  /* (6) больше по высоте, чтобы влезали плашки */
   min-height: 110svh;
-
   display:flex;
   align-items:center;
   overflow:hidden;
-
   padding: clamp(28px, 4vw, 60px) 0;
 }
 .why__bg{
@@ -709,28 +700,26 @@ button{ font:inherit; color:inherit; }
   max-width: 70ch;
 }
 
+/* NEW 7: больше радиус + меньше ширина карточек = не касаются */
 .orbit{
   position: relative;
   margin-top: clamp(18px, 5vw, 60px);
-
-  /* (6) увеличили рабочую область */
-  height: clamp(560px, 68vh, 760px);
-
+  height: clamp(600px, 70vh, 820px);
   width: 100%;
 }
 .orbitCard{
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(340px, 74vw);
+  width: min(300px, 70vw);
   transform:
     translate(-50%, -50%)
     rotate(var(--a))
-    translateX(min(270px, 29vw))
+    translateX(min(320px, 36vw))
     rotate(calc(var(--a) * -1));
 }
 .orbitCard__inner{
-  padding: 24px 24px;
+  padding: 22px 22px;
   border-radius: var(--r);
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.06);
@@ -740,6 +729,7 @@ button{ font:inherit; color:inherit; }
   font-weight: 800;
   line-height: 1.45;
 }
+
 .floaty{ animation: floaty 3.6s var(--ease) infinite; }
 .orbitCard:nth-child(2){ animation-delay: .2s; }
 .orbitCard:nth-child(3){ animation-delay: .45s; }
@@ -749,31 +739,33 @@ button{ font:inherit; color:inherit; }
 @keyframes floaty{
   0%   { transform:
     translate(-50%, -50%) rotate(var(--a))
-    translateX(min(270px, 29vw)) rotate(calc(var(--a) * -1))
+    translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1))
     translate(0px, 0px); }
   35%  { transform:
     translate(-50%, -50%) rotate(var(--a))
-    translateX(min(270px, 29vw)) rotate(calc(var(--a) * -1))
+    translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1))
     translate(6px, -5px); }
   70%  { transform:
     translate(-50%, -50%) rotate(var(--a))
-    translateX(min(270px, 29vw)) rotate(calc(var(--a) * -1))
+    translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1))
     translate(-5px, 6px); }
   100% { transform:
     translate(-50%, -50%) rotate(var(--a))
-    translateX(min(270px, 29vw)) rotate(calc(var(--a) * -1))
+    translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1))
     translate(0px, 0px); }
 }
+
 @media (prefers-reduced-motion: reduce){
   .floaty{ animation: none; }
 }
-@media (max-width: 760px){
+@media (max-width: 860px){
+  /* на средних экранах круг часто ломается — превращаем в “стек” раньше */
   .orbit{ height:auto; display:grid; gap: 12px; }
   .orbitCard{ position: static; transform:none !important; width:100%; }
   .orbitCard__inner{ padding: 18px; }
 }
 
-/* PROCESS (7) */
+/* PROCESS */
 .steps{
   display:grid;
   gap: 14px;
@@ -781,37 +773,44 @@ button{ font:inherit; color:inherit; }
 }
 .step{
   position: relative;
-
-  /* убрали плашки */
   border: 0;
   background: transparent;
-
   padding: 18px 0 6px;
   overflow: visible;
 }
+
+/* NEW 4: цифры чуть меньше, чтобы не накладывались */
 .step__num{
   position:absolute;
-  left: -8px;
-  top: -8px;
+  left: -6px;
+  top: -10px;
 
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 1;
 
-  /* огромная цифра на всю область */
-  font-size: clamp(120px, 18vw, 220px);
+  font-size: clamp(96px, 14vw, 180px);
+  color: rgba(201,255,87,.20);
 
-  color: rgba(201,255,87,.22);
   pointer-events:none;
   user-select:none;
 }
 .step__body{
   position: relative;
-  padding-left: clamp(40px, 6vw, 70px);
-  padding-top: 18px;
+  padding-left: clamp(40px, 6vw, 78px);
+  padding-top: 16px;
 }
 .step .text{ margin: 0; }
+
+@media (max-width: 560px){
+  .step__num{
+    left: -4px;
+    top: -8px;
+    font-size: clamp(84px, 20vw, 140px);
+  }
+  .step__body{ padding-left: 54px; }
+}
 
 /* PORTFOLIO */
 .casesGrid{
@@ -860,25 +859,8 @@ button{ font:inherit; color:inherit; }
   padding: 12px;
 }
 
-/* (8) меньше + обычный шрифт */
-.caseCard__cta{
-  height: 34px;
-  padding: 0 10px;
-  border-radius: 8px;
-  background: var(--accent);
-  color: var(--darkText);
-  font-weight: 500;
-  letter-spacing: .02em;
-  font-size: 12px;
-  display:inline-flex;
-  align-items:center;
-  border: 1px solid rgba(11,15,13,.18);
-  transition: background var(--tFast) var(--ease), transform var(--tFast) var(--ease);
-}
-.caseCard__cta:hover{
-  transform: translateY(-1px);
-  background: var(--accentHover);
-}
+/* чтобы span-кнопка не ломала клики по родителю */
+.caseCard__cta{ pointer-events: none; }
 
 .caseCard__body{ padding: 14px 14px 16px; }
 .caseCard__title{
@@ -890,7 +872,7 @@ button{ font:inherit; color:inherit; }
 }
 .caseCard__desc{ margin: 0; color: var(--muted2); line-height: 1.55; }
 
-/* MODAL (9) */
+/* MODAL */
 .modal{
   position: fixed;
   inset: 0;
@@ -898,23 +880,20 @@ button{ font:inherit; color:inherit; }
   display:none;
 }
 .modal.is-open{ display:block; }
-
 .modal__backdrop{
   position:absolute;
   inset:0;
   background: rgba(0,0,0,.88);
 }
 
-/* скроллим весь диалог, а не только контент */
+/* скроллим весь диалог */
 .modal__dialog{
   position: relative;
   height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-}
 
-/* убираем видимость скроллбара */
-.modal__dialog{
+  /* убираем видимость скроллбара */
   scrollbar-width: none;
 }
 .modal__dialog::-webkit-scrollbar{
@@ -989,6 +968,7 @@ button{ font:inherit; color:inherit; }
   object-position: center top;
 }
 
+/* arrows */
 .navBtn{
   width: 44px; height: 44px;
   border-radius: var(--r3);
@@ -1005,20 +985,17 @@ button{ font:inherit; color:inherit; }
     color var(--tFast) var(--ease),
     border-color var(--tFast) var(--ease);
 }
-
-/* (9) стрелки исчезают медленно */
-.modal.nav-hidden .navBtn{
-  opacity: 0;
-  pointer-events: none;
-}
-
 .navBtn:hover{
   background: var(--accent);
   border-color: rgba(11,15,13,.18);
   color: var(--darkText);
 }
+.modal.nav-hidden .navBtn{
+  opacity: 0;
+  pointer-events: none;
+}
 
-/* read button on image */
+/* read button */
 .readBtn{
   position:absolute;
   right: 14px;
@@ -1028,16 +1005,12 @@ button{ font:inherit; color:inherit; }
   border-radius: var(--r2);
   background: var(--accent);
   color: var(--darkText);
-
-  /* (8/1 подход) не “жирная кнопка” */
   font-weight: 600;
   letter-spacing: .02em;
   border: 1px solid rgba(11,15,13,.18);
-
   display:inline-flex;
   align-items:center;
   gap: 10px;
-
   transition: background var(--tFast) var(--ease), transform var(--tFast) var(--ease);
 }
 .readBtn:hover{
@@ -1058,7 +1031,6 @@ button{ font:inherit; color:inherit; }
   display:grid;
   gap: 12px;
 }
-
 .modal__head{
   display:flex;
   align-items:flex-start;
@@ -1087,8 +1059,6 @@ button{ font:inherit; color:inherit; }
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.05);
   font-size: 12px;
-
-  /* не жирним */
   font-weight: 600;
 }
 .modal__desc{
