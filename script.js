@@ -50,16 +50,12 @@
       isOpen ? closeNav() : openNav();
     });
     overlay.addEventListener('click', closeNav);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeNav();
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 820) closeNav();
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 820) closeNav(); });
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
   }
 
-  // ===== Reveal on scroll (IntersectionObserver) =====
+  // ===== Reveal on scroll =====
   const revealEls = Array.from(document.querySelectorAll('.reveal'));
   if (!prefersReduced && revealEls.length) {
     const io = new IntersectionObserver(
@@ -78,20 +74,19 @@
     revealEls.forEach((el) => el.classList.add('in-view'));
   }
 
-  // ===== (5) Highlight marker animation in About =====
-  // <span class="hl" data-highlight>...</span>
+  // ===== Highlight marker animation (about) =====
   const hlEls = Array.from(document.querySelectorAll('[data-highlight]'));
   if (!prefersReduced && hlEls.length) {
     const hio = new IntersectionObserver(
       (entries) => {
         entries.forEach((en) => {
           if (en.isIntersecting) {
-            en.target.classList.add('is-on'); // запускает заливку и смену цвета текста
+            en.target.classList.add('is-on');
             hio.unobserve(en.target);
           }
         });
       },
-      { threshold: 0.6, rootMargin: '0px 0px -10% 0px' }
+      { threshold: 0.65, rootMargin: '0px 0px -12% 0px' }
     );
     hlEls.forEach((el) => hio.observe(el));
   } else {
@@ -114,21 +109,17 @@
   window.addEventListener('scroll', onScrollParallax, { passive: true });
   onScrollParallax();
 
-  // ===== Custom cursor (square, only desktop) =====
+  // ===== Custom cursor (desktop only) =====
   const cursor = document.querySelector('.cursor');
   const follower = document.querySelector('.cursor-follower');
   const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
   if (!prefersReduced && cursor && follower && !isCoarse) {
-    let fx = 0,
-      fy = 0,
-      x = 0,
-      y = 0;
+    let fx = 0, fy = 0, x = 0, y = 0;
     const speed = 0.18;
 
     const move = (e) => {
-      x = e.clientX;
-      y = e.clientY;
+      x = e.clientX; y = e.clientY;
       cursor.style.left = `${x}px`;
       cursor.style.top = `${y}px`;
     };
@@ -155,21 +146,20 @@
 
   // ===== Portfolio modal gallery =====
   const modal = document.getElementById('portfolioModal');
+  const dialog = modal?.querySelector('.modal__dialog');
   const track = modal?.querySelector('.slider__track');
   const titleEl = modal?.querySelector('.modal__title');
   const descEl = modal?.querySelector('.modal__desc');
   const tagsEl = modal?.querySelector('.modal__tags');
+
   const prevBtn = modal?.querySelector('.navBtn--prev');
   const nextBtn = modal?.querySelector('.navBtn--next');
 
-  // updated: read button has label + icon
   const readBtn = modal?.querySelector('[data-read]');
   const readBtnLabel = modal?.querySelector('.readBtn__label');
   const readBtnIcon = modal?.querySelector('.readBtn__icon');
 
-  // updated: content is not separately scrollable, but we use it as anchor to scroll TO
   const content = modal?.querySelector('#caseContent');
-  const dialog = modal?.querySelector('.modal__dialog'); // scroll container
 
   const projects = {
     logopotam: {
@@ -177,54 +167,47 @@
       description:
         'Разработка визуальной айдентики для социальных сетей проекта «Логопотам» — сервиса онлайн-коррекции речи у детей. Созданы самостоятельные дизайн-коды под ключевые направления бренда с учетом целевой аудитории каждого. В зоне ответственности: верстка контента, оформление сторис и рекламных креативов, цветокоррекция и ретушь, отрисовка векторных иконок и иллюстраций, применение AI-инструментов. Работа велась для VK и Telegram. Итог — более 300 креативов.',
       tags: ['Figma', 'Photoshop', 'Illustrator', 'AI'],
-      imagesDesktop: ['element1.webp', 'element2.webp', 'element3.webp', 'element5.webp', 'element6.webp', 'element7.webp', 'element8.webp', 'element9.webp'],
-      imagesMobile: [
-        'elementmobile1.webp',
-        'elementmobile2.webp',
-        'elementmobile3.webp',
-        'elementmobile5.webp',
-        'elementmobile6.webp',
-        'elementmobile7.webp',
-        'elementmobile8.webp',
-        'elementmobile9.webp',
-        'elementmobile10.webp'
-      ]
+      imagesDesktop: ['element1.webp','element2.webp','element3.webp','element5.webp','element6.webp','element7.webp','element8.webp','element9.webp'],
+      imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile3.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp']
     },
     mebelsoft: {
       title: 'Фирменный стиль для мебельной фирмы МЕБЕЛЬ-SOFT',
       description:
         'Разработка логотипа мебельного магазина: красное кресло в обрамлении желтого окна стало смысловым и визуальным ядром айдентики. Также на основе логотипа были созданы атрибуты фирменного стиля.',
       tags: ['Illustrator', 'Photoshop'],
-      imagesDesktop: ['element12.webp', 'element13.webp', 'element14.webp', 'element15.webp'],
-      imagesMobile: ['elementmobile24.webp', 'elementmobile25.webp', 'elementmobile26.webp', 'elementmobile27.webp', 'elementmobile28.webp']
+      imagesDesktop: ['element12.webp','element13.webp','element14.webp','element15.webp'],
+      imagesMobile: ['elementmobile24.webp','elementmobile25.webp','elementmobile26.webp','elementmobile27.webp','elementmobile28.webp']
     },
     cofee: {
       title: 'Дизайн для кофейного стаканчика',
-      description: 'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Разработаны варианты под сезоны, графика готовилась под печать.',
+      description:
+        'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Разработаны варианты под сезоны, графика готовилась под печать.',
       tags: ['Illustrator', 'Photoshop'],
-      imagesDesktop: ['element16.webp', 'element18.webp', 'element19.webp'],
-      imagesMobile: ['elementmobile31.webp', 'elementmobile32.webp', 'elementmobile33.webp', 'elementmobile34.webp']
+      imagesDesktop: ['element16.webp','element18.webp','element19.webp'],
+      imagesMobile: ['elementmobile31.webp','elementmobile32.webp','elementmobile33.webp','elementmobile34.webp']
     },
     nashakuxnya: {
       title: 'Фирменный стиль для бренда "НАША КУХНЯ"',
-      description: 'Комплексная айдентика для придорожного кафе-магазина. Разработаны логотип, палитра, графические элементы и макеты носителей.',
+      description:
+        'Комплексная айдентика для придорожного кафе-магазина. Разработаны логотип, палитра, графические элементы и макеты носителей.',
       tags: ['Photoshop', 'Illustrator', 'Krita'],
-      imagesDesktop: ['element20.webp', 'element21.webp', 'element22.webp', 'element23.webp'],
-      imagesMobile: ['elementmobile59.webp', 'elementmobile60.webp', 'elementmobile61.webp', 'elementmobile62.webp']
+      imagesDesktop: ['element20.webp','element21.webp','element22.webp','element23.webp'],
+      imagesMobile: ['elementmobile59.webp','elementmobile60.webp','elementmobile61.webp','elementmobile62.webp']
     },
     stickers: {
       title: 'Стикеры для Тбанк',
       description: 'Стикерпак для корпоративного мероприятия KidsDay. Серия персонажей, подготовка к печати.',
       tags: ['Illustrator'],
-      imagesDesktop: ['element24.webp', 'element25.webp'],
-      imagesMobile: ['elementmobile54.webp', 'elementmobile55.webp', 'elementmobile56.webp', 'elementmobile57.webp']
+      imagesDesktop: ['element24.webp','element25.webp'],
+      imagesMobile: ['elementmobile54.webp','elementmobile55.webp','elementmobile56.webp','elementmobile57.webp']
     },
     marketplace: {
       title: 'Создание карточек товара на WB и OZON',
-      description: 'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки.',
+      description:
+        'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки.',
       tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion'],
-      imagesDesktop: ['element26.webp', 'element27.webp', 'element28.webp', 'element29.webp', 'element30.webp'],
-      imagesMobile: ['elementmobile38.webp', 'elementmobile39.webp', 'elementmobile40.webp', 'elementmobile41.webp']
+      imagesDesktop: ['element26.webp','element27.webp','element28.webp','element29.webp','element30.webp'],
+      imagesMobile: ['elementmobile38.webp','elementmobile39.webp','elementmobile40.webp','elementmobile41.webp']
     }
   };
 
@@ -232,7 +215,7 @@
   let slidesCount = 0;
   let currentProjectId = null;
 
-  // read state: false => "Читать про кейс" (down), true => "Посмотреть визуал" (up)
+  // NEW 6: состояние фиксируется, не “мигает”
   let isReading = false;
 
   const getImages = (project) => {
@@ -271,25 +254,21 @@
     setTransform();
   };
 
-  const setReadBtnState = (reading) => {
-    isReading = reading;
-
-    if (readBtn) {
-      readBtn.setAttribute('aria-expanded', reading ? 'true' : 'false');
-    }
-    if (readBtnLabel) {
-      readBtnLabel.textContent = reading ? 'Посмотреть визуал' : 'Читать про кейс';
-    }
-    if (readBtnIcon) {
-      readBtnIcon.classList.toggle('fa-arrow-down', !reading);
-      readBtnIcon.classList.toggle('fa-arrow-up', reading);
-      readBtnIcon.setAttribute('aria-hidden', 'true');
-    }
-  };
-
   const setNavHidden = (hidden) => {
     if (!modal) return;
     modal.classList.toggle('nav-hidden', hidden);
+  };
+
+  const setReadBtnState = (reading) => {
+    isReading = reading;
+
+    if (readBtn) readBtn.setAttribute('aria-expanded', reading ? 'true' : 'false');
+    if (readBtnLabel) readBtnLabel.textContent = reading ? 'Посмотреть визуал' : 'Читать про кейс';
+
+    if (readBtnIcon) {
+      readBtnIcon.classList.toggle('fa-arrow-down', !reading);
+      readBtnIcon.classList.toggle('fa-arrow-up', reading);
+    }
   };
 
   const scrollDialogToEl = (el) => {
@@ -299,7 +278,7 @@
   };
 
   const openModal = (projectId) => {
-    if (!modal || !track || !titleEl || !descEl || !tagsEl || !dialog) return;
+    if (!modal || !dialog || !track || !titleEl || !descEl || !tagsEl) return;
     const project = projects[projectId];
     if (!project) return;
 
@@ -322,12 +301,10 @@
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
 
-    // reset state
     dialog.scrollTop = 0;
     setReadBtnState(false);
     setNavHidden(false);
 
-    // focus for a11y
     requestAnimationFrame(() => {
       content?.focus?.({ preventScroll: true });
     });
@@ -338,6 +315,7 @@
     modal.classList.remove('is-open');
     modal.classList.remove('nav-hidden');
     modal.setAttribute('aria-hidden', 'true');
+
     document.body.classList.remove('modal-open');
 
     currentProjectId = null;
@@ -346,7 +324,6 @@
     isReading = false;
   };
 
-  // open from cards
   document.querySelectorAll('[data-open]').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       const card = e.currentTarget.closest('.caseCard');
@@ -355,7 +332,6 @@
     });
   });
 
-  // close by backdrop / close btn
   modal?.addEventListener('click', (e) => {
     const target = e.target;
     if (target?.matches?.('[data-close]')) closeModal();
@@ -364,62 +340,51 @@
   prevBtn?.addEventListener('click', () => go(-1));
   nextBtn?.addEventListener('click', () => go(1));
 
-  // (9) Toggle + auto scroll + arrows fade behavior
+  // NEW 6: кнопка реально переключается и не сбрасывается скроллом
   readBtn?.addEventListener('click', () => {
     if (!dialog || !content) return;
 
     if (!isReading) {
-      // go to text
       setReadBtnState(true);
-      setNavHidden(true); // стрелки медленно исчезают
+      setNavHidden(true);
       scrollDialogToEl(content);
     } else {
-      // go back to visual (top)
       setReadBtnState(false);
-      setNavHidden(false); // стрелки появляются
+      setNavHidden(false);
       dialog.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
     }
   });
 
-  // (9) When user scrolls down/up inside modal: hide/show arrows + sync button state
-  let scrollTick = 0;
-  dialog?.addEventListener(
-    'scroll',
-    () => {
-      if (!dialog || !content) return;
-      if (scrollTick) return;
+  // при ручном скролле: стрелки прячем/показываем, а состояние кнопки НЕ "мигаем"
+  let scrollRaf = 0;
+  dialog?.addEventListener('scroll', () => {
+    if (!dialog || !content) return;
+    if (scrollRaf) return;
 
-      scrollTick = requestAnimationFrame(() => {
-        scrollTick = 0;
+    scrollRaf = requestAnimationFrame(() => {
+      scrollRaf = 0;
 
-        // threshold to decide where we are
-        const y = dialog.scrollTop;
-        const toHide = y > 60;
+      const y = dialog.scrollTop;
 
-        // hide arrows when scrolling down a bit
-        setNavHidden(toHide);
+      // arrows fade
+      if (y > 60) setNavHidden(true);
+      if (y < 20) setNavHidden(false);
 
-        // if we are already near content section -> set reading state, else visual state
-        const contentTop = content.getBoundingClientRect().top - dialog.getBoundingClientRect().top + dialog.scrollTop;
-        const isPastContent = y + 120 >= contentTop;
+      // синхронизация состояния только по “краям”, чтобы не сбрасывало при автоскролле
+      if (y < 30 && isReading) setReadBtnState(false);
 
-        if (isPastContent && !isReading) setReadBtnState(true);
-        if (!isPastContent && isReading) setReadBtnState(false);
+      const contentTop =
+        content.getBoundingClientRect().top - dialog.getBoundingClientRect().top + dialog.scrollTop;
 
-        // if scrolled near top, show arrows
-        if (y < 20) setNavHidden(false);
-      });
-    },
-    { passive: true }
-  );
+      if (y + 140 >= contentTop && !isReading) setReadBtnState(true);
+    });
+  }, { passive: true });
 
   document.addEventListener('keydown', (e) => {
     if (!modal?.classList.contains('is-open')) return;
     if (e.key === 'Escape') closeModal();
     if (e.key === 'ArrowLeft') go(-1);
     if (e.key === 'ArrowRight') go(1);
-
-    // optional: Space/Enter on focused read button toggles anyway (native)
   });
 
   // swipe
@@ -432,12 +397,12 @@
       if (!modal.classList.contains('is-open')) return;
       active = true;
       dx = 0;
-      startX = e.touches ? e.touches[0].clientX : e.clientX;
+      startX = (e.touches ? e.touches[0].clientX : e.clientX);
     };
 
     const onMove = (e) => {
       if (!active) return;
-      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      const x = (e.touches ? e.touches[0].clientX : e.clientX);
       dx = x - startX;
     };
 
@@ -454,7 +419,6 @@
     modal.addEventListener('touchend', onEnd, { passive: true });
   }
 
-  // rebuild on resize
   window.addEventListener('resize', () => {
     if (!modal?.classList.contains('is-open')) return;
     if (!currentProjectId) return;
@@ -462,3 +426,4 @@
     buildSlides(getImages(project), project.title);
   });
 })();
+
