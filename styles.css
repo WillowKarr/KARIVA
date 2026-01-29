@@ -1381,18 +1381,15 @@ body.modal-open{ overflow:hidden; }
   content:"";
   position:absolute;
   inset:0;
-  z-index: 2;
+  z-index:2;
   pointer-events:none;
-
-  /* резкий старт ближе к левому краю */
   background: linear-gradient(
     90deg,
     rgba(11,15,13,1) 0%,
-    rgba(11,15,13,1) 8%,
-    rgba(11,15,13,.85) 14%,
-    rgba(11,15,13,.45) 22%,
-    rgba(11,15,13,.12) 30%,
-    rgba(11,15,13,0) 42%
+    rgba(11,15,13,1) 12%,
+    rgba(11,15,13,.65) 18%,
+    rgba(11,15,13,.25) 24%,
+    rgba(11,15,13,0) 30%
   );
 }
 
@@ -1418,15 +1415,22 @@ body.modal-open{ overflow:hidden; }
   }
 
   /* на мобилке лучше “перетекание” сверху вниз */
-  .ctaPhoto::before{
-    background: linear-gradient(
-      180deg,
-      rgba(11,15,13,1) 0%,
-      rgba(11,15,13,.72) 18%,
-      rgba(11,15,13,.20) 42%,
-      rgba(11,15,13,0) 62%
-    );
-  }
+ .ctaPhoto::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+
+  /* левый край просто уходит в непрозрачность */
+  background: linear-gradient(
+    90deg,
+    rgba(11,15,13,1) 0%,
+    rgba(11,15,13,1) 12%,
+    rgba(11,15,13,.65) 18%,
+    rgba(11,15,13,.25) 24%,
+    rgba(11,15,13,0) 30%
+  );
 }
 
 /* ===== FOOTER (green) ===== */
@@ -1526,6 +1530,7 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
+
 
 
 
