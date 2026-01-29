@@ -11,6 +11,7 @@
 
   --accent:#C9FF57;
   --accentHover: color-mix(in srgb, var(--accent) 85%, #0B0F0D 15%);
+
   --stroke: rgba(255,255,255,.12);
 
   --r: 12px;
@@ -34,12 +35,14 @@
 
 /* Hide default cursor everywhere */
 html, body, *{ cursor: none !important; }
+
 @media (hover: none), (pointer: coarse){
   html, body, *{ cursor: auto !important; }
   .cursor, .cursor-follower{ display:none !important; }
 }
 
 *{ box-sizing:border-box; }
+
 html,body{ height:100%; }
 
 body{
@@ -49,7 +52,6 @@ body{
   line-height: 1.75;
   color: var(--text);
   overflow-x:hidden;
-
   background:
     radial-gradient(1200px 800px at 70% -10%, rgba(201,255,87,.10), transparent 60%),
     radial-gradient(900px 700px at 10% 12%, rgba(255,255,255,.04), transparent 55%),
@@ -57,15 +59,25 @@ body{
 }
 
 img{ max-width:100%; display:block; }
+
 a{ color:inherit; text-decoration:none; }
+
 button{ font:inherit; color:inherit; }
 
 .skip-link{
-  position:absolute; left:-999px; top:auto;
-  width:1px; height:1px; overflow:hidden;
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
+
 .skip-link:focus{
-  left:16px; top:16px; width:auto; height:auto;
+  left:16px;
+  top:16px;
+  width:auto;
+  height:auto;
   padding:10px 14px;
   border-radius: 10px;
   background: var(--light);
@@ -81,28 +93,34 @@ button{ font:inherit; color:inherit; }
 }
 
 .section{ padding: clamp(76px, 7.2vw, 132px) 0; }
+
 .section--tight{ padding: clamp(64px, 6.2vw, 108px) 0; }
+
 .section--dark{
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
 .section__head{ margin-bottom: clamp(30px, 3.4vw, 58px); }
+
 .section__head--onAccent{ margin-bottom: clamp(28px, 3.2vw, 54px); }
+
 .section__head--onDark{ margin-bottom: clamp(24px, 3.0vw, 48px); }
 
 /* Typography */
 .h2{
-font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 800;
   line-height: 1.06;
   font-size: clamp(34px, 4.6vw, 56px);
   margin: 0;
 }
+
 .h2--dark{ color: var(--darkText); }
+
 .h2--accent{
   color: var(--accent) !important;
-  opacity: 1 !important; /* NEW 8: не полупрозрачный */
+  opacity: 1 !important;
 }
 
 .text{
@@ -110,6 +128,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   max-width: 70ch;
   color: var(--muted);
 }
+
 .text--muted{ color: var(--muted2); }
 
 /* Header */
@@ -119,6 +138,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   z-index: 1200;
   pointer-events: none;
 }
+
 .header__inner{
   pointer-events: auto;
   width: min(var(--container), calc(100% - 24px));
@@ -128,7 +148,6 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   justify-content: space-between;
   gap: 18px;
   padding: 12px 22px;
-
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(16,22,18,.55);
@@ -137,18 +156,19 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 }
 
 .brand{
- width: auto;                 
-  height: 44px;               
-  padding: 0 10px;             
+  width: auto;
+  height: 44px;
+  padding: 0 10px;
   border-radius: 999px;
-  overflow: visible;           
+  overflow: visible;
   display:flex;
   align-items:center;
 }
+
 .brand__img{
- height: 20px;                
+  height: 20px;
   width: auto;
-  max-width: 180px;            
+  max-width: 180px;
   object-fit: contain;
   filter: brightness(1.05) contrast(1.05);
 }
@@ -157,11 +177,12 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   display:flex;
   align-items:center;
   gap: 30px;
-  padding:0; margin:0;
+  padding:0;
+  margin:0;
   list-style:none;
 }
 
-/* (1) меню обычным шрифтом (не жирным) */
+/* menu regular weight */
 .nav__link{
   color: var(--text);
   font-weight: 500;
@@ -173,6 +194,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   padding: 12px 8px;
   transition: color var(--tFast) var(--ease), opacity var(--tFast) var(--ease);
 }
+
 .nav__link::after{
   content:"";
   position:absolute;
@@ -185,8 +207,11 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   transition: width var(--tMed) var(--ease);
   border-radius: 2px;
 }
+
 .nav__link:hover{ color: var(--accent); opacity: 1; }
+
 .nav__link:hover::after{ width: 76%; }
+
 .nav__link:focus-visible{
   outline: 2px solid rgba(201,255,87,.6);
   outline-offset: 6px;
@@ -194,7 +219,8 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 }
 
 .burger{
-  width: 46px; height: 40px;
+  width: 46px;
+  height: 40px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.06);
@@ -204,12 +230,15 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: 6px;
   flex-direction: column;
 }
+
 .burger span{
-  width: 18px; height: 2px;
+  width: 18px;
+  height: 2px;
   background: rgba(255,255,255,.88);
   border-radius: 999px;
   transition: transform var(--tMed) var(--ease), opacity var(--tMed) var(--ease);
 }
+
 .burger.is-open span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
 .burger.is-open span:nth-child(2){ opacity: 0; }
 .burger.is-open span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
@@ -223,6 +252,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 
 @media (max-width: 820px){
   .burger{ display:flex; }
+
   .nav{
     position: fixed;
     top: 70px;
@@ -238,8 +268,11 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
     display:none;
     z-index: 1150;
   }
+
   .nav.is-open{ display:block; }
+
   .nav__list{ flex-direction: column; gap: 10px; }
+
   .nav__link{
     display:block;
     padding: 12px 14px;
@@ -248,6 +281,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(255,255,255,.08);
   }
+
   .nav__link::after{ display:none; }
 }
 
@@ -259,6 +293,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   align-items:center;
   padding-top: 96px;
 }
+
 .hero__bg{
   position:absolute;
   inset:0;
@@ -268,6 +303,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   filter: saturate(.92) contrast(1.06);
   transform: translateZ(0);
 }
+
 @media (max-width: 820px){
   .hero__bg{
     background:
@@ -285,10 +321,16 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: clamp(18px, 4vw, 56px);
   align-items: end;
 }
-.hero__left{ display:grid; gap: 10px; }
-.hero__right{ display:grid; gap: 18px; justify-items:start; }
 
-/* NEW 1: имя тем же стилем что "IDENTITY..." */
+.hero__left{ display:grid; gap: 10px; }
+
+.hero__right{
+  display:grid;
+  gap: 18px;
+  justify-items:start;
+}
+
+/* name matches signature style */
 .hero__name{
   margin: 0 0 6px;
   font-weight: 500;
@@ -313,12 +355,14 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: 12px;
   margin-top: 4px;
 }
+
 .hero__line{
   width: 46px;
   height: 2px;
   background: rgba(201,255,87,.9);
   border-radius: 2px;
 }
+
 .hero__metaText{
   letter-spacing: .10em;
   text-transform: uppercase;
@@ -352,18 +396,22 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: 0;
   width: fit-content;
 }
+
 .sig__dots{
   display:inline-flex;
   align-items:center;
   gap: 10px;
   margin-right: 18px;
 }
+
 .sig__dot{
-  width: 6px; height: 6px;
+  width: 6px;
+  height: 6px;
   border-radius: 2px;
   background: rgba(201,255,87,.9);
   box-shadow: 0 0 0 6px rgba(201,255,87,.08);
 }
+
 .sig__text{
   font-size: 12px;
   font-weight: 500;
@@ -383,10 +431,8 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   align-items:center;
   justify-content:center;
   gap: 10px;
-
   min-height: 46px;
   padding: 10px 16px;
-
   border-radius: var(--r2);
   font-weight: 700;
   letter-spacing: .02em;
@@ -401,6 +447,11 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   will-change: transform;
 }
 
+.btn:focus-visible{
+  outline: 2px solid rgba(201,255,87,.6);
+  outline-offset: 4px;
+}
+
 /* hero air */
 .btn--hero{
   padding-top: 14px;
@@ -408,18 +459,19 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   min-height: 54px;
 }
 
-/* NEW 2/5: общая зелёная кнопка + hover как "читать про кейс" */
+/* accent */
 .btn--accent{
   background: var(--accent);
   color: var(--darkText);
   border-color: rgba(11,15,13,.18);
 }
+
 .btn--accent:hover{
   transform: translateY(-1px);
   background: var(--accentHover);
 }
 
-/* case: можно чуть компактнее, но стиль тот же */
+/* case compact */
 .btn--case{
   min-height: 46px;
   padding: 10px 14px;
@@ -430,28 +482,25 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   background: rgba(255,255,255,.10);
   border-color: rgba(255,255,255,.14);
 }
+
 .btn--primary:hover{
   transform: translateY(-1px);
   background: rgba(201,255,87,.14);
   border-color: rgba(201,255,87,.30);
 }
 
-/* ABOUT */
-
-
+/* ABOUT section: real black + green gradient only on right */
 .section--about{
   position: relative;
-  background: #000; /* 100% black */
+  background: #000;
   overflow: hidden;
 }
 
-/* зелёный градиент ТОЛЬКО справа, он не должен попадать на левое изображение */
 .section--about::after{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
-  /* правую часть делаем градиентом, левую держим чисто чёрной */
   background: linear-gradient(
     90deg,
     #000 0%,
@@ -462,15 +511,10 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   z-index: 0;
 }
 
-/* чтобы контент был поверх псевдо-фона */
-.section--about .container{
-  position: relative;
-  z-index: 1;
-}
+.section--about .container{ position: relative; z-index: 1; }
 
 @media (max-width: 920px){
   .section--about::after{
-    /* снизу вверх, но верх (где фото) остаётся чисто чёрным */
     background: linear-gradient(
       180deg,
       #000 0%,
@@ -479,7 +523,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
       rgba(201,255,87,.18) 100%
     );
   }
-} 
+}
 
 .about{
   display:grid;
@@ -487,6 +531,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: clamp(18px, 4vw, 56px);
   align-items: start;
 }
+
 @media (max-width: 920px){
   .about{ grid-template-columns: 1fr; }
 }
@@ -494,7 +539,6 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 .about__media{
   margin: 0;
   position: relative;
-  /* важно: чтобы “перо” не вылезало */
   overflow: hidden;
   border-radius: var(--r);
 }
@@ -504,23 +548,20 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: var(--r);
-
-  /* мягкое “перо” по краям */
   -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 68%, transparent 100%);
   mask-image: radial-gradient(circle at 50% 50%, #000 68%, transparent 100%);
-
-  /* лёгкая оптика, чтобы край был мягче */
   filter: contrast(1.02) saturate(1.02);
 }
 
-/* доп. мягкое размытие по краям через псевдо-слой (очень нежно) */
 .about__media::after{
   content:"";
   position:absolute;
   inset:0;
   border-radius: var(--r);
   pointer-events:none;
-  box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 26px rgba(0,0,0,.55) inset;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 26px rgba(0,0,0,.55) inset;
 }
 
 .about__important{
@@ -539,11 +580,13 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: 10px;
   max-width: 70ch;
 }
+
 .pixel-list li{
   position: relative;
   padding-left: 22px;
   color: var(--muted);
 }
+
 .pixel{
   position:absolute;
   left:0;
@@ -555,6 +598,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   box-shadow: 0 0 0 6px rgba(201,255,87,.10);
   transform: translateY(-50%);
 }
+
 .fireflies .pixel{ animation: firefly 2.6s var(--ease) infinite; }
 .fireflies li:nth-child(2) .pixel{ animation-delay: .2s; }
 .fireflies li:nth-child(3) .pixel{ animation-delay: .45s; }
@@ -567,40 +611,36 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   75%  { transform: translate(-2px, calc(-50% - 1px)); opacity: 1; }
   100% { transform: translate(-1px, -50%); opacity: .88; }
 }
+
 @media (prefers-reduced-motion: reduce){
   .fireflies .pixel{ animation: none; }
 }
 
-/* (5) highlight marker — NEW 3: плавнее */
+/* highlight marker smoother */
 .about__highlightWrap{ margin: 8px 0 0; }
+
 .hl{
   display:inline-block;
   position: relative;
-
   border-radius: 0;
   padding: 10px 12px;
-
-  /* старт */
   background: rgba(0,0,0,.92);
   color: rgba(255,255,255,.96);
-
   overflow: hidden;
   isolation: isolate;
 }
+
 .hl::before{
   content:"";
   position:absolute;
   inset:0;
   background: var(--accent);
-
   transform: scaleX(0);
   transform-origin: left center;
-
-  /* плавнее + чуть дольше */
   transition: transform 1200ms cubic-bezier(.12,1,.24,1);
   z-index: -1;
 }
-/* дополнительный мягкий "свип" для ощущения маркера */
+
 .hl::after{
   content:"";
   position:absolute;
@@ -616,11 +656,15 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   color: var(--darkText);
   transition: color 560ms cubic-bezier(.16,1,.3,1) 160ms;
 }
+
 .hl.is-on::before{ transform: scaleX(1); }
+
 .hl.is-on::after{
   opacity: .35;
   transform: translateX(120%);
-  transition: transform 1400ms cubic-bezier(.16,1,.3,1) 120ms, opacity 300ms ease 120ms;
+  transition:
+    transform 1400ms cubic-bezier(.16,1,.3,1) 120ms,
+    opacity 300ms ease 120ms;
 }
 
 /* PATH green section */
@@ -634,8 +678,14 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
-@media (max-width: 1080px){ .timelineStack{ grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 620px){ .timelineStack{ grid-template-columns: 1fr; } }
+
+@media (max-width: 1080px){
+  .timelineStack{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px){
+  .timelineStack{ grid-template-columns: 1fr; }
+}
 
 .tcard{
   border-radius: var(--r);
@@ -648,6 +698,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   box-shadow: 0 26px 74px rgba(0,0,0,.18);
   z-index: var(--z, 1);
 }
+
 .tcard__meta{
   margin:0 0 10px;
   color: rgba(11,15,13,.85);
@@ -656,14 +707,16 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   font-size: 12px;
   font-weight: 900;
 }
+
 .tcard__title{
   margin:0 0 10px;
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size: clamp(17px, 1.25vw, 20px); 
-  line-height: 1.2;                   
+  font-size: clamp(17px, 1.25vw, 20px);
+  line-height: 1.2;
   font-weight: 900;
   color: rgba(11,15,13,.95);
 }
+
 .tcard__text{
   margin:0;
   color: rgba(11,15,13,.78);
@@ -672,18 +725,20 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 }
 
 .tcard--glitch{ animation: glitchJitter 2.9s steps(2, end) infinite; }
+
 @keyframes glitchJitter{
-  0%   { filter: none; }
-  18%  { filter: none; }
-  20%  { transform: translateX(2px) translateY(-1px); }
-  21%  { transform: translateX(0) translateY(0); }
-  50%  { filter: contrast(1.05) saturate(1.03); }
-  55%  { transform: translateX(-2px) translateY(1px); }
-  56%  { transform: translateX(0) translateY(0); }
-  80%  { transform: translateX(-1px) translateY(-1px); }
-  81%  { transform: translateX(0) translateY(0); }
+  0% { filter: none; }
+  18% { filter: none; }
+  20% { transform: translateX(2px) translateY(-1px); }
+  21% { transform: translateX(0) translateY(0); }
+  50% { filter: contrast(1.05) saturate(1.03); }
+  55% { transform: translateX(-2px) translateY(1px); }
+  56% { transform: translateX(0) translateY(0); }
+  80% { transform: translateX(-1px) translateY(-1px); }
+  81% { transform: translateX(0) translateY(0); }
   100% { filter: none; }
 }
+
 @media (prefers-reduced-motion: reduce){
   .tcard--glitch{ animation: none; }
 }
@@ -694,13 +749,13 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: 12px;
   max-width: 980px;
 }
+
 .helpCard{
   position: relative;
   display:grid;
   grid-template-columns: 170px 1fr;
   gap: 18px;
   align-items:center;
-
   border-radius: var(--r);
   border: 1px solid rgba(255,255,255,.12);
   background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
@@ -710,6 +765,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   overflow: visible;
   z-index: var(--z, 1);
 }
+
 .helpCard__gif{
   width: 180px;
   height: 120px;
@@ -718,20 +774,27 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   border: 1px solid rgba(201,255,87,.18);
   transform: translateX(-18px);
 }
+
 .cardTitle{
- margin: 0 0 10px;
+  margin: 0 0 10px;
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 900;
-  font-size: clamp(19px, 1.35vw, 22px); 
-  line-height: 1.2;                     
+  font-size: clamp(19px, 1.35vw, 22px);
+  line-height: 1.2;
   letter-spacing: -0.01em;
 }
+
 .cardTitle--onDark{ color: rgba(255,255,255,.94); }
+
 .helpCard .text{ margin: 0; }
 
 @media (max-width: 740px){
   .helpCard{ grid-template-columns: 1fr; }
-  .helpCard__gif{ transform: none; width: 100%; height: 140px; }
+  .helpCard__gif{
+    transform: none;
+    width: 100%;
+    height: 140px;
+  }
 }
 
 /* WHY */
@@ -743,6 +806,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   overflow:hidden;
   padding: clamp(28px, 4vw, 60px) 0;
 }
+
 .why__bg{
   position:absolute;
   inset:0;
@@ -750,6 +814,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   background: url("matrix.gif") center/cover no-repeat;
   filter: contrast(1.08) saturate(.9);
 }
+
 .why::after{
   content:"";
   position:absolute;
@@ -759,8 +824,11 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
     linear-gradient(180deg, rgba(11,15,13,.50), rgba(11,15,13,.92));
   pointer-events:none;
 }
+
 .why__inner{ position: relative; z-index: 1; }
+
 .why__center{ max-width: 74ch; }
+
 .why__lead{
   margin: 18px 0 0;
   font-size: clamp(16px, 2vw, 20px);
@@ -769,24 +837,22 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   max-width: 70ch;
 }
 
-/* NEW 7: больше радиус + меньше ширина карточек = не касаются */
+/* orbit */
 .orbit{
   position: relative;
   margin-top: clamp(18px, 5vw, 60px);
   height: clamp(600px, 70vh, 820px);
   width: 100%;
 }
+
 .orbitCard{
   position: absolute;
   left: 50%;
   top: 50%;
   width: min(300px, 70vw);
-  transform:
-    translate(-50%, -50%)
-    rotate(var(--a))
-    translateX(min(320px, 36vw))
-    rotate(calc(var(--a) * -1));
+  transform: translate(-50%, -50%) rotate(var(--a)) translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1));
 }
+
 .orbitCard__inner{
   padding: 22px 22px;
   border-radius: var(--r);
@@ -797,7 +863,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   color: rgba(255,255,255,.90);
   font-weight: 800;
   line-height: 1.45;
- font-size: clamp(16px, 1.15vw, 18px); /* NEW: чуть крупнее и стабильнее */
+  font-size: clamp(16px, 1.15vw, 18px);
 }
 
 .floaty{ animation: floaty 3.6s var(--ease) infinite; }
@@ -807,31 +873,35 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 .orbitCard:nth-child(5){ animation-delay: .9s; }
 
 @keyframes floaty{
-  0%   { transform:
-    translate(-50%, -50%) rotate(var(--a))
-    translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1))
-    translate(0px, 0px); }
-  35%  { transform:
-    translate(-50%, -50%) rotate(var(--a))
-    translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1))
-    translate(6px, -5px); }
-  70%  { transform:
-    translate(-50%, -50%) rotate(var(--a))
-    translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1))
-    translate(-5px, 6px); }
-  100% { transform:
-    translate(-50%, -50%) rotate(var(--a))
-    translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1))
-    translate(0px, 0px); }
+  0%{
+    transform: translate(-50%, -50%) rotate(var(--a)) translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1)) translate(0px, 0px);
+  }
+  35%{
+    transform: translate(-50%, -50%) rotate(var(--a)) translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1)) translate(6px, -5px);
+  }
+  70%{
+    transform: translate(-50%, -50%) rotate(var(--a)) translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1)) translate(-5px, 6px);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(var(--a)) translateX(min(320px, 36vw)) rotate(calc(var(--a) * -1)) translate(0px, 0px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce){
   .floaty{ animation: none; }
 }
+
 @media (max-width: 860px){
-  /* на средних экранах круг часто ломается — превращаем в “стек” раньше */
-  .orbit{ height:auto; display:grid; gap: 12px; }
-  .orbitCard{ position: static; transform:none !important; width:100%; }
+  .orbit{
+    height:auto;
+    display:grid;
+    gap: 12px;
+  }
+  .orbitCard{
+    position: static;
+    transform:none !important;
+    width:100%;
+  }
   .orbitCard__inner{ padding: 18px; }
 }
 
@@ -841,6 +911,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: 14px;
   max-width: 980px;
 }
+
 .step{
   position: relative;
   border: 0;
@@ -849,28 +920,26 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   overflow: visible;
 }
 
-/* NEW 4: цифры чуть меньше, чтобы не накладывались */
 .step__num{
   position:absolute;
   left: -6px;
   top: -10px;
-
   font-family: "Press Start 2P", Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 1;
-
   font-size: clamp(96px, 14vw, 180px);
   color: rgba(201,255,87,.20);
-
   pointer-events:none;
   user-select:none;
 }
+
 .step__body{
   position: relative;
   padding-left: clamp(40px, 6vw, 78px);
   padding-top: 16px;
 }
+
 .step .text{ margin: 0; }
 
 @media (max-width: 560px){
@@ -888,6 +957,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   grid-template-columns: repeat(12, 1fr);
   gap: 12px;
 }
+
 .caseCard{
   grid-column: span 4;
   border-radius: var(--r);
@@ -896,12 +966,19 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   overflow:hidden;
   transition: transform var(--tFast) var(--ease), border-color var(--tFast) var(--ease);
 }
+
 .caseCard:hover{
   transform: translateY(-2px);
   border-color: rgba(201,255,87,.22);
 }
-@media (max-width: 1080px){ .caseCard{ grid-column: span 6; } }
-@media (max-width: 720px){ .caseCard{ grid-column: span 12; } }
+
+@media (max-width: 1080px){
+  .caseCard{ grid-column: span 6; }
+}
+
+@media (max-width: 720px){
+  .caseCard{ grid-column: span 12; }
+}
 
 .caseCard__media{
   width: 100%;
@@ -911,6 +988,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   position: relative;
   display:block;
 }
+
 .caseCard__media img{
   width: 100%;
   height: 410px;
@@ -918,6 +996,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   transform: scale(1.01);
   transition: transform var(--tSlow) var(--ease);
 }
+
 .caseCard:hover .caseCard__media img{ transform: scale(1.06); }
 
 .caseCard__overlay{
@@ -929,10 +1008,11 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   padding: 12px;
 }
 
-/* чтобы span-кнопка не ломала клики по родителю */
+/* span button should not break click on parent */
 .caseCard__cta{ pointer-events: none; }
 
 .caseCard__body{ padding: 14px 14px 16px; }
+
 .caseCard__title{
   margin: 0 0 8px;
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -940,7 +1020,12 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   font-size: 20px;
   letter-spacing: -0.01em;
 }
-.caseCard__desc{ margin: 0; color: var(--muted2); line-height: 1.55; }
+
+.caseCard__desc{
+  margin: 0;
+  color: var(--muted2);
+  line-height: 1.55;
+}
 
 /* MODAL */
 .modal{
@@ -949,27 +1034,24 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   z-index: 2000;
   display:none;
 }
+
 .modal.is-open{ display:block; }
+
 .modal__backdrop{
   position:absolute;
   inset:0;
   background: rgba(0,0,0,.88);
 }
 
-/* скроллим весь диалог */
 .modal__dialog{
   position: relative;
   height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-
-  /* убираем видимость скроллбара */
   scrollbar-width: none;
 }
-.modal__dialog::-webkit-scrollbar{
-  width: 0;
-  height: 0;
-}
+
+.modal__dialog::-webkit-scrollbar{ width: 0; height: 0; }
 
 .modal__top{
   position: sticky;
@@ -980,10 +1062,12 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   z-index: 2100;
   pointer-events: none;
 }
+
 .modal__top .iconBtn{ pointer-events: auto; }
 
 .iconBtn{
-  width: 44px; height: 44px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--r3);
   border: 1px solid rgba(255,255,255,.18);
   background: rgba(255,255,255,.06);
@@ -993,6 +1077,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   justify-content:center;
   transition: background var(--tFast) var(--ease), color var(--tFast) var(--ease), border-color var(--tFast) var(--ease);
 }
+
 .iconBtn:hover{
   background: var(--accent);
   border-color: rgba(11,15,13,.18);
@@ -1023,6 +1108,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.03);
 }
+
 .slider__track{
   display:flex;
   height: 100%;
@@ -1030,7 +1116,9 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   transition: transform var(--tSlow) var(--ease);
   will-change: transform;
 }
+
 .slide{ min-width: 100%; height: 100%; }
+
 .slide img{
   width: 100%;
   height: 100%;
@@ -1040,7 +1128,8 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 
 /* arrows */
 .navBtn{
-  width: 44px; height: 44px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--r3);
   border: 1px solid rgba(255,255,255,.18);
   background: rgba(255,255,255,.06);
@@ -1055,11 +1144,13 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
     color var(--tFast) var(--ease),
     border-color var(--tFast) var(--ease);
 }
+
 .navBtn:hover{
   background: var(--accent);
   border-color: rgba(11,15,13,.18);
   color: var(--darkText);
 }
+
 .modal.nav-hidden .navBtn{
   opacity: 0;
   pointer-events: none;
@@ -1083,6 +1174,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: 10px;
   transition: background var(--tFast) var(--ease), transform var(--tFast) var(--ease);
 }
+
 .readBtn:hover{
   transform: translateY(-1px);
   background: var(--accentHover);
@@ -1101,6 +1193,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   display:grid;
   gap: 12px;
 }
+
 .modal__head{
   display:flex;
   align-items:flex-start;
@@ -1108,6 +1201,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   gap: 14px;
   flex-wrap: wrap;
 }
+
 .modal__title{
   margin:0;
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -1115,11 +1209,13 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   letter-spacing: -0.02em;
   font-size: clamp(20px, 2.6vw, 28px);
 }
+
 .modal__tags{
   display:flex;
   flex-wrap: wrap;
   gap: 8px;
 }
+
 .tag{
   height: 30px;
   display:inline-flex;
@@ -1131,6 +1227,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   font-size: 12px;
   font-weight: 600;
 }
+
 .modal__desc{
   margin:0;
   color: rgba(255,255,255,.76);
@@ -1139,14 +1236,15 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 
 body.modal-open{ overflow:hidden; }
 
-
 /* CTA */
 .section--cta{
- min-height: 60vh;
+  position: relative;
+  min-height: 60vh;
   max-height: 60vh;
+  overflow: hidden;
 }
 
-/* фон-гивка серых пикселей оставляем, но чуть мягче */
+/* grey pixels gif background */
 .cta__bg{
   position:absolute;
   inset:0;
@@ -1165,15 +1263,12 @@ body.modal-open{ overflow:hidden; }
 
 .cta{ position: relative; z-index: 1; }
 
-/* Сам блок — тёмный, компактнее, с фото справа */
 .ctaCard{
-  /* можно сделать фон чуть “в тон” зелени на фото */
   --ctaBg: #0B0F0D;
   --ctaBg2: #0D1411;
 
   background: linear-gradient(180deg, var(--ctaBg), var(--ctaBg2));
   color: var(--text);
-
   border-radius: var(--r);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: 0 30px 90px rgba(0,0,0,.45);
@@ -1182,19 +1277,13 @@ body.modal-open{ overflow:hidden; }
   grid-template-columns: 1.05fr .95fr;
   gap: 18px;
 
-  /* меньше “пустоты” сверху/снизу, но не душно */
   padding: clamp(12px, 1.6vw, 18px);
   align-items: stretch;
-
-  overflow: hidden; /* важно для красивого стыка фото */
+  overflow: hidden;
 }
 
-/* Заголовок белый (ты просила) */
-.ctaTitle{
-  color: rgba(255,255,255,.96);
-}
+.ctaTitle{ color: rgba(255,255,255,.96); }
 
-/* Текст светлый и аккуратно собран */
 .ctaText{
   margin: 12px 0 0;
   max-width: 62ch;
@@ -1202,32 +1291,26 @@ body.modal-open{ overflow:hidden; }
   line-height: 1.65;
 }
 
-/* Левый столбец: текст ближе к верху, кнопки к низу */
 .ctaCard__left{
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-
-  min-height: unset;  /* компактнее чем было, но держит композицию */
+  min-height: unset;
   padding: 6px 4px 6px 6px;
 }
 
-.ctaTop{
-  padding-top: 2px;
-}
+.ctaTop{ padding-top: 2px; }
 
-/* Кнопки — ближе к низу, больше воздуха между текстом и кнопками */
 .ctaActions{
   display:flex;
   flex-wrap: wrap;
   gap: 12px;
-
-  margin-top: 28px;      /* больше пространства от текста */
-  padding-bottom: 2px;   /* чуть “ниже” визуально */
+  margin-top: 28px;
+  padding-bottom: 2px;
 }
+
 .ctaActions--bottom{ margin-top: 34px; }
 
-/* Правая часть — фото занимает весь столбец */
 .ctaPhoto{
   position: relative;
   min-height: 260px;
@@ -1236,20 +1319,18 @@ body.modal-open{ overflow:hidden; }
   isolation: isolate;
 }
 
-/* Фото целиком */
 .ctaPhoto img{
+  width: 100%;
   height: calc(100% + 80px);
   transform: translateY(-80px) scale(1.01);
   object-fit: cover;
   object-position: center;
 }
 
-/* Плавный “короткий” стык: градиент НЕ огромный, но мягкий */
 .ctaPhoto::before{
   content:"";
   position:absolute;
   inset:0;
-  /* узкая зона слева, остальное прозрачно */
   background: linear-gradient(
     90deg,
     rgba(11,15,13,1) 0%,
@@ -1260,7 +1341,6 @@ body.modal-open{ overflow:hidden; }
   z-index: 2;
 }
 
-/* Доп. затемнение сверху/снизу для цельности */
 .ctaPhoto::after{
   content:"";
   position:absolute;
@@ -1271,8 +1351,9 @@ body.modal-open{ overflow:hidden; }
   z-index: 1;
 }
 
-/* Адаптив */
 @media (max-width: 860px){
+  .section--cta{ max-height: none; }
+
   .ctaCard{
     grid-template-columns: 1fr;
     gap: 12px;
@@ -1283,12 +1364,8 @@ body.modal-open{ overflow:hidden; }
     padding: 6px 6px 2px;
   }
 
-  .ctaPhoto{
-    min-height: 260px;
-    border-radius: calc(var(--r) - 2px);
-  }
+  .ctaPhoto{ min-height: 260px; border-radius: calc(var(--r) - 2px); }
 
-  /* На мобилке градиент сверху/снизу приятнее, чем слева */
   .ctaPhoto::before{
     background: linear-gradient(
       180deg,
@@ -1299,13 +1376,13 @@ body.modal-open{ overflow:hidden; }
   }
 }
 
-
 /* FOOTER */
 .footer{
   background: var(--accent);
   color: var(--darkText);
   padding: 34px 0;
 }
+
 .footer__inner{
   display:flex;
   align-items:flex-start;
@@ -1313,20 +1390,28 @@ body.modal-open{ overflow:hidden; }
   gap: 18px;
   flex-wrap: wrap;
 }
-.footer__contacts{ display:grid; gap: 10px; }
+
+.footer__contacts{
+  display:grid;
+  gap: 10px;
+}
+
 .footer__link{
   display:inline-flex;
   align-items:center;
   gap: 10px;
   font-weight: 900;
 }
+
 .footer__social{
   margin-top: 12px;
   display:flex;
   gap: 10px;
 }
+
 .social{
-  width: 42px; height: 42px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--r3);
   border: 1px solid rgba(11,15,13,.18);
   background: rgba(11,15,13,.06);
@@ -1335,14 +1420,16 @@ body.modal-open{ overflow:hidden; }
   justify-content:center;
   transition: transform var(--tFast) var(--ease), background var(--tFast) var(--ease);
 }
+
 .social:hover{
   transform: translateY(-1px);
   background: rgba(11,15,13,.10);
 }
-.footer__logo{ 
-   height: 25px;             
+
+.footer__logo{
+  height: 25px;
   width: auto;
-  max-width: 240px;            
+  max-width: 240px;
   object-fit: contain;
 }
 
@@ -1350,41 +1437,58 @@ body.modal-open{ overflow:hidden; }
 .reveal{
   opacity: 0;
   transform: translateY(14px);
-  transition:
-    opacity var(--tSlow) var(--ease),
-    transform var(--tSlow) var(--ease);
+  transition: opacity var(--tSlow) var(--ease), transform var(--tSlow) var(--ease);
   transition-delay: var(--d, 0ms);
   will-change: transform, opacity;
 }
+
 .reveal[data-reveal="lr"]{ transform: translateX(-22px); }
+
 .reveal[data-reveal="stack"]{
   transform: translateY(24px);
   filter: blur(2px);
 }
-.in-view{ opacity: 1; transform: translateY(0); filter: none; }
+
+.in-view{
+  opacity: 1;
+  transform: translateY(0);
+  filter: none;
+}
+
 .in-view[data-reveal="lr"]{ transform: translateX(0); }
-.in-view[data-reveal="stack"]{ transform: translateY(0); filter: none; }
+
+.in-view[data-reveal="stack"]{
+  transform: translateY(0);
+  filter: none;
+}
 
 @media (prefers-reduced-motion: reduce){
-  .reveal{ opacity: 1; transform: none; filter:none; transition: none; }
+  .reveal{
+    opacity: 1;
+    transform: none;
+    filter:none;
+    transition: none;
+  }
 }
 
 /* Custom cursor */
-.cursor,
-.cursor-follower{
+.cursor, .cursor-follower{
   position: fixed;
-  left: 0; top: 0;
+  left: 0;
+  top: 0;
   pointer-events:none;
   transform: translate(-50%, -50%);
   z-index: 3000;
   mix-blend-mode: difference;
 }
+
 .cursor{
   width: 10px;
   height: 10px;
   background: rgba(255,255,255,.92);
   border-radius: 3px;
 }
+
 .cursor-follower{
   width: 22px;
   height: 22px;
@@ -1392,23 +1496,5 @@ body.modal-open{ overflow:hidden; }
   border-radius: 6px;
   transition: transform var(--tFast) var(--ease), border-color var(--tFast) var(--ease);
 }
-body.cursor-hover .cursor-follower{
-  border-color: rgba(201,255,87,.95);
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+body.cursor-hover .cursor-follower{ border-color: rgba(201,255,87,.95); }
