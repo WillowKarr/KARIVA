@@ -1071,124 +1071,170 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 
 body.modal-open{ overflow:hidden; }
 
+
 /* CTA */
 .section--cta{
   position: relative;
   overflow: hidden;
 }
+
+/* фон-гивка серых пикселей оставляем, но чуть мягче */
 .cta__bg{
   position:absolute;
   inset:0;
-  opacity: .22;
+  opacity: .18;
   background: url("grey-pixels.gif") center/cover no-repeat;
-  filter: contrast(1.05);
+  filter: contrast(1.05) saturate(.9);
 }
+
 .section--cta::after{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(180deg, rgba(11,15,13,.62), rgba(11,15,13,.90));
+  background: linear-gradient(180deg, rgba(11,15,13,.70), rgba(11,15,13,.92));
   pointer-events:none;
 }
+
 .cta{ position: relative; z-index: 1; }
 
+/* Сам блок — тёмный, компактнее, с фото справа */
 .ctaCard{
-  background: var(--light);
-  color: var(--darkText);
+  /* можно сделать фон чуть “в тон” зелени на фото */
+  --ctaBg: #0B0F0D;
+  --ctaBg2: #0D1411;
+
+  background: linear-gradient(180deg, var(--ctaBg), var(--ctaBg2));
+  color: var(--text);
+
   border-radius: var(--r);
-  padding: clamp(12px, 2.0vw, 16px);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 30px 90px rgba(0,0,0,.45);
+
   display:grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns: 1.05fr .95fr;
   gap: 18px;
+
+  /* меньше “пустоты” сверху/снизу, но не душно */
+  padding: clamp(12px, 1.6vw, 18px);
   align-items: stretch;
-  box-shadow: 0 30px 90px rgba(0,0,0,.35);
-}
-@media (max-width: 860px){
-  .ctaCard{ grid-template-columns: 1fr; }
+
+  overflow: hidden; /* важно для красивого стыка фото */
 }
 
+/* Заголовок белый (ты просила) */
+.ctaTitle{
+  color: rgba(255,255,255,.96);
+}
+
+/* Текст светлый и аккуратно собран */
+.ctaText{
+  margin: 12px 0 0;
+  max-width: 62ch;
+  color: rgba(255,255,255,.76);
+  line-height: 1.65;
+}
+
+/* Левый столбец: текст ближе к верху, кнопки к низу */
 .ctaCard__left{
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 260px;
-  padding: 2px 2px 4px;
-}
-@media (max-width: 860px){
-  .ctaCard__left{ min-height: auto; gap: 22px; }
+
+  min-height: 260px; /* компактнее чем было, но держит композицию */
+  padding: 6px 4px 6px 6px;
 }
 
-.ctaText{
-  margin: 0;
-  color: rgba(11,15,13,.78);
-  max-width: 70ch;
+.ctaTop{
+  padding-top: 2px;
 }
 
+/* Кнопки — ближе к низу, больше воздуха между текстом и кнопками */
 .ctaActions{
   display:flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 34px;
-}
 
-.btn--tg{
-  background: rgba(11,15,13,.92);
-  border-color: rgba(11,15,13,.92);
-  color: var(--light);
+  margin-top: 28px;      /* больше пространства от текста */
+  padding-bottom: 2px;   /* чуть “ниже” визуально */
 }
-.btn--tg:hover{
-  background: rgba(11,15,13,.86);
-  transform: translateY(-1px);
-}
-.btn--strokeDark{
-  background: transparent;
-  border-color: rgba(11,15,13,.22);
-  color: rgba(11,15,13,.92);
-}
-.btn--strokeDark:hover{
-  border-color: rgba(11,15,13,.30);
-  background: rgba(11,15,13,.06);
-  transform: translateY(-1px);
-}
+.ctaActions--bottom{ margin-top: 34px; }
 
+/* Правая часть — фото занимает весь столбец */
 .ctaPhoto{
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 240px;
-  border-radius: var(--r);
+  min-height: 260px;
+  border-radius: calc(var(--r) - 2px);
   overflow: hidden;
+  isolation: isolate;
 }
+
+/* Фото целиком */
 .ctaPhoto img{
   width:100%;
   height:100%;
   object-fit: cover;
+  object-position: center;
+  transform: scale(1.01);
+  filter: contrast(1.02) saturate(1.02);
 }
-.ctaFade{
+
+/* Плавный “короткий” стык: градиент НЕ огромный, но мягкий */
+.ctaPhoto::before{
+  content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(90deg, rgba(242,243,244,1) 0%, rgba(242,243,244,.62) 35%, rgba(242,243,244,0) 70%);
+  /* узкая зона слева, остальное прозрачно */
+  background: linear-gradient(
+    90deg,
+    rgba(11,15,13,1) 0%,
+    rgba(11,15,13,.92) 12%,
+    rgba(11,15,13,.0) 32%
+  );
   pointer-events:none;
+  z-index: 2;
 }
-.ctaOverlay{
+
+/* Доп. затемнение сверху/снизу для цельности */
+.ctaPhoto::after{
+  content:"";
   position:absolute;
-  right: 14px;
-  bottom: 14px;
-  text-align:right;
-  color: rgba(242,243,244,.96);
-  text-shadow: 0 10px 30px rgba(0,0,0,.35);
+  inset:0;
+  background: radial-gradient(60% 90% at 60% 50%, rgba(201,255,87,.10), transparent 65%);
+  opacity: .35;
+  pointer-events:none;
+  z-index: 1;
 }
-.ctaOverlay__name{
-  font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-weight: 900;
-  font-size: 18px;
+
+/* Адаптив */
+@media (max-width: 860px){
+  .ctaCard{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ctaCard__left{
+    min-height: auto;
+    padding: 6px 6px 2px;
+  }
+
+  .ctaPhoto{
+    min-height: 260px;
+    border-radius: calc(var(--r) - 2px);
+  }
+
+  /* На мобилке градиент сверху/снизу приятнее, чем слева */
+  .ctaPhoto::before{
+    background: linear-gradient(
+      180deg,
+      rgba(11,15,13,.95) 0%,
+      rgba(11,15,13,.40) 22%,
+      rgba(11,15,13,0) 52%
+    );
+  }
 }
-.ctaOverlay__role{
-  font-size: 12px;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  opacity: .92;
-}
+
 
 /* FOOTER */
 .footer{
@@ -1285,6 +1331,7 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
+
 
 
 
