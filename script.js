@@ -196,7 +196,7 @@
     },
     stickers: {
       title: 'Стикеры для Тбанк',
-      description: 'Стикерпак для корпоративного мероприятия KidsDay. Серия персонажей, подготовка к печати.',
+      description: 'Стикерпак для корпоративного мероприятия KidsDay — дня, когда родители берут на работу детей. Серия персонажей, подготовка к печати.',
       tags: ['Illustrator'],
       imagesDesktop: ['element24.webp','element25.webp'],
       imagesMobile: ['elementmobile54.webp','elementmobile55.webp','elementmobile56.webp','elementmobile57.webp']
@@ -204,8 +204,8 @@
     marketplace: {
       title: 'Создание карточек товара на WB и OZON',
       description:
-        'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки.',
-      tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion'],
+        'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки. Как результат в Meidiannas оформила ≈480 карточек и внедрила единую визуальную систему — рост продаж +175% за месяц, выручка +169% после обновления контента и 9 место в категории обувь OZON. В ADORE SWIM обновила 160+ карточек, повысив CTR обложки на +12% и конверсию в заказ на +6%, ускорив подготовку контента на ~25% благодаря шаблонам.',
+      tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion', 'Photoroom', 'Midjourney'],
       imagesDesktop: ['element26.webp','element27.webp','element28.webp','element29.webp','element30.webp'],
       imagesMobile: ['elementmobile38.webp','elementmobile39.webp','elementmobile40.webp','elementmobile41.webp']
     }
@@ -426,4 +426,5 @@
     buildSlides(getImages(project), project.title);
   });
 })();
+
 
