@@ -590,7 +590,8 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 .tcard__title{
   margin:0 0 10px;
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-size: 16px;
+  font-size: clamp(17px, 1.25vw, 20px); 
+  line-height: 1.2;                   
   font-weight: 900;
   color: rgba(11,15,13,.95);
 }
@@ -649,10 +650,11 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   transform: translateX(-18px);
 }
 .cardTitle{
-  margin: 0 0 10px;
+ margin: 0 0 10px;
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 900;
-  font-size: 18px;
+  font-size: clamp(19px, 1.35vw, 22px); 
+  line-height: 1.2;                     
   letter-spacing: -0.01em;
 }
 .cardTitle--onDark{ color: rgba(255,255,255,.94); }
@@ -726,6 +728,7 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
   color: rgba(255,255,255,.90);
   font-weight: 800;
   line-height: 1.45;
+ font-size: clamp(16px, 1.15vw, 18px); /* NEW: чуть крупнее и стабильнее */
 }
 
 .floaty{ animation: floaty 3.6s var(--ease) infinite; }
@@ -1276,6 +1279,7 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
+
 
 
 
