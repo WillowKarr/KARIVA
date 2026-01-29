@@ -657,7 +657,6 @@ button{ border:0; background: transparent; }
   .tcard--glitch{ animation: none; }
 }
 
-/* ===== HELP (black + 2 green gradients on edges; remove green underlay behind left visuals) ===== */
 .s-help{
   background: #000;
 }
@@ -841,7 +840,7 @@ button{ border:0; background: transparent; }
 .steps{
   display:grid;
   gap: 18px; /* больше воздуха между шагами */
-  max-width: 980px;
+  max-width: 1120px;
 }
 
 .step{
@@ -902,17 +901,17 @@ button{ border:0; background: transparent; }
 }
 
 .step__body{
-  position: relative;
   padding-left: clamp(54px, 6vw, 92px);
   padding-top: 10px;
-  border-radius: var(--r);
+  transform: none !important;       
+  will-change: auto;
 }
 
 /* подложка “стекло” внутри шага */
 .step__body::before{
   content:"";
   position:absolute;
-  inset: -6px -10px -10px -10px;
+  inset: -10px -18px -14px -18px;
   border-radius: var(--r);
   background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
   border: 1px solid rgba(255,255,255,.10);
@@ -1264,6 +1263,8 @@ body.modal-open{ overflow:hidden; }
 }
 
 .contactsPlaque{
+   position: relative;
+  z-index: 1;
   width: fit-content;
   display:inline-flex;
   align-items:center;
@@ -1304,6 +1305,7 @@ body.modal-open{ overflow:hidden; }
   align-items: stretch;
   overflow: hidden; /* обязательно: чтобы фото “резалось” и не вылезало */
   position: relative;
+    z-index: 2;
 }
 
 /* плавное “перетекание” карточки в плашку сверху (градиент вверх) */
@@ -1313,8 +1315,9 @@ body.modal-open{ overflow:hidden; }
   left:0; right:0;
   top:-30px;
   height: 80px;
-  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.55));
+  background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.55));
   pointer-events:none;
+    z-index: 0;
 }
 
 .ctaTitle{ color: rgba(255,255,255,.96); }
@@ -1323,6 +1326,8 @@ body.modal-open{ overflow:hidden; }
   max-width: 62ch;
   color: rgba(255,255,255,.76);
   line-height: 1.65;
+   position: relative;
+  z-index: 3;
 }
 .ctaCard__left{
   display:flex;
@@ -1494,3 +1499,4 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
+
