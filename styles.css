@@ -1241,12 +1241,14 @@ button{ border:0; background: transparent; }
 }
 body.modal-open{ overflow:hidden; }
 
-/* ===== CONTACTS (не вылезает за подвал; ~60% экрана; обрезаем фото снизу; плавный переход к плашке) ===== */
 .s-contacts{
-  background: #000;
+  background:#000;
   padding-top: clamp(44px, 5vw, 72px);
   padding-bottom: clamp(54px, 6vw, 88px);
-  min-height: 60vh;  /* интерпретируем “600% экрана” как 60vh (компактно и в пределах сайта) */
+  min-height: 60vh;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 .contacts__bg{
   position:absolute;
@@ -1258,13 +1260,14 @@ body.modal-open{ overflow:hidden; }
     linear-gradient(180deg, #000 0%, #000 100%);
 }
 .contacts{
+  position: relative;
+  z-index: 1;
   display:grid;
   gap: 14px;
 }
 
+/* верхняя плашка (как было) */
 .contactsPlaque{
-   position: relative;
-  z-index: 1;
   width: fit-content;
   display:inline-flex;
   align-items:center;
@@ -1275,6 +1278,8 @@ body.modal-open{ overflow:hidden; }
   background: rgba(255,255,255,.06);
   backdrop-filter: blur(12px);
   box-shadow: 0 18px 60px rgba(0,0,0,.45);
+  position: relative;
+  z-index: 1;
 }
 .contactsPlaque__dot{
   width: 8px; height: 8px;
@@ -1290,114 +1295,137 @@ body.modal-open{ overflow:hidden; }
   color: rgba(255,255,255,.80);
 }
 
+/* --- КАРТОЧКА --- */
 .ctaCard{
   --ctaBg: #0B0F0D;
-  --ctaBg2: #0D1411;
-  background: linear-gradient(180deg, var(--ctaBg), var(--ctaBg2));
-  color: var(--text);
+  --ctaBg2:#0D1411;
+
+  position: relative;
+  z-index: 2;
+
   border-radius: var(--r);
   border: 1px solid rgba(255,255,255,.10);
+  background: linear-gradient(180deg, var(--ctaBg), var(--ctaBg2));
   box-shadow: 0 30px 90px rgba(0,0,0,.45);
+
   display:grid;
   grid-template-columns: 1.05fr .95fr;
-  gap: 18px;
+  gap: 0;                 /* важно: чтобы фото без “рамки” вставало вплотную */
+  padding: 0;             /* убираем общий паддинг — перенесём его внутрь left */
+
+  overflow: hidden;       /* чтобы фото повторяло скругление карточки */
+}
+
+/* левую часть оставляем визуально прежней — просто даём ей тот же внутренний паддинг */
+.ctaCard__left{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   padding: clamp(12px, 1.6vw, 18px);
-  align-items: stretch;
-  overflow: hidden; /* обязательно: чтобы фото “резалось” и не вылезало */
+  padding-right: clamp(12px, 1.6vw, 18px);
+
+  /* не меняем твой контент */
+}
+
+/* заголовок строго поверх любых “фигур/переливов” */
+.ctaTop,
+.ctaTitle{
   position: relative;
-    z-index: 2;
+  z-index: 3;
 }
-
-/* плавное “перетекание” карточки в плашку сверху (градиент вверх) */
-.ctaCard::before{
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  top:-30px;
-  height: 80px;
-  background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.55));
-  pointer-events:none;
-    z-index: 0;
-}
-
 .ctaTitle{ color: rgba(255,255,255,.96); }
 .ctaText{
   margin: 12px 0 0;
   max-width: 62ch;
   color: rgba(255,255,255,.76);
   line-height: 1.65;
-   position: relative;
-  z-index: 3;
-}
-.ctaCard__left{
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 6px 4px 6px 6px;
 }
 .ctaActions{
   display:flex;
   flex-wrap: wrap;
   gap: 12px;
+
   margin-top: 28px;
   padding-bottom: 2px;
 }
 .ctaActions--bottom{ margin-top: 34px; }
 
+/* --- ПРАВАЯ КАРТИНКА --- */
+/* занимает ВСЮ высоту карточки, без рамок, со скруглением только справа */
 .ctaPhoto{
   position: relative;
-  min-height: 260px;
-  border-radius: calc(var(--r) - 2px);
+  height: 100%;
+  min-height: 100%;
+  align-self: stretch;
+
   overflow: hidden;
+  border-radius: 0 var(--r) var(--r) 0; /* скругление как у плашки: сверху/снизу справа */
   isolation: isolate;
 }
 
-/* Обрезаем снизу: держим верх, низ “уходит” под кроп */
+/* картинка заполняет полностью */
 .ctaPhoto img{
   width: 100%;
   height: 100%;
+  display:block;
+
   object-fit: cover;
   object-position: center top;
-  transform: scale(1.02);
+
+  transform: none;         /* без сдвигов */
+  filter: saturate(1.02) contrast(1.02);
 }
 
-/* “перетекание” фото в текст: мягкий градиент слева */
+/* градиент прозрачности: фото плавно перетекает в плашку слева */
 .ctaPhoto::before{
   content:"";
   position:absolute;
   inset:0;
+  z-index: 2;
+  pointer-events:none;
+
+  /* слева делаем “прозрачность” фото — плавно в фон карточки */
   background: linear-gradient(
     90deg,
     rgba(11,15,13,1) 0%,
-    rgba(11,15,13,.92) 14%,
-    rgba(11,15,13,.0) 36%
+    rgba(11,15,13,.96) 14%,
+    rgba(11,15,13,.70) 26%,
+    rgba(11,15,13,.22) 44%,
+    rgba(11,15,13,0) 66%
   );
-  pointer-events:none;
-  z-index: 2;
 }
+
+/* лёгкое зеленое свечение поверх фото (очень мягко, чтобы не спорило с контентом) */
 .ctaPhoto::after{
   content:"";
   position:absolute;
   inset:0;
-  background: radial-gradient(60% 90% at 60% 50%, rgba(201,255,87,.10), transparent 65%);
-  opacity: .35;
-  pointer-events:none;
   z-index: 1;
+  pointer-events:none;
+  background: radial-gradient(70% 90% at 70% 50%, rgba(201,255,87,.12), transparent 62%);
+  opacity: .35;
 }
 
+/* адаптив: на мобилке фото снизу, скругление сохраняем */
 @media (max-width: 860px){
   .ctaCard{
     grid-template-columns: 1fr;
-    gap: 12px;
   }
-  .ctaCard__left{ padding: 6px 6px 2px; }
-  .ctaPhoto{ min-height: 260px; }
+
+  .ctaPhoto{
+    border-radius: 0 0 var(--r) var(--r); /* снизу как у карточки */
+    min-height: 260px;
+  }
+
+  /* на мобилке лучше “перетекание” сверху вниз */
   .ctaPhoto::before{
     background: linear-gradient(
       180deg,
-      rgba(11,15,13,.95) 0%,
-      rgba(11,15,13,.40) 22%,
-      rgba(11,15,13,0) 52%
+      rgba(11,15,13,1) 0%,
+      rgba(11,15,13,.72) 18%,
+      rgba(11,15,13,.20) 42%,
+      rgba(11,15,13,0) 62%
     );
   }
 }
@@ -1499,4 +1527,5 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
+
 
