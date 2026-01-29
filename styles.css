@@ -1377,7 +1377,6 @@ body.modal-open{ overflow:hidden; }
   filter: saturate(1.02) contrast(1.02);
 }
 
-/* градиент прозрачности: фото плавно перетекает в плашку слева */
 .ctaPhoto::before{
   content:"";
   position:absolute;
@@ -1385,18 +1384,18 @@ body.modal-open{ overflow:hidden; }
   z-index: 2;
   pointer-events:none;
 
-  /* слева делаем “прозрачность” фото — плавно в фон карточки */
+  /* резкий старт ближе к левому краю */
   background: linear-gradient(
     90deg,
     rgba(11,15,13,1) 0%,
-    rgba(11,15,13,.96) 14%,
-    rgba(11,15,13,.70) 26%,
-    rgba(11,15,13,.22) 44%,
-    rgba(11,15,13,0) 66%
+    rgba(11,15,13,1) 8%,
+    rgba(11,15,13,.85) 14%,
+    rgba(11,15,13,.45) 22%,
+    rgba(11,15,13,.12) 30%,
+    rgba(11,15,13,0) 42%
   );
 }
 
-/* лёгкое зеленое свечение поверх фото (очень мягко, чтобы не спорило с контентом) */
 .ctaPhoto::after{
   content:"";
   position:absolute;
@@ -1527,5 +1526,6 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
+
 
 
