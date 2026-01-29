@@ -1,501 +1,530 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0B0F0D" />
-  <title>Ивет Кармаш — Brand Design • Visual Systems</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0B0F0D" />
+    <title>Ивет Кармаш — Brand Design • Visual Systems</title>
 
-  <!-- Google Fonts (swap) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
- href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  
+    <!-- Google Fonts (swap) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@500;600;700;800&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-</head>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
 
-<body>
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
 
-  <!-- Custom cursor (square) -->
-  <div class="cursor" aria-hidden="true"></div>
-  <div class="cursor-follower" aria-hidden="true"></div>
+    <!-- Custom cursor (square) -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
 
-  <!-- Header -->
-  <header class="header" data-glass>
-    <div class="header__inner">
-      <a class="brand" href="#top" aria-label="Наверх">
-        <img src="logo_white.svg" alt="" class="brand__img" />
-      </a>
+    <!-- Header -->
+    <header class="header" data-glass>
+      <div class="header__inner">
+        <a class="brand" href="#top" aria-label="Наверх">
+          <img src="logo_white.svg" alt="" class="brand__img" />
+        </a>
 
-      <nav class="nav" id="site-nav" aria-label="Основная навигация">
-        <ul class="nav__list">
-          <li><a class="nav__link" href="#about">Обо мне</a></li>
-          <li><a class="nav__link" href="#help">Проекты</a></li>
-          <li><a class="nav__link" href="#contacts">Контакты</a></li>
-        </ul>
-      </nav>
+        <nav class="nav" id="site-nav" aria-label="Основная навигация">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#about">Обо мне</a></li>
+            <li><a class="nav__link" href="#projects">Проекты</a></li>
+            <li><a class="nav__link" href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
 
-      <button class="burger" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Открыть меню">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <div class="nav-overlay" id="navOverlay" hidden></div>
-
-  <main id="main">
-    <a id="top" class="anchor" aria-hidden="true"></a>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero__bg" aria-hidden="true"></div>
-
-      <div class="container hero__grid">
-        <div class="hero__left">
-          <p class="hero__name reveal">Ивет Кармаш</p>
-
-          <h1 class="hero__title reveal" style="--d: 90ms">
-            Дизайнер<br />и креатор<br />для брендов
-          </h1>
-
-          <div class="hero__meta reveal" style="--d: 140ms">
-            <span class="hero__line"></span>
-            <span class="hero__metaText">Brand Design • Visual Systems</span>
-          </div>
-        </div>
-
-        <div class="hero__right">
-          <p class="hero__lead reveal" style="--d: 180ms">
-            Создаю айдентику, визуальные системы<br />и коммерческий дизайн, который помогает бизнесу выглядеть сильнее,
-            выделяться среди конкурентов<br />и продавать увереннее.
-          </p>
-
-          <div class="hero__actions reveal" style="--d: 230ms">
-            <!-- (NEW 2) зелёная + hover как "читать про кейс" -->
-            <a class="btn btn--accent btn--hero" href="#projects">ПОСМОТРЕТЬ КЕЙСЫ</a>
-            <a class="btn btn--primary btn--hero" href="#contacts">ОБСУДИТЬ ПРОЕКТ</a>
-          </div>
-
-          <div class="hero__signature reveal" style="--d: 300ms" aria-label="Направления работы">
-            <span class="sig__dots" aria-hidden="true">
-              <span class="sig__dot"></span><span class="sig__dot"></span><span class="sig__dot"></span>
-            </span>
-            <span class="sig__text">IDENTITY / MARKETPLACES / SOCIAL / KV</span>
-          </div>
-        </div>
+        <button
+          class="burger"
+          type="button"
+          aria-controls="site-nav"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </section>
+    </header>
 
-    <!-- ABOUT -->
-    <section class="section section--tight" id="about">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="h2 reveal">Обо мне</h2>
-        </div>
+    <div class="nav-overlay" id="navOverlay" hidden></div>
 
-        <div class="about">
-          <figure class="about__media reveal" style="--d: 80ms">
-            <img src="Comp 2.gif" alt="Ивет Кармаш" class="about__img" />
-          </figure>
+    <main id="main">
+      <a id="top" class="anchor" aria-hidden="true"></a>
 
-          <div class="about__body">
-            <p class="text reveal" style="--d: 120ms">
-             Мой дизайн — это не просто картинки, а продуманные визуальные решения, которые работают на ваши цели. 
-              Готова помочь с визуальной частью вашего проекта: от логотипа до упаковки, от соцсетей до рекламных материалов.
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero__bg" aria-hidden="true"></div>
+
+        <div class="container hero__grid">
+          <div class="hero__left">
+            <p class="hero__name reveal">Ивет Кармаш</p>
+
+            <h1 class="hero__title reveal" style="--d: 90ms">
+              Дизайнер<br />
+              и креатор<br />
+              для брендов
+            </h1>
+
+            <div class="hero__meta reveal" style="--d: 140ms">
+              <span class="hero__line"></span>
+              <span class="hero__metaText">Brand Design • Visual Systems</span>
+            </div>
+          </div>
+
+          <div class="hero__right">
+            <p class="hero__lead reveal" style="--d: 180ms">
+              Создаю айдентику, визуальные системы<br />
+              и коммерческий дизайн, который помогает бизнесу выглядеть сильнее, выделяться среди
+              конкурентов<br />
+              и продавать увереннее.
             </p>
 
-            <p class="about__important reveal" style="--d: 170ms">
-              Мне важно создать дизайн, который:
-            </p>
+            <div class="hero__actions reveal" style="--d: 230ms">
+              <a class="btn btn--accent btn--hero" href="#projects">ПОСМОТРЕТЬ КЕЙСЫ</a>
+              <a class="btn btn--primary btn--hero" href="#contacts">ОБСУДИТЬ ПРОЕКТ</a>
+            </div>
 
-            <ul class="pixel-list fireflies reveal" style="--d: 220ms">
-              <li><span class="pixel" aria-hidden="true"></span>выглядит профессионально и современно</li>
-              <li><span class="pixel" aria-hidden="true"></span>вызывает доверие у аудитории</li>
-              <li><span class="pixel" aria-hidden="true"></span>упрощает коммуникацию бренда</li>
-              <li><span class="pixel" aria-hidden="true"></span>усиливает продажи и узнаваемость</li>
-            </ul>
-
-            <!-- (NEW 3) маркер плавнее -->
-            <p class="about__highlightWrap reveal" style="--d: 190ms">
-              <span class="hl" data-highlight>
-                Работаю аккуратно, системно и всегда держу фокус на задаче бизнеса.
+            <div class="hero__signature reveal" style="--d: 300ms" aria-label="Направления работы">
+              <span class="sig__dots" aria-hidden="true">
+                <span class="sig__dot"></span><span class="sig__dot"></span><span class="sig__dot"></span>
               </span>
+              <span class="sig__text">IDENTITY / MARKETPLACES / SOCIAL / KV</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section section--tight section--about" id="about">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="h2 reveal">Обо мне</h2>
+          </div>
+
+          <div class="about">
+            <figure class="about__media reveal" style="--d: 80ms">
+              <img src="Comp 2.gif" alt="Ивет Кармаш" class="about__img" />
+            </figure>
+
+            <div class="about__body">
+              <p class="text reveal" style="--d: 120ms">
+                Мой дизайн — это не просто картинки, а продуманные визуальные решения, которые работают
+                на ваши цели. Готова помочь с визуальной частью вашего проекта: от логотипа до
+                упаковки, от соцсетей до рекламных материалов.
+              </p>
+
+              <p class="about__important reveal" style="--d: 170ms">Мне важно создать дизайн, который:</p>
+
+              <ul class="pixel-list fireflies reveal" style="--d: 220ms">
+                <li><span class="pixel" aria-hidden="true"></span>выглядит профессионально и современно</li>
+                <li><span class="pixel" aria-hidden="true"></span>вызывает доверие у аудитории</li>
+                <li><span class="pixel" aria-hidden="true"></span>упрощает коммуникацию бренда</li>
+                <li><span class="pixel" aria-hidden="true"></span>усиливает продажи и узнаваемость</li>
+              </ul>
+
+              <p class="about__highlightWrap reveal" style="--d: 190ms">
+                <span class="hl" data-highlight>
+                  Работаю аккуратно, системно и всегда держу фокус на задаче бизнеса.
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PATH -->
+      <section class="section section--path" id="path">
+        <div class="container">
+          <div class="section__head section__head--onAccent">
+            <h2 class="h2 h2--dark reveal">Мой профессиональный путь</h2>
+          </div>
+
+          <div class="timelineStack">
+            <article class="tcard tcard--glitch reveal" data-reveal="lr" style="--d: 80ms; --z: 1">
+              <p class="tcard__meta">2021 — 2024</p>
+              <h3 class="tcard__title">Колледж ДПИ</h3>
+              <p class="tcard__text">
+                Направление Дизайн IT: создание визуального контента, основы программирования.
+              </p>
+            </article>
+
+            <article class="tcard tcard--glitch reveal" data-reveal="lr" style="--d: 130ms; --z: 2">
+              <p class="tcard__meta">2023 — 2024</p>
+              <h3 class="tcard__title">ЛК СПЕКТР</h3>
+              <p class="tcard__text">
+                Разработка POSM, фирменных носителей от концепции до препресса. Верстка лендинга.
+              </p>
+            </article>
+
+            <article class="tcard tcard--glitch reveal" data-reveal="lr" style="--d: 180ms; --z: 3">
+              <p class="tcard__meta">2024 — 2025</p>
+              <h3 class="tcard__title">ЛОГОПОТАМ</h3>
+              <p class="tcard__text">
+                Дизайн визуального контента для соцсетей и адаптация фирстиля под форматы платформ.
+              </p>
+            </article>
+
+            <article class="tcard tcard--glitch reveal" data-reveal="lr" style="--d: 230ms; --z: 4">
+              <p class="tcard__meta">2025 — 2026</p>
+              <h3 class="tcard__title">Маркетплейсы</h3>
+              <p class="tcard__text">
+                Сотрудничество с Meidiannas и Adore Swim, создание инфографики и рекламы для WB и OZON.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HELP -->
+      <section class="section" id="help">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="h2 reveal">Чем я могу быть полезна</h2>
+          </div>
+
+          <div class="helpStack">
+            <article class="helpCard reveal" data-reveal="stack" style="--d: 80ms; --z: 4">
+              <div class="helpCard__gif" aria-hidden="true"></div>
+              <div class="helpCard__body">
+                <h3 class="cardTitle">Айдентика и фирменный стиль</h3>
+                <p class="text">
+                  Создаю визуальную основу бренда: логотип, цвет, типографика, графика и носители,
+                  которые работают как единая система.
+                </p>
+              </div>
+            </article>
+
+            <article class="helpCard reveal" data-reveal="stack" style="--d: 140ms; --z: 3">
+              <div class="helpCard__gif" aria-hidden="true"></div>
+              <div class="helpCard__body">
+                <h3 class="cardTitle">Дизайн для маркетплейсов (WB / Ozon)</h3>
+                <p class="text">
+                  Оформляю карточки товаров, инфографику и визуальные блоки под конверсию: так, чтобы
+                  товар выделялся среди конкурентов и выглядел дороже.
+                </p>
+              </div>
+            </article>
+
+            <article class="helpCard reveal" data-reveal="stack" style="--d: 200ms; --z: 2">
+              <div class="helpCard__gif" aria-hidden="true"></div>
+              <div class="helpCard__body">
+                <h3 class="cardTitle">Визуальная система для соцсетей</h3>
+                <p class="text">
+                  Делаю оформление, шаблоны и элементы, которые помогают бренду быть узнаваемым и
+                  выглядеть цельно в каждом формате.
+                </p>
+              </div>
+            </article>
+
+            <article class="helpCard reveal" data-reveal="stack" style="--d: 260ms; --z: 1">
+              <div class="helpCard__gif" aria-hidden="true"></div>
+              <div class="helpCard__body">
+                <h3 class="cardTitle">Иллюстрации и key visual</h3>
+                <p class="text">
+                  Создаю фирменную графику, стикеры и иллюстрации для упаковки, мерча, спецпроектов и
+                  коммуникаций.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="why" id="why">
+        <div class="why__bg" aria-hidden="true"></div>
+
+        <div class="container why__inner">
+          <div class="why__center reveal">
+            <h2 class="h2">Почему со мной удобно работать</h2>
+            <p class="why__lead">
+              Я думаю задачей бренда и результатом. Делаю визуал как систему: понятную, масштабируемую
+              и коммерчески точную. Моя цель — чтобы дизайн помогал продавать увереннее и выглядел
+              дороже на любом носителе.
             </p>
           </div>
+
+          <div class="orbit" aria-label="Преимущества">
+            <article class="orbitCard floaty" style="--a: 0deg">
+              <div class="orbitCard__inner">Думаю задачей бренда, а не просто визуалом</div>
+            </article>
+            <article class="orbitCard floaty" style="--a: 72deg">
+              <div class="orbitCard__inner">Работаю системно: концепция → структура → финальные макеты</div>
+            </article>
+            <article class="orbitCard floaty" style="--a: 144deg">
+              <div class="orbitCard__inner">Соблюдаю сроки<br />и договорённости</div>
+            </article>
+            <article class="orbitCard floaty" style="--a: 216deg">
+              <div class="orbitCard__inner">Адаптирую дизайн под цифру и печать</div>
+            </article>
+            <article class="orbitCard floaty" style="--a: 288deg">
+              <div class="orbitCard__inner">Делаю результат масштабируемым</div>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PATH -->
-    <section class="section section--path" id="path">
-      <div class="container">
-        <div class="section__head section__head--onAccent">
-          <h2 class="h2 h2--dark reveal">Мой профессиональный путь</h2>
-        </div>
+      <!-- PROCESS -->
+      <section class="section section--dark" id="process">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="h2 reveal">Как проходит работа</h2>
+          </div>
 
-        <div class="timelineStack">
-          <article class="tcard tcard--glitch reveal" data-reveal="lr" style="--d: 80ms; --z: 1">
-            <p class="tcard__meta">2021 — 2024</p>
-            <h3 class="tcard__title">Колледж ДПИ</h3>
-            <p class="tcard__text">Направление Дизайн IT: создание визуального контента, основы программирования.</p>
-          </article>
-
-          <article class="tcard tcard--glitch reveal" data-reveal="lr" style="--d: 130ms; --z: 2">
-            <p class="tcard__meta">2023 — 2024</p>
-            <h3 class="tcard__title">ЛК СПЕКТР</h3>
-            <p class="tcard__text">Разработка POSM, фирменных носителей от концепции до препресса. Верстка лендинга.</p>
-          </article>
-
-          <article class="tcard tcard--glitch reveal" data-reveal="lr" style="--d: 180ms; --z: 3">
-            <p class="tcard__meta">2024 — 2025</p>
-            <h3 class="tcard__title">ЛОГОПОТАМ</h3>
-            <p class="tcard__text">Дизайн визуального контента для соцсетей и адаптация фирстиля под форматы платформ.</p>
-          </article>
-
-          <article class="tcard tcard--glitch reveal" data-reveal="lr" style="--d: 230ms; --z: 4">
-            <p class="tcard__meta">2025 — 2026</p>
-            <h3 class="tcard__title">Маркетплейсы</h3>
-            <p class="tcard__text">Сотрудничество с Meidiannas и Adore Swim, создание инфографики и рекламы для WB и OZON.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- HELP -->
-    <section class="section" id="help">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="h2 reveal">Чем я могу быть полезна</h2>
-        </div>
-
-        <div class="helpStack">
-          <article class="helpCard reveal" data-reveal="stack" style="--d: 80ms; --z: 4">
-            <div class="helpCard__gif" aria-hidden="true"></div>
-            <div class="helpCard__body">
-              <h3 class="cardTitle">Айдентика и фирменный стиль</h3>
-              <p class="text">Создаю визуальную основу бренда: логотип, цвет, типографика, графика и носители, которые работают как единая система.</p>
-            </div>
-          </article>
-
-          <article class="helpCard reveal" data-reveal="stack" style="--d: 140ms; --z: 3">
-            <div class="helpCard__gif" aria-hidden="true"></div>
-            <div class="helpCard__body">
-              <h3 class="cardTitle">Дизайн для маркетплейсов (WB / Ozon)</h3>
-              <p class="text">Оформляю карточки товаров, инфографику и визуальные блоки под конверсию: так, чтобы товар выделялся среди конкурентов и выглядел дороже.</p>
-            </div>
-          </article>
-
-          <article class="helpCard reveal" data-reveal="stack" style="--d: 200ms; --z: 2">
-            <div class="helpCard__gif" aria-hidden="true"></div>
-            <div class="helpCard__body">
-              <h3 class="cardTitle">Визуальная система для соцсетей</h3>
-              <p class="text">Делаю оформление, шаблоны и элементы, которые помогают бренду быть узнаваемым и выглядеть цельно в каждом формате.</p>
-            </div>
-          </article>
-
-          <article class="helpCard reveal" data-reveal="stack" style="--d: 260ms; --z: 1">
-            <div class="helpCard__gif" aria-hidden="true"></div>
-            <div class="helpCard__body">
-              <h3 class="cardTitle">Иллюстрации и key visual</h3>
-              <p class="text">Создаю фирменную графику, стикеры и иллюстрации для упаковки, мерча, спецпроектов и коммуникаций.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section class="why" id="why">
-      <div class="why__bg" aria-hidden="true"></div>
-
-      <div class="container why__inner">
-        <div class="why__center reveal">
-          <h2 class="h2">Почему со мной удобно работать</h2>
-          <p class="why__lead">
-            Я думаю задачей бренда и результатом. Делаю визуал как систему: понятную, масштабируемую и коммерчески точную.
-            Моя цель — чтобы дизайн помогал продавать увереннее и выглядел дороже на любом носителе.
-          </p>
-        </div>
-
-        <!-- (NEW 7) круг + дистанция между плашками -->
-        <div class="orbit" aria-label="Преимущества">
-          <article class="orbitCard floaty" style="--a: 0deg;"><div class="orbitCard__inner">Думаю задачей бренда, а не просто визуалом</div></article>
-          <article class="orbitCard floaty" style="--a: 72deg;"><div class="orbitCard__inner">Работаю системно: концепция → структура → финальные макеты</div></article>
-          <article class="orbitCard floaty" style="--a: 144deg;"><div class="orbitCard__inner">Соблюдаю сроки<br />и договорённости</div></article>
-          <article class="orbitCard floaty" style="--a: 216deg;"><div class="orbitCard__inner">Адаптирую дизайн под цифру и печать</div></article>
-          <article class="orbitCard floaty" style="--a: 288deg;"><div class="orbitCard__inner">Делаю результат масштабируемым</div></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section section--dark" id="process">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="h2 reveal">Как проходит работа</h2>
-        </div>
-
-        <div class="steps">
-          <article class="step reveal" style="--d: 70ms">
-            <div class="step__num" aria-hidden="true">1</div>
-            <div class="step__body">
-              <h3 class="cardTitle cardTitle--onDark">Бриф и цель проекта</h3>
-              <p class="text text--muted">Погружаюсь в задачу, аудиторию и контекст, фиксируем ожидания.</p>
-            </div>
-          </article>
-
-          <article class="step reveal" style="--d: 130ms">
-            <div class="step__num" aria-hidden="true">2</div>
-            <div class="step__body">
-              <h3 class="cardTitle cardTitle--onDark">Анализ и направление</h3>
-              <p class="text text--muted">Смотрю рынок и конкурентов, предлагаю визуальный вектор.</p>
-            </div>
-          </article>
-
-          <article class="step reveal" style="--d: 190ms">
-            <div class="step__num" aria-hidden="true">3</div>
-            <div class="step__body">
-              <h3 class="cardTitle cardTitle--onDark">Концепция и дизайн</h3>
-              <p class="text text--muted">Делаю решения, показываю логику и варианты.</p>
-            </div>
-          </article>
-
-          <article class="step reveal" style="--d: 250ms">
-            <div class="step__num" aria-hidden="true">4</div>
-            <div class="step__body">
-              <h3 class="cardTitle cardTitle--onDark">Правки и финализация</h3>
-              <p class="text text--muted">Уточняем детали, доводим до чистого результата.</p>
-            </div>
-          </article>
-
-          <article class="step reveal" style="--d: 310ms">
-            <div class="step__num" aria-hidden="true">5</div>
-            <div class="step__body">
-              <h3 class="cardTitle cardTitle--onDark">Передача материалов</h3>
-              <p class="text text--muted">Подготовка всех файлов и форматов для использования.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section__head">
-          <h2 class="h2 reveal">Портфолио</h2>
-        </div>
-
-        <div class="casesGrid">
-          <article class="caseCard reveal" style="--d: 60ms" data-project="logopotam">
-            <button class="caseCard__media" type="button" data-open>
-              <img src="case_1.webp" alt="Логопотам" loading="lazy" />
-              <div class="caseCard__overlay">
-                <!-- (NEW 5) тот же стиль что hero, но зелёная -->
-                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+          <div class="steps">
+            <article class="step reveal" style="--d: 70ms">
+              <div class="step__num" aria-hidden="true">1</div>
+              <div class="step__body">
+                <h3 class="cardTitle cardTitle--onDark">Бриф и цель проекта</h3>
+                <p class="text text--muted">Погружаюсь в задачу, аудиторию и контекст, фиксируем ожидания.</p>
               </div>
-            </button>
-            <div class="caseCard__body">
-              <h3 class="caseCard__title">Оформление соц. сетей Логопотам</h3>
-              <p class="caseCard__desc">Ведение соц. сетей, оформление постов и креативов, дизайн площадок.</p>
-            </div>
-          </article>
+            </article>
 
-          <article class="caseCard reveal" style="--d: 110ms" data-project="mebelsoft">
-            <button class="caseCard__media" type="button" data-open>
-              <img src="case_21.webp" alt="МЕБЕЛЬ-SOFT" loading="lazy" />
-              <div class="caseCard__overlay">
-                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+            <article class="step reveal" style="--d: 130ms">
+              <div class="step__num" aria-hidden="true">2</div>
+              <div class="step__body">
+                <h3 class="cardTitle cardTitle--onDark">Анализ и направление</h3>
+                <p class="text text--muted">Смотрю рынок и конкурентов, предлагаю визуальный вектор.</p>
               </div>
-            </button>
-            <div class="caseCard__body">
-              <h3 class="caseCard__title">Фирменный стиль «МЕБЕЛЬ-SOFT»</h3>
-              <p class="caseCard__desc">Разработка айдентики, корпоративной продукции.</p>
-            </div>
-          </article>
+            </article>
 
-          <article class="caseCard reveal" style="--d: 160ms" data-project="marketplace">
-            <button class="caseCard__media" type="button" data-open>
-              <img src="case_3.webp" alt="Маркетплейсы" loading="lazy" />
-              <div class="caseCard__overlay">
-                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+            <article class="step reveal" style="--d: 190ms">
+              <div class="step__num" aria-hidden="true">3</div>
+              <div class="step__body">
+                <h3 class="cardTitle cardTitle--onDark">Концепция и дизайн</h3>
+                <p class="text text--muted">Делаю решения, показываю логику и варианты.</p>
               </div>
-            </button>
-            <div class="caseCard__body">
-              <h3 class="caseCard__title">Карточки товаров WB / Ozon</h3>
-              <p class="caseCard__desc">Анализ рынка, ретушь, инфографика под конверсию.</p>
-            </div>
-          </article>
+            </article>
 
-          <article class="caseCard reveal" style="--d: 210ms" data-project="stickers">
-            <button class="caseCard__media" type="button" data-open>
-              <img src="case_4.webp" alt="Стикеры" loading="lazy" />
-              <div class="caseCard__overlay">
-                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+            <article class="step reveal" style="--d: 250ms">
+              <div class="step__num" aria-hidden="true">4</div>
+              <div class="step__body">
+                <h3 class="cardTitle cardTitle--onDark">Правки и финализация</h3>
+                <p class="text text--muted">Уточняем детали, доводим до чистого результата.</p>
               </div>
-            </button>
-            <div class="caseCard__body">
-              <h3 class="caseCard__title">Стикеры для ТБанк</h3>
-              <p class="caseCard__desc">Концепт, вектор, подготовка к печати.</p>
-            </div>
-          </article>
+            </article>
 
-          <article class="caseCard reveal" style="--d: 260ms" data-project="cofee">
-            <button class="caseCard__media" type="button" data-open>
-              <img src="case_5.webp" alt="Кофейный стаканчик" loading="lazy" />
-              <div class="caseCard__overlay">
-                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+            <article class="step reveal" style="--d: 310ms">
+              <div class="step__num" aria-hidden="true">5</div>
+              <div class="step__body">
+                <h3 class="cardTitle cardTitle--onDark">Передача материалов</h3>
+                <p class="text text--muted">Подготовка всех файлов и форматов для использования.</p>
               </div>
-            </button>
-            <div class="caseCard__body">
-              <h3 class="caseCard__title">Дизайн кофейного стаканчика</h3>
-              <p class="caseCard__desc">Векторные иллюстрации для печати на стакане.</p>
-            </div>
-          </article>
-
-          <article class="caseCard reveal" style="--d: 310ms" data-project="nashakuxnya">
-            <button class="caseCard__media" type="button" data-open>
-              <img src="case_6.webp" alt="НАША КУХНЯ" loading="lazy" />
-              <div class="caseCard__overlay">
-                <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
-              </div>
-            </button>
-            <div class="caseCard__body">
-              <h3 class="caseCard__title">Айдентика «НАША КУХНЯ»</h3>
-              <p class="caseCard__desc">Логотип, графика, макеты носителей.</p>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CASE MODAL -->
-    <div class="modal" id="portfolioModal" aria-hidden="true">
-      <div class="modal__backdrop" data-close></div>
+      <!-- PORTFOLIO -->
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="h2 reveal">Портфолио</h2>
+          </div>
 
-      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal__top">
-          <button class="iconBtn" type="button" data-close aria-label="Закрыть">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
+          <div class="casesGrid">
+            <article class="caseCard reveal" style="--d: 60ms" data-project="logopotam">
+              <button class="caseCard__media" type="button" data-open aria-label="Открыть кейс: Логопотам">
+                <img src="case_1.webp" alt="Логопотам" loading="lazy" />
+                <div class="caseCard__overlay">
+                  <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+                </div>
+              </button>
+              <div class="caseCard__body">
+                <h3 class="caseCard__title">Оформление соц. сетей Логопотам</h3>
+                <p class="caseCard__desc">Ведение соц. сетей, оформление постов и креативов, дизайн площадок.</p>
+              </div>
+            </article>
+
+            <article class="caseCard reveal" style="--d: 110ms" data-project="mebelsoft">
+              <button class="caseCard__media" type="button" data-open aria-label="Открыть кейс: МЕБЕЛЬ-SOFT">
+                <img src="case_21.webp" alt="МЕБЕЛЬ-SOFT" loading="lazy" />
+                <div class="caseCard__overlay">
+                  <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+                </div>
+              </button>
+              <div class="caseCard__body">
+                <h3 class="caseCard__title">Фирменный стиль «МЕБЕЛЬ-SOFT»</h3>
+                <p class="caseCard__desc">Разработка айдентики, корпоративной продукции.</p>
+              </div>
+            </article>
+
+            <article class="caseCard reveal" style="--d: 160ms" data-project="marketplace">
+              <button class="caseCard__media" type="button" data-open aria-label="Открыть кейс: Маркетплейсы">
+                <img src="case_3.webp" alt="Маркетплейсы" loading="lazy" />
+                <div class="caseCard__overlay">
+                  <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+                </div>
+              </button>
+              <div class="caseCard__body">
+                <h3 class="caseCard__title">Карточки товаров WB / Ozon</h3>
+                <p class="caseCard__desc">Анализ рынка, ретушь, инфографика под конверсию.</p>
+              </div>
+            </article>
+
+            <article class="caseCard reveal" style="--d: 210ms" data-project="stickers">
+              <button class="caseCard__media" type="button" data-open aria-label="Открыть кейс: Стикеры">
+                <img src="case_4.webp" alt="Стикеры" loading="lazy" />
+                <div class="caseCard__overlay">
+                  <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+                </div>
+              </button>
+              <div class="caseCard__body">
+                <h3 class="caseCard__title">Стикеры для ТБанк</h3>
+                <p class="caseCard__desc">Концепт, вектор, подготовка к печати.</p>
+              </div>
+            </article>
+
+            <article class="caseCard reveal" style="--d: 260ms" data-project="cofee">
+              <button class="caseCard__media" type="button" data-open aria-label="Открыть кейс: Кофейный стаканчик">
+                <img src="case_5.webp" alt="Кофейный стаканчик" loading="lazy" />
+                <div class="caseCard__overlay">
+                  <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+                </div>
+              </button>
+              <div class="caseCard__body">
+                <h3 class="caseCard__title">Дизайн кофейного стаканчика</h3>
+                <p class="caseCard__desc">Векторные иллюстрации для печати на стакане.</p>
+              </div>
+            </article>
+
+            <article class="caseCard reveal" style="--d: 310ms" data-project="nashakuxnya">
+              <button class="caseCard__media" type="button" data-open aria-label="Открыть кейс: НАША КУХНЯ">
+                <img src="case_6.webp" alt="НАША КУХНЯ" loading="lazy" />
+                <div class="caseCard__overlay">
+                  <span class="caseCard__cta btn btn--accent btn--case">Читать про кейс</span>
+                </div>
+              </button>
+              <div class="caseCard__body">
+                <h3 class="caseCard__title">Айдентика «НАША КУХНЯ»</h3>
+                <p class="caseCard__desc">Логотип, графика, макеты носителей.</p>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <div class="modal__media">
-          <button class="navBtn navBtn--prev" type="button" aria-label="Предыдущий слайд">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
+      <!-- CASE MODAL -->
+      <div class="modal" id="portfolioModal" aria-hidden="true">
+        <div class="modal__backdrop" data-close></div>
 
-          <div class="caseHero">
-            <div class="slider" aria-live="polite">
-              <div class="slider__track"></div>
-            </div>
-
-            <!-- toggle -->
-            <button class="readBtn" type="button" data-read aria-controls="caseContent" aria-expanded="false">
-              <span class="readBtn__label">Читать про кейс</span>
-              <i class="fa-solid fa-arrow-down readBtn__icon" aria-hidden="true"></i>
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+          <div class="modal__top">
+            <button class="iconBtn" type="button" data-close aria-label="Закрыть">
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
           </div>
 
-          <button class="navBtn navBtn--next" type="button" aria-label="Следующий слайд">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
+          <div class="modal__media">
+            <button class="navBtn navBtn--prev" type="button" aria-label="Предыдущий слайд">
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
 
-        <div class="modal__content" id="caseContent" tabindex="-1">
-          <div class="modal__head">
-            <h2 class="modal__title" id="modalTitle"></h2>
-            <div class="modal__tags" aria-label="Теги"></div>
+            <div class="caseHero">
+              <div class="slider" aria-live="polite">
+                <div class="slider__track"></div>
+              </div>
+
+              <button class="readBtn" type="button" data-read aria-controls="caseContent" aria-expanded="false">
+                <span class="readBtn__label">Читать про кейс</span>
+                <i class="fa-solid fa-arrow-down readBtn__icon" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <button class="navBtn navBtn--next" type="button" aria-label="Следующий слайд">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
           </div>
-          <p class="modal__desc"></p>
-        </div>
-      </div>
-    </div>
 
-<section class="section section--cta" id="contacts">
-  <div class="cta__bg" aria-hidden="true"></div>
-
-  <div class="container cta">
-    <div class="ctaCard ctaCard--dark">
-      <div class="ctaCard__left">
-        <div class="ctaTop">
-          <h2 class="h2 ctaTitle">Готовы обсудить проект?</h2>
-
-          <p class="ctaText ctaText--light">
-            Напишите мне, что нужно сделать, в какие сроки и какой у вас продукт — я отвечу с вопросами,
-            предложением и стоимостью.
-          </p>
-        </div>
-
-        <div class="ctaActions ctaActions--bottom">
-          <a class="btn btn--accent btn--hero" href="https://t.me/USERNAME">Написать в Telegram</a>
-          <a class="btn btn--primary btn--hero" href="mailto:k4rrmash.7@gmail.com">Сообщение на почту</a>
+          <div class="modal__content" id="caseContent" tabindex="-1">
+            <div class="modal__head">
+              <h2 class="modal__title" id="modalTitle"></h2>
+              <div class="modal__tags" aria-label="Теги"></div>
+            </div>
+            <p class="modal__desc"></p>
+          </div>
         </div>
       </div>
 
-      <div class="ctaPhoto ctaPhoto--right" aria-hidden="true">
-        <!-- ВСТАВЬ СЮДА НАЗВАНИЕ ИЗОБРАЖЕНИЯ -->
-        <img src="about_photo.webp" alt="">
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- CTA -->
+      <section class="section section--cta" id="contacts">
+        <div class="cta__bg" aria-hidden="true"></div>
 
-  </main>
+        <div class="container cta">
+          <div class="ctaCard ctaCard--dark">
+            <div class="ctaCard__left">
+              <div class="ctaTop">
+                <h2 class="h2 ctaTitle">Готовы обсудить проект?</h2>
+                <p class="ctaText ctaText--light">
+                  Напишите мне, что нужно сделать, в какие сроки и какой у вас продукт — я отвечу с
+                  вопросами, предложением и стоимостью.
+                </p>
+              </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__left">
-        <div class="footer__contacts">
-          <a class="footer__link" href="tel:+79067503950">
-            <i class="fa-solid fa-phone"></i><span>+7 (906) 750-3950</span>
-          </a>
-          <a class="footer__link" href="mailto:k4rrmash.7@gmail.com">
-            <i class="fa-regular fa-envelope"></i><span>k4rrmash.7@gmail.com</span>
-          </a>
+              <div class="ctaActions ctaActions--bottom">
+                <a class="btn btn--accent btn--hero" href="https://t.me/USERNAME">Написать в Telegram</a>
+                <a class="btn btn--primary btn--hero" href="mailto:k4rrmash.7@gmail.com">Сообщение на почту</a>
+              </div>
+            </div>
+
+            <div class="ctaPhoto ctaPhoto--right" aria-hidden="true">
+              <img src="about_photo.webp" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <div class="footer__contacts">
+            <a class="footer__link" href="tel:+79067503950">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i><span>+7 (906) 750-3950</span>
+            </a>
+            <a class="footer__link" href="mailto:k4rrmash.7@gmail.com">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i><span>k4rrmash.7@gmail.com</span>
+            </a>
+          </div>
+
+          <div class="footer__social" aria-label="Социальные сети">
+            <a
+              class="social"
+              href="https://www.behance.net/pocketname/projects"
+              target="_blank"
+              rel="noopener"
+              aria-label="Behance"
+            >
+              <i class="fa-brands fa-behance" aria-hidden="true"></i>
+            </a>
+
+            <a class="social" href="https://t.me/Kardesign" target="_blank" rel="noopener" aria-label="Telegram">
+              <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+            </a>
+
+            <a class="social" href="https://vk.com/karrmash" target="_blank" rel="noopener" aria-label="VKontakte">
+              <i class="fa-brands fa-vk" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
 
-        <div class="footer__social" aria-label="Социальные сети">
-          <a class="social" href="https://www.behance.net/pocketname/projects" target="_blank" rel="noopener" aria-label="Behance">
-            <i class="fa-brands fa-behance"></i>
-          </a>
-          <a class="social" href="https://t.me/Kardesign" target="_blank" rel="noopener" aria-label="Telegram">
-            <i class="fa-brands fa-telegram"></i>
-          </a>
-          <a class="social" href="https://vk.com/karrmash" target="_blank" rel="noopener" aria-label="VKontakte">
-            <i class="fa-brands fa-vk"></i>
-          </a>
-        </div>
+        <a class="footer__brand" href="#top" aria-label="Наверх">
+          <img src="logo_black.svg" alt="" class="footer__logo" />
+        </a>
       </div>
-
-      <a class="footer__brand" href="#top" aria-label="Наверх">
-        <img src="logo_black.svg" alt="" class="footer__logo" />
-      </a>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
