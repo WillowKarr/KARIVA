@@ -137,17 +137,18 @@ font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
 }
 
 .brand{
+ width: auto;                 
+  height: 44px;               
+  padding: 0 10px;             
+  border-radius: 999px;
+  overflow: visible;           
   display:flex;
   align-items:center;
-  justify-content:center;
-  width: 50px;
-  height: 36px;
-  border-radius: 999px;
-  overflow:hidden;
 }
 .brand__img{
-  height: 22px;
-  width:auto;
+ height: 30px;                
+  width: auto;
+  max-width: 180px;            
   object-fit: contain;
   filter: brightness(1.05) contrast(1.05);
 }
@@ -1228,7 +1229,12 @@ body.modal-open{ overflow:hidden; }
   transform: translateY(-1px);
   background: rgba(11,15,13,.10);
 }
-.footer__logo{ height: 22px; width:auto; object-fit: contain; }
+.footer__logo{ 
+   height: 32px;             
+  width: auto;
+  max-width: 240px;            
+  object-fit: contain;
+}
 
 /* Reveal animations */
 .reveal{
@@ -1279,6 +1285,7 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
+
 
 
 
