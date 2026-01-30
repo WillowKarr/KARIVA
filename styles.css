@@ -1385,11 +1385,6 @@ body.modal-open{ overflow:hidden; }
   color: rgba(255,255,255,.80);
 }
 
-/* --- CTA CARD --- */
-.ctaCard{
-  --ctaBg: #0B0F0D;
-  --ctaBg2:#0D1411;
-
   position: relative;
   z-index: 2;
 
@@ -1693,7 +1688,7 @@ body.cursor-hover .cursor-follower{
   /* стрелки включаем и выносим в боковые колонки */
   .navBtn{
     display: inline-flex !important;
-    position: static !important; /
+    position: static !important; 
     width: 46px;
     height: 46px;
     border-radius: 12px;
@@ -1721,3 +1716,4 @@ body.cursor-hover .cursor-follower{
   .navBtn{ width: 40px; height: 40px; border-radius: 10px; }
   .caseHero{ height: 72vh !important; }
 }
+
