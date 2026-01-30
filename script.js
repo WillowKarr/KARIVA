@@ -10,6 +10,7 @@
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
+
     const href = a.getAttribute('href');
     if (!href || href === '#') return;
 
@@ -50,8 +51,12 @@
       isOpen ? closeNav() : openNav();
     });
     overlay.addEventListener('click', closeNav);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 820) closeNav(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 820) closeNav();
+    });
     nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
   }
 
@@ -115,11 +120,15 @@
   const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
   if (!prefersReduced && cursor && follower && !isCoarse) {
-    let fx = 0, fy = 0, x = 0, y = 0;
+    let fx = 0,
+      fy = 0,
+      x = 0,
+      y = 0;
     const speed = 0.18;
 
     const move = (e) => {
-      x = e.clientX; y = e.clientY;
+      x = e.clientX;
+      y = e.clientY;
       cursor.style.left = `${x}px`;
       cursor.style.top = `${y}px`;
     };
@@ -135,7 +144,7 @@
     document.addEventListener('mousemove', move, { passive: true });
     requestAnimationFrame(tick);
 
-    const hoverables = 'a, button, .social, .btn, .burger, [data-open], .readBtn, .navBtn, .iconBtn, .pbtn';
+    const hoverables = 'a, button, .social, .btn, .burger, [data-open], .navBtn, .iconBtn, .pbtn';
     document.addEventListener('mouseover', (e) => {
       if (e.target.closest(hoverables)) document.body.classList.add('cursor-hover');
     });
@@ -155,11 +164,9 @@
   const prevBtn = modal?.querySelector('.navBtn--prev');
   const nextBtn = modal?.querySelector('.navBtn--next');
 
-  const readBtn = modal?.querySelector('[data-read]');
-  const readBtnLabel = modal?.querySelector('.readBtn__label');
-  const readBtnIcon = modal?.querySelector('.readBtn__icon');
-
-  const content = modal?.querySelector('#caseContent');
+  // (8) ссылка "смотреть больше кейсов" — показываем только в marketplace
+  const moreLink = modal?.querySelector('.caseMoreLink');
+  const MORE_CASES_URL = 'https://disk.yandex.ru/d/xut7nHaZSw502g';
 
   const projects = {
     logopotam: {
@@ -196,7 +203,8 @@
     },
     stickers: {
       title: 'Стикеры для Тбанк',
-      description: 'Стикерпак для корпоративного мероприятия KidsDay — дня, когда родители берут на работу детей. Серия персонажей, подготовка к печати.',
+      description:
+        'Стикерпак для корпоративного мероприятия KidsDay — дня, когда родители берут на работу детей. Серия персонажей, подготовка к печати.',
       tags: ['Illustrator'],
       imagesDesktop: ['element24.webp','element25.webp'],
       imagesMobile: ['elementmobile54.webp','elementmobile55.webp','elementmobile56.webp','elementmobile57.webp']
@@ -214,7 +222,6 @@
   let current = 0;
   let slidesCount = 0;
   let currentProjectId = null;
-  let isReading = false;
 
   const getImages = (project) => {
     const isMobile = window.innerWidth <= 720;
@@ -243,36 +250,13 @@
       const img = document.createElement('img');
       img.src = src;
       img.alt = `${altBase} — ${idx + 1}`;
-      img.loading = 'eager';
+      img.loading = idx === 0 ? 'eager' : 'lazy';
       slide.appendChild(img);
       track.appendChild(slide);
     });
     slidesCount = images.length;
     current = 0;
     setTransform();
-  };
-
-  const setNavHidden = (hidden) => {
-    if (!modal) return;
-    modal.classList.toggle('nav-hidden', hidden);
-  };
-
-  const setReadBtnState = (reading) => {
-    isReading = reading;
-
-    if (readBtn) readBtn.setAttribute('aria-expanded', reading ? 'true' : 'false');
-    if (readBtnLabel) readBtnLabel.textContent = reading ? 'Посмотреть визуал' : 'Читать про кейс';
-
-    if (readBtnIcon) {
-      readBtnIcon.classList.toggle('fa-arrow-down', !reading);
-      readBtnIcon.classList.toggle('fa-arrow-up', reading);
-    }
-  };
-
-  const scrollDialogToEl = (el) => {
-    if (!dialog || !el) return;
-    const top = el.getBoundingClientRect().top - dialog.getBoundingClientRect().top + dialog.scrollTop;
-    dialog.scrollTo({ top, behavior: prefersReduced ? 'auto' : 'smooth' });
   };
 
   const openModal = (projectId) => {
@@ -293,17 +277,30 @@
       tagsEl.appendChild(el);
     });
 
+    // (8) показываем/прячем "смотреть больше кейсов"
+    if (moreLink) {
+      const shouldShow = projectId === 'marketplace';
+      moreLink.hidden = !shouldShow;
+      if (shouldShow) {
+        moreLink.href = MORE_CASES_URL;
+        moreLink.target = '_blank';
+        moreLink.rel = 'noopener';
+      } else {
+        moreLink.removeAttribute('href');
+      }
+    }
+
     buildSlides(getImages(project), project.title);
 
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
 
+    // всегда стартуем сверху, без режима "читать"
     dialog.scrollTop = 0;
-    setReadBtnState(false);
-    setNavHidden(false);
 
     requestAnimationFrame(() => {
+      const content = modal.querySelector('#caseContent');
       content?.focus?.({ preventScroll: true });
     });
   };
@@ -319,9 +316,15 @@
     currentProjectId = null;
     slidesCount = 0;
     current = 0;
-    isReading = false;
+
+    // (8) сбросить ссылку
+    if (moreLink) {
+      moreLink.hidden = true;
+      moreLink.removeAttribute('href');
+    }
   };
 
+  // open handlers
   document.querySelectorAll('[data-open]').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       const card = e.currentTarget.closest('.caseCard');
@@ -330,50 +333,11 @@
     });
   });
 
+  // close handlers
   modal?.addEventListener('click', (e) => {
     const target = e.target;
     if (target?.matches?.('[data-close]')) closeModal();
   });
-
-  prevBtn?.addEventListener('click', () => go(-1));
-  nextBtn?.addEventListener('click', () => go(1));
-
-  readBtn?.addEventListener('click', () => {
-    if (!dialog || !content) return;
-
-    if (!isReading) {
-      setReadBtnState(true);
-      setNavHidden(true);
-      scrollDialogToEl(content);
-    } else {
-      setReadBtnState(false);
-      setNavHidden(false);
-      dialog.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
-    }
-  });
-
-  // arrows fade on scroll; do NOT flicker read-state
-  let scrollRaf = 0;
-  dialog?.addEventListener('scroll', () => {
-    if (!dialog || !content) return;
-    if (scrollRaf) return;
-
-    scrollRaf = requestAnimationFrame(() => {
-      scrollRaf = 0;
-
-      const y = dialog.scrollTop;
-
-      if (y > 60) setNavHidden(true);
-      if (y < 20) setNavHidden(false);
-
-      if (y < 30 && isReading) setReadBtnState(false);
-
-      const contentTop =
-        content.getBoundingClientRect().top - dialog.getBoundingClientRect().top + dialog.scrollTop;
-
-      if (y + 140 >= contentTop && !isReading) setReadBtnState(true);
-    });
-  }, { passive: true });
 
   document.addEventListener('keydown', (e) => {
     if (!modal?.classList.contains('is-open')) return;
@@ -382,7 +346,11 @@
     if (e.key === 'ArrowRight') go(1);
   });
 
-  // swipe
+  // arrows (desktop + mobile per CSS)
+  prevBtn?.addEventListener('click', () => go(-1));
+  nextBtn?.addEventListener('click', () => go(1));
+
+  // (9) swipe for mobile (и на тач-десктопах)
   if (modal && track) {
     let startX = 0;
     let dx = 0;
@@ -390,6 +358,9 @@
 
     const onStart = (e) => {
       if (!modal.classList.contains('is-open')) return;
+      // игнорируем свайп по кнопкам/ссылкам
+      if (e.target.closest('button, a')) return;
+
       active = true;
       dx = 0;
       startX = (e.touches ? e.touches[0].clientX : e.clientX);
@@ -404,6 +375,7 @@
     const onEnd = () => {
       if (!active) return;
       active = false;
+
       const threshold = 42;
       if (dx > threshold) go(-1);
       else if (dx < -threshold) go(1);
@@ -414,6 +386,7 @@
     modal.addEventListener('touchend', onEnd, { passive: true });
   }
 
+  // rebuild on resize to swap mobile/desktop image sets (while modal open)
   window.addEventListener('resize', () => {
     if (!modal?.classList.contains('is-open')) return;
     if (!currentProjectId) return;
@@ -422,11 +395,11 @@
   });
 
   // ===== Optional: subtle “tilt” on PROCESS cards (desktop) =====
-  const steps = Array.from(document.querySelectorAll('.step__body'));
-  if (!prefersReduced && !isCoarse && steps.length) {
+  const stepBodies = Array.from(document.querySelectorAll('.step__body'));
+  if (!prefersReduced && !isCoarse && stepBodies.length) {
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-    steps.forEach((card) => {
+    stepBodies.forEach((card) => {
       let r = 0;
       const onMove = (e) => {
         if (r) return;
