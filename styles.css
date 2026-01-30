@@ -261,7 +261,7 @@ button{ border:0; background: transparent; }
 }
 
 @media (max-width: 820px){
-  .burger{ display:flex; border: 0; box-shadow:none;}
+  .burger{ display:flex; border: 0; box-shadow:none; background: none;}
   .nav{
     position: fixed;
     top: 70px;
