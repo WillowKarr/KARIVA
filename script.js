@@ -214,7 +214,6 @@
       imagesMobile: ['elementmobile24.webp','elementmobile25.webp','elementmobile26.webp','elementmobile27.webp','elementmobile28.webp']
     },
 
-
          santerra: {
       title: 'Фирменный стиль для академии тенниса «САНТЕРРА»"',
       description:
@@ -249,7 +248,8 @@
       imagesDesktop: ['element1.webp','element2.webp','element3.webp','element5.webp','element6.webp','element7.webp','element8.webp','element9.webp'],
       imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile3.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp']
     },
-
+};
+  
   let current = 0;
   let slidesCount = 0;
   let currentProjectId = null;
@@ -456,4 +456,5 @@
     });
   }
 })();
+
 
