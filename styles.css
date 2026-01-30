@@ -285,7 +285,7 @@ button{ border:0; background: transparent; }
     border-radius: 12px;
     text-align:center;
     background: transparent; /* было rgba(...) */
-    border: 0;    
+    border: 0;
   }
   .nav__link::after{ display:none; }
 }
@@ -809,9 +809,9 @@ button{ border:0; background: transparent; }
 }
 
 .orbitCard__inner{
-  padding: 28px 24px;         
-  min-height: 118px;          
-  display:flex;    
+  padding: 28px 24px;
+  min-height: 118px;
+  display:flex;
   border-radius: var(--r);
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.06);
@@ -1035,10 +1035,10 @@ content:"";
 
 .pbtn__img{
   position:absolute;
-  inset:0;               
+  inset:0;
   width: 100%;
   height: 100%;
-  object-fit: cover;   
+  object-fit: cover;
   object-position: center;
   z-index: -1;
   opacity: .92;
@@ -1235,7 +1235,7 @@ content:"";
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center; 
+  object-position: center center;
 }
 
 /* desktop arrows */
@@ -1494,6 +1494,11 @@ body.modal-open{ overflow:hidden; }
   opacity: .65;
 }
 
+.ctaCard {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 @media (max-width: 860px){
   .ctaCard{
     grid-template-columns: 1fr;
@@ -1634,10 +1639,10 @@ body.cursor-hover .cursor-follower{
 
 @media (max-width: 520px){
   .section--path .h2{
-    font-size: 28px;     
+    font-size: 28px;
     line-height: 1.08;
     letter-spacing: -0.02em;
-    word-break: break-word; 
+    word-break: break-word;
   }
 }
 @media (max-width: 720px){
@@ -1675,7 +1680,7 @@ body.cursor-hover .cursor-follower{
   /* слайдер в центре и реально “жирный” */
   .caseHero{
     width: 100% !important;
-    height: 78vh !important;    
+    height: 78vh !important;
     max-height: none !important;
   }
 
@@ -1688,7 +1693,7 @@ body.cursor-hover .cursor-follower{
   /* стрелки включаем и выносим в боковые колонки */
   .navBtn{
     display: inline-flex !important;
-    position: static !important; 
+    position: static !important;
     width: 46px;
     height: 46px;
     border-radius: 12px;
