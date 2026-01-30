@@ -1187,7 +1187,7 @@ content:"";
   width: 44px; height: 44px;
   border-radius: var(--r3);
   border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06);
+  background: rgb(38 36 36 / 53%);
   backdrop-filter: blur(10px);
   display:inline-flex;
   align-items:center;
@@ -1243,7 +1243,7 @@ content:"";
   width: 44px; height: 44px;
   border-radius: var(--r3);
   border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06);
+  background: rgb(38 36 36 / 53%);
   backdrop-filter: blur(10px);
   display:inline-flex;
   align-items:center;
@@ -1501,6 +1501,7 @@ body.modal-open{ overflow:hidden; }
 
 @media (max-width: 860px){
   .ctaCard{
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
       "photo"
@@ -1669,12 +1670,18 @@ body.cursor-hover .cursor-follower{
 
   /* делаем сетку: стрелка | слайдер | стрелка */
   .modal__media{
-    display: grid !important;
     grid-template-columns: 46px 1fr 46px !important;
     align-items: center !important;
     gap: 10px !important;
     padding: 10px 10px 14px !important;
     min-height: auto !important;
+    position: relative;
+    top: -40px;
+  }
+
+  .modal__content{
+    position: relative;
+    top: -40px;
   }
 
   /* слайдер в центре и реально “жирный” */
@@ -1701,9 +1708,9 @@ body.cursor-hover .cursor-follower{
   }
 
   /* гарантируем расположение по сетке */
-  .navBtn--prev{ grid-column: 1 !important; }
+  .navBtn--prev{ position: absolute !important; left: 16px; }
   .caseHero{ grid-column: 2 !important; }
-  .navBtn--next{ grid-column: 3 !important; }
+  .navBtn--next{ position: absolute !important; right: 16px; }
 
   /* картинку центрируем (у тебя уже стоит center center — оставляем) */
   .slide img{

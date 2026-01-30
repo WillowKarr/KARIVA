@@ -178,7 +178,23 @@
       imagesMobile: ['elementmobile38.webp','elementmobile39.webp']
     },
 
- marketplace: {
+    /**
+     *     ПРИМЕР ДЛЯ КРУТЫШКИ ОТ СЕКСИ ПРОГРАММИСТА
+     *
+     *     ВАЖНО: Пееред названием файла напиши "media/"
+     *
+     *     ВАЖНО 2: ЦМОК.
+     *
+     *       title: 'Создание карточек товара на WB и OZON',
+     *       description:
+     *         'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки. Как результат в Meidiannas оформила ≈480 карточек и внедрила единую визуальную систему — рост продаж +175% за месяц, выручка +169% после обновления контента и 9 место в категории обувь OZON. В ADORE SWIM обновила 160+ карточек, повысив CTR обложки на +12% и конверсию в заказ на +6%, ускорив подготовку контента на ~25% благодаря шаблонам.',
+     *       tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion', 'Photoroom', 'Midjourney'],
+     *       imagesDesktop: ['media/element28.webp','media/element29.webp','media/element30.webp','media/element51.webp'],
+     *       imagesMobile: ['media/elementmobile40.webp','media/elementmobile41.webp','media/elementmobile42.webp']
+     *     },
+     */
+
+    marketplace: {
       title: 'Создание карточек товара на WB и OZON',
       description:
         'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки. Как результат в Meidiannas оформила ≈480 карточек и внедрила единую визуальную систему — рост продаж +175% за месяц, выручка +169% после обновления контента и 9 место в категории обувь OZON. В ADORE SWIM обновила 160+ карточек, повысив CTR обложки на +12% и конверсию в заказ на +6%, ускорив подготовку контента на ~25% благодаря шаблонам.',
@@ -308,16 +324,26 @@
       tagsEl.appendChild(el);
     });
 
+    const projectsWithLink = ['adoreswim','marketplace', 'meidianas']
+    const projectsLinks = [
+        { id: 'adoreswim', link: 'https://disk.yandex.ru/d/xut7nHaZSw502g/ADORE%20SWIM%20%D0%BA%D1%83%D0%BF%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%D0%B8' },
+      { id: 'marketplace', link: 'https://disk.yandex.ru/d/xut7nHaZSw502g' },
+      { id: 'meidianas', link: 'https://disk.yandex.ru/d/xut7nHaZSw502g/MEIDIANNAS%20%D0%BE%D0%B1%D1%83%D0%B2%D1%8C' },
+    ]
+
     // (8) показываем/прячем "смотреть больше кейсов"
+    console.log('test', moreLink, projectId, projectsWithLink.includes(projectId))
     if (moreLink) {
-      const shouldShow = projectId === 'marketplace';
+      const shouldShow = projectsWithLink.includes(projectId);
       moreLink.hidden = !shouldShow;
       if (shouldShow) {
-        moreLink.href = MORE_CASES_URL;
+        moreLink.style.display = 'inline-block'
+        moreLink.href = projectsLinks.find((project) => project.id === projectId).link;
         moreLink.target = '_blank';
         moreLink.rel = 'noopener';
       } else {
         moreLink.removeAttribute('href');
+        moreLink.style.display = 'none';
       }
     }
 
