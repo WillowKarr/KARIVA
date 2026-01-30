@@ -261,7 +261,7 @@ button{ border:0; background: transparent; }
 }
 
 @media (max-width: 820px){
-  .burger{ display:flex; }
+  .burger{ display:flex; border: 0; box-shadow:none;}
   .nav{
     position: fixed;
     top: 70px;
@@ -280,12 +280,12 @@ button{ border:0; background: transparent; }
   .nav.is-open{ display:block; }
   .nav__list{ flex-direction: column; gap: 10px; }
   .nav__link{
-    display:block;
+   display:block;
     padding: 12px 14px;
     border-radius: 12px;
     text-align:center;
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.08);
+    background: transparent; /* было rgba(...) */
+    border: 0;    
   }
   .nav__link::after{ display:none; }
 }
@@ -1265,27 +1265,6 @@ content:"";
   pointer-events: none;
 }
 
-/* (9) В адаптиве включаем стрелки (они были display:none) */
-@media (max-width: 720px){
-  .caseHero{ width: 100%; height: 62vh; }
-  .modal__media{ min-height: auto; }
-
-  .navBtn{
-    display:inline-flex;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-  }
-}
-
-/* (9) чуть более кликабельные стрелки на мобилке */
-@media (max-width: 420px){
-  .navBtn{
-    width: 42px;
-    height: 42px;
-  }
-}
-
 /* content */
 .modal__content{
   width: min(1200px, calc(100% - 40px));
@@ -1657,29 +1636,7 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
-@media (max-width: 820px){
-  .nav{
-    top: 64px; 
-    width: min(380px, calc(100% - 24px));
-    padding: 8px 10px; 
-    border-radius: 14px;
 
-    /* убираем плашку */
-    border: 0;
-    background: transparent;
-    backdrop-filter: none;
-    box-shadow: none;
-  }
-
-  .nav__list{ gap: 6px; }
-
-  .nav__link{
-    padding: 10px 10px;
-    border-radius: 10px;
-    background: transparent; 
-    border: 0;             
-  }
-}
 @media (max-width: 520px){
   .section--path .h2{
     font-size: 28px;     
@@ -1697,36 +1654,7 @@ body.cursor-hover .cursor-follower{
     object-position: center;
   }
 }
-@media (max-width: 720px){
-  .modal__media{
-    display: grid;
-    grid-template-columns: 44px 1fr 44px; 
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px 14px;
-  }
 
-  .caseHero{
-    width: 100%;
-    height: 66vh;        
-    max-height: none;
-  }
-
-  .slider{
-    border-radius: 14px;
-  }
-
-  .navBtn{
-    position: static;    
-    z-index: 3;
-  }
-}
-
-@media (max-width: 380px){
-  .modal__media{ grid-template-columns: 40px 1fr 40px; }
-  .navBtn{ width: 40px; height: 40px; }
-  .caseHero{ height: 62vh; }
-}
 @media (max-width: 860px){
   .ctaCard__left{
     padding: 22px 18px 18px;
@@ -1735,4 +1663,61 @@ body.cursor-hover .cursor-follower{
   .ctaTop{ padding-top: 6px; }
   .ctaText{ margin-top: 14px; }
   .ctaActions{ margin-top: 22px; gap: 12px; }
+}
+
+@media (max-width: 720px){
+
+  /* делаем сетку: стрелка | слайдер | стрелка */
+  .modal__media{
+    display: grid !important;
+    grid-template-columns: 46px 1fr 46px !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 10px 10px 14px !important;
+    min-height: auto !important;
+  }
+
+  /* слайдер в центре и реально “жирный” */
+  .caseHero{
+    width: 100% !important;
+    height: 78vh !important;    
+    max-height: none !important;
+  }
+
+  .slider{
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 14px;
+  }
+
+  /* стрелки включаем и выносим в боковые колонки */
+  .navBtn{
+    display: inline-flex !important;
+    position: static !important; /
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    z-index: 10;
+  }
+
+  /* гарантируем расположение по сетке */
+  .navBtn--prev{ grid-column: 1 !important; }
+  .caseHero{ grid-column: 2 !important; }
+  .navBtn--next{ grid-column: 3 !important; }
+
+  /* картинку центрируем (у тебя уже стоит center center — оставляем) */
+  .slide img{
+    object-position: center center !important;
+  }
+}
+
+/* супер маленькие экраны */
+@media (max-width: 380px){
+  .modal__media{
+    grid-template-columns: 40px 1fr 40px !important;
+    gap: 8px !important;
+    padding: 8px 8px 12px !important;
+  }
+  .navBtn{ width: 40px; height: 40px; border-radius: 10px; }
+  .caseHero{ height: 72vh !important; }
 }
