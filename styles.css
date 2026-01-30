@@ -55,8 +55,6 @@ body{
   line-height: 1.75;
   color: var(--text);
   overflow-x:hidden;
-
-  /* ВАЖНО: убираем “полоски” общего фона */
   background: var(--bg);
 }
 
@@ -103,7 +101,6 @@ button{ border:0; background: transparent; }
   isolation: isolate;
 }
 
-/* мягкие края сверху/снизу, чтобы не было линий между блоками */
 .s-hero::after,
 .s-about::after,
 .s-help::after,
@@ -126,7 +123,6 @@ button{ border:0; background: transparent; }
   opacity: .55;
 }
 
-/* Контент поверх фонов */
 .s-hero > .container,
 .s-about > .container,
 .s-help > .container,
@@ -428,16 +424,17 @@ button{ border:0; background: transparent; }
   gap: 12px;
   flex-wrap: wrap;
 }
-.hero__signature{
+
+/* (1) Новая версия сигнатуры без плашки */
+.hero__signaturePlain{
   margin-top: clamp(22px, 3.6vw, 48px);
-  border-radius: var(--r);
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  backdrop-filter: blur(12px);
-  padding: 14px 16px;
   display:flex;
   align-items:center;
   width: fit-content;
+  padding: 0;            /* нет плашки */
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
 }
 .sig__dots{
   display:inline-flex;
@@ -460,13 +457,11 @@ button{ border:0; background: transparent; }
 }
 @media (max-width: 980px){
   .hero__grid{ grid-template-columns: 1fr; align-items: start; }
-  .hero__signature{ width: 100%; justify-content:center; }
+  .hero__signaturePlain{ width: 100%; justify-content:center; }
 }
 
 /* ===== ABOUT (black + right-top green glow; left GIF blends) ===== */
-.s-about{
-  background: var(--black);
-}
+.s-about{ background: var(--black); }
 .about__bg{
   position:absolute;
   inset:0;
@@ -484,11 +479,8 @@ button{ border:0; background: transparent; }
   gap: clamp(18px, 4vw, 56px);
   align-items: start;
 }
-@media (max-width: 920px){
-  .about{ grid-template-columns: 1fr; }
-}
+@media (max-width: 920px){ .about{ grid-template-columns: 1fr; } }
 
-/* “слияние” гифки слева с фоном: без светлой рамки + мягкая маска по краям */
 .about__media{
   margin: 0;
   position: relative;
@@ -559,7 +551,6 @@ button{ border:0; background: transparent; }
   .fireflies .pixel{ animation: none; }
 }
 
-/* marker highlight */
 .about__highlightWrap{ margin: 8px 0 0; }
 .hl{
   display:inline-block;
@@ -657,9 +648,8 @@ button{ border:0; background: transparent; }
   .tcard--glitch{ animation: none; }
 }
 
-.s-help{
-  background: #000;
-}
+/* ===== HELP ===== */
+.s-help{ background: #000; }
 .help__bg{
   position:absolute;
   inset:0;
@@ -679,10 +669,12 @@ button{ border:0; background: transparent; }
   gap: 12px;
   max-width: 980px;
 }
+
+/* (2) Перевели левую часть на реальное изображение + сделали крупнее */
 .helpCard{
   position: relative;
   display:grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 18px;
   align-items:center;
 
@@ -692,21 +684,27 @@ button{ border:0; background: transparent; }
   backdrop-filter: blur(14px);
   padding: 18px 18px;
   box-shadow: var(--shadowSoft);
-  overflow: visible;
+  overflow: hidden; /* чтобы медиа не вылезало */
   z-index: var(--z, 1);
 }
 
-/* ВАЖНО: убираем зелёную подложку — визуальный блок прозрачный */
-.helpCard__gif{
-  width: 180px;
-  height: 120px;
-  border-radius: var(--r);
-  transform: translateX(-18px);
+.helpCard__media{
+  margin: 0;
+  width: 100%;
+  height: 150px;
+  border-radius: calc(var(--r) - 2px);
+  overflow: hidden;
+  background: transparent;          /* (2) без подложки */
+  border: 0;                        /* (2) без обводки */
+  box-shadow: none;                 /* (2) без свечения */
 }
-.helpCard__gif--transparent{
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+.helpCard__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+  transform: translateZ(0);
+  filter: saturate(1.02) contrast(1.02);
 }
 
 .cardTitle{
@@ -721,8 +719,17 @@ button{ border:0; background: transparent; }
 .helpCard .text{ margin: 0; }
 
 @media (max-width: 740px){
-  .helpCard{ grid-template-columns: 1fr; }
-  .helpCard__gif{ transform: none; width: 100%; height: 140px; }
+  .helpCard{
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  .helpCard__media{
+    height: 180px;
+    border-radius: var(--r);
+  }
+  .helpCard__media img{
+    object-position: center;
+  }
 }
 
 /* ===== WHY (gif full screen) ===== */
@@ -733,13 +740,18 @@ button{ border:0; background: transparent; }
   padding: clamp(28px, 4vw, 60px) 0;
   background: #000;
 }
+
+/* (3) Фон-гif растянут на весь блок, затемнён и с пониженной прозрачностью */
 .why__bg{
   position:absolute;
   inset:0;
   z-index:0;
   background: url("binary.gif") center/cover no-repeat;
   filter: contrast(1.08) saturate(.9);
+  opacity: .55; /* уменьшаем прозрачность */
 }
+
+/* (3) затемнение + зелёный градиент по центру должен читаться */
 .s-why::before{
   content:"";
   position:absolute;
@@ -747,9 +759,10 @@ button{ border:0; background: transparent; }
   z-index:0;
   pointer-events:none;
   background:
-    radial-gradient(900px 700px at 50% 50%, rgba(201,255,87,.12), transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.92));
+    radial-gradient(900px 700px at 50% 50%, rgba(201,255,87,.16), transparent 58%),
+    linear-gradient(180deg, rgba(0,0,0,.68), rgba(0,0,0,.92));
 }
+
 .why__inner{ position: relative; z-index: 1; }
 .why__center{ max-width: 74ch; }
 .why__lead{
@@ -764,9 +777,15 @@ button{ border:0; background: transparent; }
 .orbit{
   position: relative;
   margin-top: clamp(18px, 5vw, 60px);
-  height: clamp(600px, 70vh, 820px);
+
+  /* (4) увеличили безопасную высоту, чтобы карточки не "уезжали" в следующий блок */
+  height: clamp(660px, 78vh, 900px);
   width: 100%;
+
+  /* (4) добавили внутренний “воздух” снизу */
+  padding-bottom: 26px;
 }
+
 .orbitCard{
   position: absolute;
   left: 50%;
@@ -778,6 +797,17 @@ button{ border:0; background: transparent; }
     translateX(min(320px, 36vw))
     rotate(calc(var(--a) * -1));
 }
+
+/* (4) Именно “системную” карточку поднимаем выше, чтобы не касалась следующего блока */
+.orbitCard--system{
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--a))
+    translateX(min(320px, 36vw))
+    rotate(calc(var(--a) * -1))
+    translateY(-18px);
+}
+
 .orbitCard__inner{
   padding: 22px 22px;
   border-radius: var(--r);
@@ -790,6 +820,7 @@ button{ border:0; background: transparent; }
   line-height: 1.45;
   font-size: clamp(16px, 1.15vw, 18px);
 }
+
 .floaty{ animation: floaty 3.6s var(--ease) infinite; }
 .orbitCard:nth-child(2){ animation-delay: .2s; }
 .orbitCard:nth-child(3){ animation-delay: .45s; }
@@ -817,16 +848,26 @@ button{ border:0; background: transparent; }
 @media (prefers-reduced-motion: reduce){
   .floaty{ animation: none; }
 }
+
+/* mobile orbit becomes list */
 @media (max-width: 860px){
-  .orbit{ height:auto; display:grid; gap: 12px; }
-  .orbitCard{ position: static; transform:none !important; width:100%; }
+  .orbit{
+    height:auto;
+    display:grid;
+    gap: 12px;
+    padding-bottom: 0;
+  }
+  .orbitCard{
+    position: static;
+    transform:none !important;
+    width:100%;
+    animation: none;
+  }
   .orbitCard__inner{ padding: 18px; }
 }
 
-/* ===== PROCESS (black + right gradient; numbers smaller; more interest) ===== */
-.s-process{
-  background: #000;
-}
+/* ===== PROCESS ===== */
+.s-process{ background: #000; }
 .process__bg{
   position:absolute;
   inset:0;
@@ -839,22 +880,22 @@ button{ border:0; background: transparent; }
 
 .steps{
   display:grid;
-  gap: 18px; /* больше воздуха между шагами */
+  gap: 26px; /* (5) увеличили расстояние между шагами */
   max-width: 1120px;
 }
 
 .step{
   position: relative;
-  padding: 18px 0 6px;
+  padding: 18px 0 8px;
   border-radius: var(--r);
   overflow: visible;
 }
 
-/* линии между шагами (и анимация “дыхания”) */
+/* линии между шагами */
 .step__line{
   height: 1px;
-  margin-left: clamp(54px, 6vw, 92px);
-  margin-top: 18px;
+  margin-left: clamp(74px, 7vw, 120px);
+  margin-top: 20px;
   background: linear-gradient(90deg, rgba(201,255,87,.0), rgba(201,255,87,.32), rgba(201,255,87,.0));
   opacity: .7;
   transform-origin: left center;
@@ -869,27 +910,40 @@ button{ border:0; background: transparent; }
   50%{ transform: scaleX(1); opacity: .9; }
 }
 
-/* цифры меньше + не наслаиваются */
+/* (5) "плашки с цифрами" — делаем шире + контролируем чтобы не наслаивались */
 .step__num{
   position:absolute;
-  left: -4px;
-  top: -8px;
+  left: -6px;
+  top: -10px;
+
+  /* шире по восприятию: делаем как крупную “плашку” с числом */
+  width: clamp(84px, 9vw, 128px);
+  height: clamp(84px, 9vw, 128px);
+
+  display:grid;
+  place-items:center;
 
   font-family: Sora, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 1;
 
-  font-size: clamp(74px, 10vw, 130px);
-  color: rgba(201,255,87,.16);
+  font-size: clamp(44px, 5.2vw, 64px);
+  color: rgba(11,15,13,.86);
+
+  background: rgba(201,255,87,.18);
+  border: 1px solid rgba(201,255,87,.28);
+  box-shadow: 0 18px 60px rgba(0,0,0,.45);
+  border-radius: calc(var(--r) + 2px);
 
   pointer-events:none;
   user-select:none;
 
-  /* лёгкий motion */
   transform: translate3d(0,0,0);
   animation: numFloat 3.6s var(--ease) infinite;
+  backdrop-filter: blur(10px);
 }
+
 .step:nth-child(2) .step__num{ animation-delay: .15s; }
 .step:nth-child(3) .step__num{ animation-delay: .3s; }
 .step:nth-child(4) .step__num{ animation-delay: .45s; }
@@ -901,13 +955,12 @@ button{ border:0; background: transparent; }
 }
 
 .step__body{
-  padding-left: clamp(54px, 6vw, 92px);
-  padding-top: 10px;
-  transform: none !important;       
+  padding-left: clamp(118px, 12vw, 172px); /* (5) больше отступ, чтобы цифры точно не залезали */
+  padding-top: 8px;
+  transform: none !important;
   will-change: auto;
 }
 
-/* подложка “стекло” внутри шага */
 .step__body::before{
   content:"";
   position:absolute;
@@ -925,15 +978,19 @@ button{ border:0; background: transparent; }
 }
 
 @media (max-width: 560px){
-  .step__num{ font-size: clamp(66px, 16vw, 110px); }
-  .step__body{ padding-left: 62px; }
-  .step__line{ margin-left: 62px; }
+  .steps{ gap: 22px; }
+  .step__num{
+    width: 76px;
+    height: 76px;
+    font-size: 38px;
+    left: -2px;
+  }
+  .step__body{ padding-left: 94px; }
+  .step__line{ margin-left: 94px; }
 }
 
-/* ===== PORTFOLIO (center glow) ===== */
-.s-portfolio{
-  background: #000;
-}
+/* ===== PORTFOLIO ===== */
+.s-portfolio{ background: #000; }
 .portfolio__bg{
   position:absolute;
   inset:0;
@@ -944,39 +1001,57 @@ button{ border:0; background: transparent; }
     linear-gradient(180deg, #000 0%, #000 100%);
 }
 
-/* две большие кнопки-изображения */
+/* (6) Кнопки ИИ/АРТ — более современный стиль + реальная картинка внутри */
 .portfolioSwitch{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-bottom: 18px;
 }
-@media (max-width: 720px){
-  .portfolioSwitch{ grid-template-columns: 1fr; }
-}
+@media (max-width: 720px){ .portfolioSwitch{ grid-template-columns: 1fr; } }
 
 .pbtn{
   position: relative;
-  min-height: 140px;
-  border-radius: var(--r);
+  min-height: 150px;
+  border-radius: calc(var(--r) + 2px);
   overflow: hidden;
+
   border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  background: rgba(255,255,255,.03);
   box-shadow: var(--shadowSoft);
+
   display:grid;
   place-items:center;
   isolation: isolate;
-  transition: transform var(--tFast) var(--ease), border-color var(--tFast) var(--ease), filter var(--tFast) var(--ease);
+
+  transition:
+    transform var(--tFast) var(--ease),
+    border-color var(--tFast) var(--ease),
+    filter var(--tFast) var(--ease);
 }
+
 .pbtn__bg{
   position:absolute;
   inset:0;
-  z-index:-1;
+  z-index:-2;
   background:
     radial-gradient(520px 240px at 20% 30%, rgba(255,255,255,.08), transparent 60%),
     radial-gradient(520px 240px at 80% 70%, rgba(255,255,255,.06), transparent 60%),
     linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
 }
+
+.pbtn__img{
+  position:absolute;
+  left: 18px;
+  bottom: 12px;
+  width: min(240px, 44%);
+  height: auto;
+  z-index: -1;
+  opacity: .92;
+  transform: translateZ(0);
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,.55));
+}
+
 .pbtn__label{
   font-family: Sora, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   font-weight: 900;
@@ -986,6 +1061,16 @@ button{ border:0; background: transparent; }
   text-transform: uppercase;
   text-shadow: 0 10px 40px rgba(0,0,0,.55);
 }
+
+.pbtn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background: linear-gradient(135deg, rgba(201,255,87,.0), rgba(201,255,87,.14));
+  opacity: .65;
+}
+
 .pbtn:hover{
   transform: translateY(-2px);
   border-color: rgba(201,255,87,.34);
@@ -994,9 +1079,19 @@ button{ border:0; background: transparent; }
   background:
     radial-gradient(520px 240px at 20% 30%, rgba(201,255,87,.22), transparent 60%),
     radial-gradient(520px 240px at 80% 70%, rgba(201,255,87,.16), transparent 60%),
-    linear-gradient(180deg, rgba(201,255,87,.16), rgba(255,255,255,.02));
+    linear-gradient(180deg, rgba(201,255,87,.14), rgba(255,255,255,.02));
 }
+.pbtn:hover::after{ opacity: .9; }
 .pbtn:hover .pbtn__label{ color: rgba(11,15,13,.92); text-shadow: none; }
+
+@media (max-width: 720px){
+  .pbtn__img{
+    width: min(260px, 56%);
+    left: 14px;
+    bottom: 10px;
+    opacity: .88;
+  }
+}
 
 .casesGrid{
   display:grid;
@@ -1143,6 +1238,7 @@ button{ border:0; background: transparent; }
   object-position: center top;
 }
 
+/* desktop arrows */
 .navBtn{
   width: 44px; height: 44px;
   border-radius: var(--r3);
@@ -1169,34 +1265,28 @@ button{ border:0; background: transparent; }
   pointer-events: none;
 }
 
-.readBtn{
-  position:absolute;
-  right: 14px;
-  bottom: 14px;
-  min-height: 44px;
-  padding: 10px 14px;
-  border-radius: var(--r2);
-  background: var(--accent);
-  color: var(--darkText);
-  font-weight: 600;
-  letter-spacing: .02em;
-  border: 1px solid rgba(11,15,13,.18);
-  display:inline-flex;
-  align-items:center;
-  gap: 10px;
-  transition: background var(--tFast) var(--ease), transform var(--tFast) var(--ease);
-}
-.readBtn:hover{
-  transform: translateY(-1px);
-  background: var(--accentHover);
-}
-
+/* (9) В адаптиве включаем стрелки (они были display:none) */
 @media (max-width: 720px){
-  .navBtn{ display:none; }
   .caseHero{ width: 100%; height: 62vh; }
   .modal__media{ min-height: auto; }
+
+  .navBtn{
+    display:inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
 }
 
+/* (9) чуть более кликабельные стрелки на мобилке */
+@media (max-width: 420px){
+  .navBtn{
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* content */
 .modal__content{
   width: min(1200px, calc(100% - 40px));
   margin: 0 auto;
@@ -1239,8 +1329,30 @@ button{ border:0; background: transparent; }
   color: rgba(255,255,255,.76);
   max-width: 92ch;
 }
+
+/* (8) стили "смотреть больше кейсов" */
+.modal__more{
+  margin: 6px 0 0;
+}
+.caseMoreLink{
+  display:inline-block;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: rgba(201,255,87,.92);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,255,87,.35);
+  padding-bottom: 2px;
+  transition: transform var(--tFast) var(--ease), color var(--tFast) var(--ease), border-color var(--tFast) var(--ease);
+}
+.caseMoreLink:hover{
+  transform: translateY(-1px);
+  color: rgba(201,255,87,1);
+  border-color: rgba(201,255,87,.7);
+}
+
 body.modal-open{ overflow:hidden; }
 
+/* ===== CONTACTS ===== */
 .s-contacts{
   background:#000;
   padding-top: clamp(44px, 5vw, 72px);
@@ -1266,7 +1378,6 @@ body.modal-open{ overflow:hidden; }
   gap: 14px;
 }
 
-/* верхняя плашка (как было) */
 .contactsPlaque{
   width: fit-content;
   display:inline-flex;
@@ -1295,7 +1406,7 @@ body.modal-open{ overflow:hidden; }
   color: rgba(255,255,255,.80);
 }
 
-/* --- КАРТОЧКА --- */
+/* --- CTA CARD --- */
 .ctaCard{
   --ctaBg: #0B0F0D;
   --ctaBg2:#0D1411;
@@ -1310,25 +1421,27 @@ body.modal-open{ overflow:hidden; }
 
   display:grid;
   grid-template-columns: 1.05fr .95fr;
-  gap: 0;                 /* важно: чтобы фото без “рамки” вставало вплотную */
-  padding: 0;             /* убираем общий паддинг — перенесём его внутрь left */
-
-  overflow: hidden;       /* чтобы фото повторяло скругление карточки */
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-/* левую часть оставляем визуально прежней — просто даём ей тот же внутренний паддинг */
+/* (11) Разметка уже поменялась местами; на десктопе оставляем визуально “текст слева, фото справа” через grid */
+@media (min-width: 861px){
+  .ctaCard{
+    grid-template-areas: "left photo";
+  }
+  .ctaCard__left{ grid-area: left; }
+  .ctaPhoto{ grid-area: photo; }
+}
+
 .ctaCard__left{
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-
   padding: clamp(12px, 1.6vw, 18px);
-  padding-right: clamp(12px, 1.6vw, 18px);
-
-  /* не меняем твой контент */
 }
 
-/* заголовок строго поверх любых “фигур/переливов” */
 .ctaTop,
 .ctaTitle{
   position: relative;
@@ -1341,18 +1454,17 @@ body.modal-open{ overflow:hidden; }
   color: rgba(255,255,255,.76);
   line-height: 1.65;
 }
+
 .ctaActions{
   display:flex;
   flex-wrap: wrap;
   gap: 12px;
-
   margin-top: 28px;
   padding-bottom: 2px;
 }
 .ctaActions--bottom{ margin-top: 34px; }
 
-/* --- ПРАВАЯ КАРТИНКА --- */
-/* занимает ВСЮ высоту карточки, без рамок, со скруглением только справа */
+/* (10) Градиент между плашкой и фото — короче и резче */
 .ctaPhoto{
   position: relative;
   height: 100%;
@@ -1360,23 +1472,19 @@ body.modal-open{ overflow:hidden; }
   align-self: stretch;
 
   overflow: hidden;
-  border-radius: 0 var(--r) var(--r) 0; /* скругление как у плашки: сверху/снизу справа */
+  border-radius: 0 var(--r) var(--r) 0;
   isolation: isolate;
 }
-
-/* картинка заполняет полностью */
 .ctaPhoto img{
   width: 100%;
   height: 100%;
   display:block;
-
   object-fit: cover;
   object-position: center top;
-
-  transform: none;         /* без сдвигов */
   filter: saturate(1.02) contrast(1.02);
 }
 
+/* более резкий переход (короче), чтобы не “задевал лицо” */
 .ctaPhoto::before{
   content:"";
   position:absolute;
@@ -1386,10 +1494,10 @@ body.modal-open{ overflow:hidden; }
   background: linear-gradient(
     90deg,
     rgba(11,15,13,1) 0%,
-    rgba(11,15,13,1) 12%,
-    rgba(11,15,13,.65) 18%,
-    rgba(11,15,13,.25) 24%,
-    rgba(11,15,13,0) 30%
+    rgba(11,15,13,1) 10%,
+    rgba(11,15,13,.65) 13%,
+    rgba(11,15,13,.25) 16%,
+    rgba(11,15,13,0) 20%
   );
 }
 
@@ -1403,37 +1511,48 @@ body.modal-open{ overflow:hidden; }
   opacity: .35;
 }
 
-/* адаптив: на мобилке фото снизу, скругление сохраняем */
+/* (11) мобилка: сначала фото, потом контакты */
 @media (max-width: 860px){
   .ctaCard{
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "left";
   }
-
   .ctaPhoto{
-    border-radius: 0 0 var(--r) var(--r); /* снизу как у карточки */
-    min-height: 260px;
+    grid-area: photo;
+    border-radius: var(--r) var(--r) 0 0;
+    min-height: 280px;
+  }
+  .ctaCard__left{
+    grid-area: left;
+    padding: 16px;
   }
 
-  /* на мобилке лучше “перетекание” сверху вниз */
- .ctaPhoto::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:2;
-  pointer-events:none;
+  /* на мобилке градиент сверху-вниз или слева-право? оставляем слева-право, но тоже коротко */
+  .ctaPhoto::before{
+    background: linear-gradient(
+      90deg,
+      rgba(11,15,13,1) 0%,
+      rgba(11,15,13,1) 10%,
+      rgba(11,15,13,.65) 13%,
+      rgba(11,15,13,.25) 16%,
+      rgba(11,15,13,0) 20%
+    );
+  }
 
-  /* левый край просто уходит в непрозрачность */
-  background: linear-gradient(
-    90deg,
-    rgba(11,15,13,1) 0%,
-    rgba(11,15,13,1) 12%,
-    rgba(11,15,13,.65) 18%,
-    rgba(11,15,13,.25) 24%,
-    rgba(11,15,13,0) 30%
-  );
+  /* (12) лёгкая донастройка адаптива: кнопки в колонку, чтобы было аккуратнее */
+  .ctaActions{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .ctaActions .btn{
+    width: 100%;
+  }
 }
 
-/* ===== FOOTER (green) ===== */
+/* ===== FOOTER ===== */
 .footer{
   background: var(--accent);
   color: var(--darkText);
@@ -1530,8 +1649,3 @@ body.modal-open{ overflow:hidden; }
 body.cursor-hover .cursor-follower{
   border-color: rgba(201,255,87,.95);
 }
-
-
-
-
-
