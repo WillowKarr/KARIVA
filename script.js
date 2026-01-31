@@ -243,10 +243,10 @@
     logopotam: {
       title: 'Оформление соц. сетей Логопотам',
       description:
-        'Разработка визуальной айдентики для социальных сетей проекта «Логопотам» — сервиса онлайн-коррекции речи у детей. Созданы самостоятельные дизайн-коды под ключевые направления бренда с учетом целевой аудитории каждого. В зоне ответственности: верстка контента, оформление сторис и рекламных креативов, цветокоррекция и ретушь, отрисовка векторных иконок и иллюстраций, применение AI-инструментов. Работа велась для VK и Telegram. Итог — более 300 креативов.',
+        'Разработка визуальной айдентики для социальных сетей проекта «Логопотам» — сервиса онлайн-коррекции речи у детей. Созданы самостоятельные дизайн-коды под 4 ключевых направления бренда (психология, воспитание детей, развитие речи, специалистам — отдельные аккаунты для каждого направления) с учетом целевой аудитории каждого. В зоне ответственности: верстка контента, оформление сторис и рекламных креативов, цветокоррекция и ретушь, отрисовка векторных иконок и иллюстраций, применение AI-инструментов. Работа велась для VK и Telegram. Итог — более 300 креативов.',
       tags: ['Figma', 'Photoshop', 'Illustrator', 'AI'],
-      imagesDesktop: ['element1.webp','element2.webp','element3.webp','element5.webp','element6.webp','element7.webp','element8.webp','element9.webp'],
-      imagesMobile: ['elementmobile1.webp','elementmobile2.webp','elementmobile3.webp','elementmobile5.webp','elementmobile6.webp','elementmobile7.webp','elementmobile8.webp','elementmobile9.webp','elementmobile10.webp']
+      imagesDesktop: ['media/element29.webp','media/element30.webp','media/element31.webp','media/element32.webp','media/element33.webp','media/element34.webp','media/element35.webp','media/element36.webp'],
+      imagesMobile: ['media/elementmobile69.webp','media/elementmobile70.webp','media/elementmobile71.webp','media/elementmobile72.webp','media/elementmobile73.webp','media/elementmobile74.webp','media/elementmobile75.webp','elementmobile76.webp','media/elementmobile77.webp','media/elementmobile78.webp','media/elementmobile79.webp','media/elementmobile80.webp','media/elementmobile81.webp','media/elementmobile82.webp','media/elementmobile83.webp','media/elementmobile84.webp','media/elementmobile85.webp','media/elementmobile86.webp','media/elementmobile87.webp','media/elementmobile88.webp','media/elementmobile89.webp','media/elementmobile90.webp','media/elementmobile91.webp','media/elementmobile92.webp']
     },
 };
 
@@ -466,6 +466,7 @@
     });
   }
 })();
+
 
 
 
