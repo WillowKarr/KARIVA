@@ -174,25 +174,9 @@
       description:
         'Разработала единое визуальное оформление и обновила 160+ карточек товаров. Редизайн главной обложки и усиление визуальных акцентов дали рост CTR на +12%, а улучшение качества контента и подачи продукта — увеличение конверсии в заказ на +6%. За счёт внедрения шаблонов, стандартизации и распределения задач сократила время подготовки карточек примерно на 25%. Выполнила полную ретушь и перекрас изделий для 70+ изображений, а также смонтировала 10+ коротких видео для главной карточки товара и социальных сетей, усилив визуальную подачу продукта.',
       tags: ['Photoshop', 'Illustrator', 'Figma', 'Stable Diffusion', 'Midjourney', 'DALLE'],
-      imagesDesktop: ['element26.webp','element27.webp','element50.webp'],
-      imagesMobile: ['elementmobile38.webp','elementmobile39.webp']
+      imagesDesktop: ['media/element1.webp','media/element2.webp','media/element3.webp'],
+      imagesMobile: ['media/elementmobile1.webp','media/elementmobile2.webp', 'media/elementmobile3.webp','media/elementmobile4.webp','media/elementmobile5.webp','media/elementmobile6.webp', 'media/elementmobile7.webp','media/elementmobile8.webp','media/elementmobile9.webp']
     },
-
-    /**
-     *     ПРИМЕР ДЛЯ КРУТЫШКИ ОТ СЕКСИ ПРОГРАММИСТА
-     *
-     *     ВАЖНО: Пееред названием файла напиши "media/"
-     *
-     *     ВАЖНО 2: ЦМОК.
-     *
-     *       title: 'Создание карточек товара на WB и OZON',
-     *       description:
-     *         'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки. Как результат в Meidiannas оформила ≈480 карточек и внедрила единую визуальную систему — рост продаж +175% за месяц, выручка +169% после обновления контента и 9 место в категории обувь OZON. В ADORE SWIM обновила 160+ карточек, повысив CTR обложки на +12% и конверсию в заказ на +6%, ускорив подготовку контента на ~25% благодаря шаблонам.',
-     *       tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion', 'Photoroom', 'Midjourney'],
-     *       imagesDesktop: ['media/element28.webp','media/element29.webp','media/element30.webp','media/element51.webp'],
-     *       imagesMobile: ['media/elementmobile40.webp','media/elementmobile41.webp','media/elementmobile42.webp']
-     *     },
-     */
 
     marketplace: {
       title: 'Создание карточек товара на WB и OZON',
@@ -482,5 +466,6 @@
     });
   }
 })();
+
 
 
