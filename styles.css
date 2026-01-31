@@ -355,7 +355,7 @@ button{ border:0; background: transparent; }
   z-index:0;
   background:
     linear-gradient(180deg, rgba(11,15,13,.28), rgba(11,15,13,.92)),
-    url("homebgpc.gif") center/cover no-repeat;
+    url("media/homebgpc.gif") center/cover no-repeat;
   filter: saturate(.92) contrast(1.06);
   transform: translateZ(0);
 }
@@ -363,7 +363,7 @@ button{ border:0; background: transparent; }
   .hero__bg{
     background:
       linear-gradient(180deg, rgba(11,15,13,.34), rgba(11,15,13,.95)),
-      url("homebgmob.gif") center/cover no-repeat;
+      url("media/homebgmob.gif") center/cover no-repeat;
     background-position: 50% 20%;
   }
 }
@@ -746,7 +746,7 @@ button{ border:0; background: transparent; }
   position:absolute;
   inset:0;
   z-index:0;
-  background: url("binary.gif") center/cover no-repeat;
+  background: url("media/binary.gif") center/cover no-repeat;
   filter: contrast(1.08) saturate(.9);
   opacity: .20; /* уменьшаем прозрачность */
 }
@@ -1728,4 +1728,5 @@ body.cursor-hover .cursor-follower{
   .navBtn{ width: 40px; height: 40px; border-radius: 10px; }
   .caseHero{ height: 72vh !important; }
 }
+
 
