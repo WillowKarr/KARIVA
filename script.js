@@ -199,28 +199,28 @@
      nashakuxnya: {
       title: 'Фирменный стиль для бренда "НАША КУХНЯ"',
       description:
-        'Комплексная айдентика для придорожного кафе-магазина. Разработаны логотип, палитра, графические элементы и макеты носителей.',
+        'Комплексная айдентика для придорожного кафе-магазина. Разработан яркий логотип в виде персонажа, который ест еду заведения и который может использоваться как маскот. Также создана узнаваемая палитра, ассоциирующаяся со вкусной едой. Разработаны графические элементы и макеты носителей.',
       tags: ['Photoshop', 'Illustrator', 'Krita'],
-      imagesDesktop: ['element20.webp','element21.webp','element22.webp','element23.webp'],
-      imagesMobile: ['elementmobile59.webp','elementmobile60.webp','elementmobile61.webp','elementmobile62.webp']
+      imagesDesktop: ['media/element11.webp','media/element12.webp','media/element13.webp','media/element14.webp'],
+      imagesMobile: ['media/elementmobile31.webp','media/elementmobile32.webp','media/elementmobile33.webp','media/elementmobile34.webp','media/elementmobile35.webp','media/elementmobile36.webp','media/elementmobile37.webp']
     },
 
       mebelsoft: {
       title: 'Фирменный стиль для мебельной фирмы МЕБЕЛЬ-SOFT',
       description:
-        'Разработка логотипа мебельного магазина: красное кресло в обрамлении желтого окна стало смысловым и визуальным ядром айдентики. Также на основе логотипа были созданы атрибуты фирменного стиля.',
+        'Разработка логотипа своременного мебельного магазина: красное кресло в стиле нео-мемфис в обрамлении желтого окна стало смысловым и визуальным ядром айдентики. Также на основе логотипа были созданы атрибуты фирменного стиля.',
       tags: ['Illustrator', 'Photoshop'],
-      imagesDesktop: ['element12.webp','element13.webp','element14.webp','element15.webp'],
-      imagesMobile: ['elementmobile24.webp','elementmobile25.webp','elementmobile26.webp','elementmobile27.webp','elementmobile28.webp']
+      imagesDesktop: ['media/element15.webp','media/element16.webp','media/element17.webp','media/element18.webp', 'media/element19.webp'],
+      imagesMobile: ['media/elementmobile38.webp','media/elementmobile39.webp','media/elementmobile40.webp','media/elementmobile41.webp','media/elementmobile42.webp', 'media/elementmobile43.webp', 'media/elementmobile44.webp', 'media/elementmobile445.webp']
     },
 
          santerra: {
       title: 'Фирменный стиль для академии тенниса «САНТЕРРА»"',
       description:
-        'Комплексная айдентика для придорожного кафе-магазина. Разработаны логотип, палитра, графические элементы и макеты носителей.',
+        'Разработка логотипа и фирменной айдентики академии тенниса при резиденции «Сантерра». Знак объединяет линии природного рельефа и архитектуры, формируя образ свободы и естественности; круг символизирует солнце — отсылку к названию. Созданы фирменные носители и целостный визуальный код.',
       tags: ['Photoshop', 'Illustrator', 'Krita'],
-      imagesDesktop: ['element20.webp','element21.webp','element22.webp','element23.webp'],
-      imagesMobile: ['elementmobile59.webp','elementmobile60.webp','elementmobile61.webp','elementmobile62.webp']
+      imagesDesktop: ['media/element20.webp','media/element21.webp','media/element22.webp','media/element23.webp', 'media/element24.webp'],
+      imagesMobile: ['media/elementmobile46.webp','media/elementmobile47.webp','media/elementmobile48.webp','media/elementmobile49.webp','media/elementmobile50.webp','media/elementmobile51.webp','media/elementmobile52.webp']
     },
       stickers: {
       title: 'Стикеры для Тбанк',
@@ -466,6 +466,7 @@
     });
   }
 })();
+
 
 
 
