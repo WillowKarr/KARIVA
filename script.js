@@ -225,10 +225,10 @@
       stickers: {
       title: 'Стикеры для Тбанк',
       description:
-        'Стикерпак для корпоративного мероприятия KidsDay — дня, когда родители берут на работу детей. Серия персонажей, подготовка к печати.',
+        'Стикерпак для корпоративного мероприятия KidsDay — дня, когда родители берут на работу детей. Серия персонажей-детей в офисе, подготовка к печати.',
       tags: ['Illustrator'],
-      imagesDesktop: ['element24.webp','element25.webp'],
-      imagesMobile: ['elementmobile54.webp','elementmobile55.webp','elementmobile56.webp','elementmobile57.webp']
+      imagesDesktop: ['media/element25.webp','media/element26.webp'],
+      imagesMobile: ['media/elementmobile53.webp','media/elementmobile54.webp','media/elementmobile55.webp','media/elementmobile56.webp','media/elementmobile57.webp','media/elementmobile58.webp']
     },
 
       cofee: {
@@ -236,8 +236,8 @@
       description:
         'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Разработаны варианты под сезоны, графика готовилась под печать.',
       tags: ['Illustrator', 'Photoshop'],
-      imagesDesktop: ['element16.webp','element18.webp','element19.webp'],
-      imagesMobile: ['elementmobile31.webp','elementmobile32.webp','elementmobile33.webp','elementmobile34.webp']
+      imagesDesktop: ['media/element27.webp','media/element28.webp'],
+      imagesMobile: ['media/elementmobile59.webp','media/elementmobile60.webp','media/elementmobile61.webp','media/elementmobile62.webp','media/elementmobile63.webp','media/elementmobile64.webp','media/elementmobile65.webp','media/elementmobile66.webp','media/elementmobile67.webp','media/elementmobile68.webp']
     },
 
     logopotam: {
@@ -466,6 +466,7 @@
     });
   }
 })();
+
 
 
 
