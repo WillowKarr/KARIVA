@@ -178,22 +178,22 @@
       imagesMobile: ['media/elementmobile1.webp','media/elementmobile2.webp', 'media/elementmobile3.webp','media/elementmobile4.webp','media/elementmobile5.webp','media/elementmobile6.webp', 'media/elementmobile7.webp','media/elementmobile8.webp','media/elementmobile9.webp']
     },
 
+    meidianas: {
+      title: 'Ведение магазина MEIDIANAS',
+      description:
+        'Дизайн для ≈480 карточек товаров . Провела полный редизайн магазина: внедрила единый визуальный стиль бренда, оформила магазин, разработала rich-контент. Внедрила стандарты оформления карточек и оформила брендбук, который стал основой единой системы дизайна для WB и Ozon. Также занималась разработкой рекламных баннеров. Обновление визуальной системы и структуры контента позволило вывести магазин на 9 место в категории «Обувь» на Ozon, обеспечить рост продаж на +175% за месяц и увеличить выручку на 169% за счёт усиления контента и презентации товаров.',
+      tags: ['Photoshop', 'Adobe Illustrator', 'Figma', 'Stable Diffusion', 'Midjourney', 'Photoroom', 'Homiwork'],
+      imagesDesktop: ['media/element4.webp','media/element5.webp','media/element6.webp','media/element7.webp'],
+      imagesMobile: ['media/elementmobile10.webp','media/elementmobile11.webp','media/elementmobile12.webp', 'media/elementmobile13.webp','media/elementmobile14.webp','media/elementmobile15.webp','media/elementmobile16.webp','media/elementmobile17.webp','media/elementmobile18.webp','media/elementmobile19.webp','media/elementmobile20.webp','media/elementmobile21.webp']
+    },
+    
     marketplace: {
       title: 'Создание карточек товара на WB и OZON',
       description:
         'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки. Как результат в Meidiannas оформила ≈480 карточек и внедрила единую визуальную систему — рост продаж +175% за месяц, выручка +169% после обновления контента и 9 место в категории обувь OZON. В ADORE SWIM обновила 160+ карточек, повысив CTR обложки на +12% и конверсию в заказ на +6%, ускорив подготовку контента на ~25% благодаря шаблонам.',
       tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion', 'Photoroom', 'Midjourney'],
-      imagesDesktop: ['element28.webp','element29.webp','element30.webp','element51.webp'],
-      imagesMobile: ['elementmobile40.webp','elementmobile41.webp','elementmobile42.webp']
-    },
-
-     meidianas: {
-      title: 'Ведение магазина MEIDIANAS',
-      description:
-        'Дизайн для ≈480 карточек товаров . Провела полный редизайн магазина: внедрила единый визуальный стиль бренда, оформила магазин, разработала rich-контент. Внедрила стандарты оформления карточек и оформила брендбук, который стал основой единой системы дизайна для WB и Ozon. Также занималась разработкой рекламных баннеров. Обновление визуальной системы и структуры контента позволило вывести магазин на 9 место в категории «Обувь» на Ozon, обеспечить рост продаж на +175% за месяц и увеличить выручку на 169% за счёт усиления контента и презентации товаров.',
-      tags: ['Photoshop', 'Adobe Illustrator', 'Figma', 'Stable Diffusion', 'Midjourney', 'Photoroom', 'Homiwork'],
-      imagesDesktop: ['element52.webp','element53.webp','element54.webp','element55.webp'],
-      imagesMobile: ['elementmobile40.webp','elementmobile41.webp','elementmobile42.webp']
+      imagesDesktop: ['media/element8.webp','media/element9.webp','media/element10.webp'],
+      imagesMobile: ['media/elementmobile22.webp','media/elementmobile23.webp','media/elementmobile24.webp', 'media/elementmobile25.webp','media/elementmobile26.webp','media/elementmobile27.webp','media/elementmobile28.webp','media/elementmobile29.webp','media/elementmobile30.webp']
     },
 
      nashakuxnya: {
@@ -466,6 +466,7 @@
     });
   }
 })();
+
 
 
 
