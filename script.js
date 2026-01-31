@@ -181,7 +181,7 @@
     meidianas: {
       title: 'Ведение магазина MEIDIANAS',
       description:
-        'Дизайн для ≈480 карточек товаров . Провела полный редизайн магазина: внедрила единый визуальный стиль бренда, оформила магазин, разработала rich-контент. Внедрила стандарты оформления карточек и оформила брендбук, который стал основой единой системы дизайна для WB и Ozon. Также занималась разработкой рекламных баннеров. Обновление визуальной системы и структуры контента позволило вывести магазин на 9 место в категории «Обувь» на Ozon, обеспечить рост продаж на +175% за месяц и увеличить выручку на 169% за счёт усиления контента и презентации товаров.',
+        'Дизайн для ≈480 карточек товаров . Полный редизайн магазина: внедрение единого визуального стиля бренда, оформление магазина, rich-контента. Внедрение стандартов оформления карточек и, в результате, оформление брендбука, который стал основой единой системы дизайна для WB и Ozon. Разработка рекламных баннеров. Обновление визуальной системы и структуры контента позволило вывести магазин на 9 место в категории «Обувь» на Ozon, обеспечить рост продаж на +175% за месяц и увеличить выручку на 169% за счёт усиления контента и презентации товаров.',
       tags: ['Photoshop', 'Adobe Illustrator', 'Figma', 'Stable Diffusion', 'Midjourney', 'Photoroom', 'Homiwork'],
       imagesDesktop: ['media/element4.webp','media/element5.webp','media/element6.webp','media/element7.webp'],
       imagesMobile: ['media/elementmobile10.webp','media/elementmobile11.webp','media/elementmobile12.webp', 'media/elementmobile13.webp','media/elementmobile14.webp','media/elementmobile15.webp','media/elementmobile16.webp','media/elementmobile17.webp','media/elementmobile18.webp','media/elementmobile19.webp','media/elementmobile20.webp','media/elementmobile21.webp']
@@ -190,7 +190,7 @@
     marketplace: {
       title: 'Создание карточек товара на WB и OZON',
       description:
-        'Создание продающих карточек товаров: анализ аудитории и требований площадок, инфографика с УТП, ретушь, итерационные доработки. Как результат в Meidiannas оформила ≈480 карточек и внедрила единую визуальную систему — рост продаж +175% за месяц, выручка +169% после обновления контента и 9 место в категории обувь OZON. В ADORE SWIM обновила 160+ карточек, повысив CTR обложки на +12% и конверсию в заказ на +6%, ускорив подготовку контента на ~25% благодаря шаблонам.',
+        'разработка обложек, инфографики и контент-слайдов, адаптация визуала под требования площадок и задачи на фрилансе. Работа с различными нишами — от техники и электроники до декоративной и уходовой косметики, с погружением в особенности рынка, аудитории и конкурентной среды каждой категории. Ведение проектов под ключ: выстраивание визуальной системы карточек, доработка контента на основе аналитики и контроль качества материалов перед публикацией.',
       tags: ['Illustrator', 'Photoshop', 'Figma', 'Stable Diffusion', 'Photoroom', 'Midjourney'],
       imagesDesktop: ['media/element8.webp','media/element9.webp','media/element10.webp'],
       imagesMobile: ['media/elementmobile22.webp','media/elementmobile23.webp','media/elementmobile24.webp', 'media/elementmobile25.webp','media/elementmobile26.webp','media/elementmobile27.webp','media/elementmobile28.webp','media/elementmobile29.webp','media/elementmobile30.webp']
@@ -237,7 +237,7 @@
         'Векторные иллюстрации для брендированных стаканчиков антикафе «Совиный дом». Разработаны варианты под сезоны, графика готовилась под печать.',
       tags: ['Illustrator', 'Photoshop'],
       imagesDesktop: ['media/element27.webp','media/element28.webp'],
-      imagesMobile: ['media/elementmobile59.webp','media/elementmobile60.webp','media/elementmobile61.webp','media/elementmobile62.webp','media/elementmobile63.webp','media/elementmobile64.webp','media/elementmobile65.webp','media/elementmobile66.webp','media/elementmobile67.webp','media/elementmobile68.webp']
+      imagesMobile: ['media/elementmobile60.webp','media/elementmobile61.webp','media/elementmobile62.webp','media/elementmobile65.webp','media/elementmobile66.webp','media/elementmobile67.webp']
     },
 
     logopotam: {
@@ -466,6 +466,7 @@
     });
   }
 })();
+
 
 
 
