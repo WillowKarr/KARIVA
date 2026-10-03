@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DESIGN — KARMASH</title>
+  <!-- ✎ Описание раздела для поисковиков -->
+  <meta name="description" content="Дизайн-проекты Ивет Кармаш: фирменный стиль, полиграфия, соцсети, карточки товаров.">
+  <meta name="theme-color" content="#dbdddc">
+  <link rel="canonical" href="https://kariva.vercel.app/design/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DESIGN — KARMASH">
+  <meta property="og:description" content="Дизайн-проекты Ивет Кармаш: фирменный стиль, полиграфия, соцсети, карточки товаров.">
+  <meta property="og:image" content="https://kariva.vercel.app/src/assets/og/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/src/assets/fonts/ag-bengaly.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/tkachenko-sketch.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/pages.css">
+  <script type="module" src="/src/pages/design.js"></script>
+</head>
+<body id="top" class="page page--design">
+  <a class="skip-link" href="#works">Перейти к работам</a>
+  <header class="sitebar" data-sitebar></header>
+  <main>
+    <section class="phead phead--design" data-decor="pageHead" aria-labelledby="page-title">
+      <div class="wrap phead__inner" data-phead></div>
+    </section>
+    <section class="works wrap" id="works" aria-label="Работы">
+      <div class="filters" data-filters></div>
+      <ul class="grid grid--design" data-decor="grid" data-grid></ul>
+    </section>
+  </main>
+  <footer data-footer></footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ✎ Если домен другой — замените kariva.vercel.app. Новые кейсы добавляйте строкой <url>. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://kariva.vercel.app/</loc></url>
+  <url><loc>https://kariva.vercel.app/design/</loc></url>
+  <url><loc>https://kariva.vercel.app/art/</loc></url>
+  <url><loc>https://kariva.vercel.app/design/logopotam</loc></url>
+  <url><loc>https://kariva.vercel.app/design/mebel-soft</loc></url>
+  <url><loc>https://kariva.vercel.app/design/marketplace</loc></url>
+  <url><loc>https://kariva.vercel.app/design/tbank-stickers</loc></url>
+  <url><loc>https://kariva.vercel.app/design/coffee-cup</loc></url>
+  <url><loc>https://kariva.vercel.app/design/nasha-kuhnya</loc></url>
+</urlset>

@@ -1,0 +1,54 @@
+/* ==========================================================================
+   ТОКЕНЫ БРЕНДА KARMASH (из дизайн-системы)
+   Цвета, шрифты, отступы. Меняются здесь — меняются на всём сайте.
+   ========================================================================== */
+
+@font-face { font-family: "Acherus Feral"; src: url("/src/assets/fonts/acherus-light.woff") format("woff"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Acherus Feral"; src: url("/src/assets/fonts/acherus-bold.woff") format("woff"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "AG Bengaly"; src: url("/src/assets/fonts/ag-bengaly.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Tkachenko Sketch 4F"; src: url("/src/assets/fonts/tkachenko-sketch.woff") format("woff"); font-weight: 400; font-display: swap; }
+
+:root {
+  /* цвет */
+  --orange: #de5713;
+  --orange-ring: #c45218;
+  --orange-hover: #c25722;
+  --orange-pressed: #a35832;
+  --gray-100: #dbdddc;
+  --gray-300: #c6c9c8;
+  --gray-500: #8e9293;
+  --emerald-300: #79b6b1;
+  --emerald-600: #407d78;
+  --emerald-700: #366a66;
+  --emerald-800: #4f625c;
+  --indigo-900: #150254;
+  --rose-200: #c1b1b2;
+  --ink: #161817;
+  --white: #ffffff;
+  --paper: #ecedeb;          /* светлая бумага для заметок и карточек */
+
+  --surface: var(--gray-100);
+  --text: var(--ink);
+  --text-muted: var(--emerald-800);
+
+  /* шрифты */
+  --font-sans: "Acherus Feral", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "AG Bengaly", Georgia, "Times New Roman", serif;
+  --font-hand: "Tkachenko Sketch 4F", "Segoe Print", "Comic Sans MS", cursive;
+
+  /* отступы */
+  --space-4: 4px; --space-8: 8px; --space-12: 12px; --space-16: 16px;
+  --space-24: 24px; --space-32: 32px; --space-48: 48px; --space-64: 64px;
+  --space-96: 96px; --space-128: 128px; --space-192: 192px;
+
+  --gutter: clamp(16px, 2.2vw, 32px);         /* поле страницы */
+  --section: clamp(64px, 9vw, 128px);          /* отступ между секциями */
+  --maxw: 1440px;
+
+  --radius-4: 4px; --radius-8: 8px; --radius-12: 12px; --radius-16: 16px;
+  --collage-rotate: 3deg;
+
+  /* движение */
+  --ease-paper: cubic-bezier(.2, .8, .2, 1);
+  --ease-soft: cubic-bezier(.4, 0, .2, 1);
+}

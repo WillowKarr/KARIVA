@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kariva.vercel.app/sitemap.xml

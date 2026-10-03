@@ -1,415 +1,111 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ffffff">
-<title>KARMASH - Дизайнер и художник</title>
-<link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=National+Park:wght@200..800&display=swap" rel="stylesheet">
-<!-- Добавляем шрифт для заголовка -->
-<link href="https://fonts.cdnfonts.com/css/aplakattitul" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>KARMASH — Дизайнер и художник</title>
+  <!-- ✎ Описание для поисковиков и превью ссылки (до ~160 символов) -->
+  <meta name="description" content="Портфолио Ивет Кармаш: дизайн и арт.">
+  <meta name="theme-color" content="#dbdddc">
+  <link rel="canonical" href="https://kariva.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KARMASH — Дизайнер и художник">
+  <meta property="og:description" content="Портфолио Ивет Кармаш: дизайн и арт.">
+  <meta property="og:image" content="https://kariva.vercel.app/src/assets/og/og.jpg">
+  <meta property="og:url" content="https://kariva.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/src/assets/fonts/ag-bengaly.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/src/assets/fonts/tkachenko-sketch.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/src/assets/collage/portrait.webp" as="image">
+  <script>
+    /* прелоадер показывается только при первом заходе и не при «уменьшить движение» */
+    try { if (sessionStorage.getItem('kx-seen') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-preload'); } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/home.css">
+  <script type="module" src="/src/pages/home.js"></script>
 </head>
-<div class="nav-overlay" id="navOverlay"></div>
-<body>
- <a id="top"></a>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+<body id="top">
+  <a class="skip-link" href="#about">Перейти к содержанию</a>
 
-   <header>
-        <div class="logo">
-		<a href="#top" class="logo-link">
-                    <img src="logo.gif" alt="Наверх" class="logo-img">
-			 </a>
-</div>
-        <nav>
-            <ul>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#projects">Проекты</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-        </nav>
-        <button class="theme-toggle" aria-label="Toggle theme">
-        </button>
-        <div class="burger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </header>
-  <!-- Hero Section -->
-<section class="hero" id="home">
-<div class="hero-background"></div>
-    <h1>KARMASH</h1>
-    <a href="#contacts" class="contact-btn">Связаться</a>
-</section>
-
-<section class="about-section" id="about">
-    <div class="about-container">
-        <div class="photo-frame">
-            <img src="about.png" alt="Фото" class="about-photo">
-        </div>
-        
-        <div class="about-content">
-            <h2 class="section-title animate-in">Обо мне</h2>
-            <div class="about-text animate-in" style="animation-delay: 0.2s">
-                <p> Я Ивет Кармаш, дизайнер с профессиональным опытом работы. </p>
-                <p>Мой дизайн — это не просто картинки, а продуманные визуальные решения, которые работают на ваши цели. Готова помочь с визуальной частью вашего проекта: от логотипа до упаковки, от соцсетей до рекламных материалов.</p>
-            </div>
-            
-            <div class="skills-title animate-in" style="animation-delay: 0.4s">Навыки</div>
-            <div class="skills-container">
-                <span class="skill-tag animate-in" style="animation-delay: 0.5s">Дизайн полиграфии</span>
-				<span class="skill-tag animate-in" style="animation-delay: 0.8s">POSM материалы</span>
-                <span class="skill-tag animate-in" style="animation-delay: 0.6s">Оформление соц. сетей</span>
-                <span class="skill-tag animate-in" style="animation-delay: 0.7s">Карточки товаров для WB и OZON</span>
-                <span class="skill-tag animate-in" style="animation-delay: 1.0s">Фирменный стиль</span>
-				<span class="skill-tag animate-in" style="animation-delay: 1.0s">Визуальная коммуникация</span>
-			  <span class="skill-tag animate-in" style="animation-delay: 1.0s">Маркетинговые материалы</span>
-            </div>
-        </div>
-    </div> <!-- Закрываем about-container -->
-
-    <!-- Таймлайн выносим за пределы about-container -->
-    <div class="timeline-section">
-        <h2 class="section-title animate-in" style="animation-delay: 0.4s">Мой профессиональный путь</h2>
-        <div class="timeline-scroll-container">
-            <div class="timeline-line"></div> <!-- Добавляем линию -->
-            <div class="timeline-track">              
-                <div class="timeline-item animate-in" style="animation-delay: 0.7s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2021 - 2024</div>
-                        <h3>Колледж ДПИ</h3>
-                        <p>Направление Дизайн IT: создание визуального контента, основы программирования.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item animate-in" style="animation-delay: 0.8s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023-2024</div>
-                        <h3>ЛК СПЕКТР</h3>
-                        <p>Разработка POSM-продукции, фирменных носителей от концепции и прототипа до готовых макетов и препресса. Верстка лендинга</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item animate-in" style="animation-delay: 0.9s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024-2025</div>
-                        <h3>ЛОГОПОТАМ</h3>
-                        <p>Дизайн визуального контента для соцсетей и адаптация фирменного стиля под форматы платформ.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item animate-in" style="animation-delay: 1.0s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024 - Наст. время</div>
-                        <h3>Фриланс</h3>
-                        <p>Сотрудничество с антикафе «Совиный дом»: печатные материалы; дизайн карточек товаров для маркетплейсов в разных категориях; векторная графика на заказ.</p>
-                    </div>
-                </div>
-            </div> <!-- Закрываем timeline-track -->
-        </div> <!-- Закрываем timeline-scroll-container -->
-    </div> <!-- Закрываем timeline-section -->
-</section> <!-- Закрываем about-section -->
-
-<section id="tools" class="tools-section">
-  <h2 class="section-title">Программы использую</h2>
-
-  <div class="tools-grid">
-    <article class="tool-card" data-level="92" aria-label="Adobe Photoshop 92%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Ps"></span>
-        <div class="tool-title">
-          <h3>Adobe Photoshop</h3>
-          <span class="tool-tag">Дизайн</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="88" aria-label="Adobe Illustrator 88%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Ai"></span>
-        <div class="tool-title">
-          <h3>Adobe Illustrator</h3>
-          <span class="tool-tag">Дизайн</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="90" aria-label="Figma 90%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Fg"></span>
-        <div class="tool-title">
-          <h3>Figma</h3>
-          <span class="tool-tag">Дизайн</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="80" aria-label="Tilda 80%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Td"></span>
-        <div class="tool-title">
-          <h3>Tilda</h3>
-          <span class="tool-tag">Сайты</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="72" aria-label="Premiere Pro 72%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Pr"></span>
-        <div class="tool-title">
-          <h3>Premiere Pro</h3>
-          <span class="tool-tag">Видео</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="68" aria-label="After Effects 68%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Ae"></span>
-        <div class="tool-title">
-          <h3>After Effects</h3>
-          <span class="tool-tag">Анимация</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-
-    <article class="tool-card" data-level="76" aria-label="InDesign 76%">
-      <div class="tool-head">
-        <span class="tool-icon" data-letters="Id"></span>
-        <div class="tool-title">
-          <h3>InDesign</h3>
-          <span class="tool-tag">Печать</span>
-        </div>
-      </div>
-      <div class="tool-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="76">
-        <span class="tool-track"></span>
-        <span class="tool-fill"></span>
-        <span class="tool-marker"></span>
-      </div>
-    </article>
-  </div>
-
- <div class="tools-extra">
-  <div class="extra-block">
-    <h3 class="extra-title">Языки программирования</h3>
-    <div class="pill-list">
-      <span class="pill">HTML</span>
-      <span class="pill">CSS</span>
-      <span class="pill">JavaScript</span>
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__sheet">
+      <span class="preloader__img"></span>
+      <span class="preloader__line"></span>
+      <img class="preloader__logo" src="/src/assets/logo/logo-black.svg" alt="" width="93" height="21">
+      <svg class="preloader__mark" viewBox="0 0 24 24"><path d="M12 0 C12.8 8 15.5 11 24 12 C15.5 13 12.8 16 12 24 C11.2 16 8.5 13 0 12 C8.5 11 11.2 8 12 0Z" fill="currentColor"/></svg>
     </div>
   </div>
 
-  <div class="extra-block">
-    <h3 class="extra-title">Нейросети</h3>
-    <div class="pill-list">
-      <span class="pill">Stable Diffusion</span>
-      <span class="pill">Grok</span>
-      <span class="pill">ChatGPT</span>
+  <!-- ============ HOME ============ -->
+  <header class="hero" id="home">
+    <div class="hero__ticker" aria-hidden="true"><div class="hero__ticker-track" data-ticker></div></div>
+    <div class="hero__nav">
+      <a class="hero__logo" href="/" aria-label="KARMASH — на главную"><img src="/src/assets/logo/logo-black.svg" alt="KARMASH" width="93" height="21"></a>
+      <nav aria-label="Основная навигация" data-nav></nav>
     </div>
-  </div>
-</div>
-</section>
-
-<!-- Галерея проектов -->
-<section class="portfolio-gallery" id="projects">
-    <h2 class="section-title">Портфолио</h2>
-    <div class="gallery-grid">
-        <!-- Пример элемента -->
-        <div class="gallery-item" data-project="logopotam">
-            <div class="image-container">
-                <img src="case_1.webp" alt="Логопотам">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">оформление соц. сетей Логопотам</h3>
-                <p class="item-description"> Ведение соц. сетей, оформление постов<br>и креативов, дизайн площадок</p>
-            </div>
-        </div>
-	    
-        <div class="gallery-item" data-project="mebelsoft">
-            <div class="image-container">
-                <img src="case_21.webp" alt="Мебель_SOFT">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Фирменный стиль для мебельной фирмы «МЕБЕЛЬ-SOFT»</h3>
-                <p class="item-description">Разработка айдентики, корпоративной продукции</p>
-            </div>
-        </div>
-
-        <div class="gallery-item" data-project="marketplace">
-            <div class="image-container">
-                <img src="case_3.webp" alt="marketplace">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Оформление карточек товаров<br>для WB и OZON</h3>
-                <p class="item-description">Анализ рынка продукции, ретушь изображений, создание инфографики</p>
-            </div>
-        </div>
-		
-        <div class="gallery-item" data-project="stickers">
-            <div class="image-container">
-                <img src="case_4.webp" alt="Тстикеры">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Стикеры для ТБанк</h3>
-                <p class="item-description">Раззрабтка концепта, отрисовка векторной иллюстрации, подготовка к печати</p>
-            </div>
-        </div>
-		
-        <div class="gallery-item" data-project="cofee">
-            <div class="image-container">
-                <img src="case_5.webp" alt="дизайн_стаканчика">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Дизайн для кофейного стаканчика</h3>
-                <p class="item-description">Отрисовка векторной иллюстрации для печати<br>на кофейном стаканчике</p>
-            </div>
-        </div>
-				
-        <div class="gallery-item" data-project="nashakuxnya">
-            <div class="image-container">
-                <img src="case_6.webp" alt="наша_кухня">
-            </div>
-            <div class="item-info">
-                <h3 class="item-title">Фирменный стиль для бренда «НАША КУХНЯ»</h3>
-                <p class="item-description">Разработка айдентики, дизайн кода, рекламной печатной и цифровой продукции</p>
-            </div>
-        </div>
+    <div class="hero__stage">
+      <div class="collage" data-collage></div>
     </div>
-</section>
-
-<!-- Модальное окно -->
-<div class="modal-overlay" id="portfolioModal">
-  <div class="modal-container">
-    <button class="close-modal">&times;</button>
-    <div class="project-slider">
-      <div class="slider-container"></div>
-      <button class="slider-nav prev-slide"><i class="fas fa-chevron-left"></i></button>
-      <button class="slider-nav next-slide"><i class="fas fa-chevron-right"></i></button>
-    </div>
-    <div class="project-content">
-      <div class="project-details">
-        <h2 class="project-title"></h2>
-        <div class="project-tags"></div>
-      </div>
-      <div class="project-description">
-        <p></p>
+    <div class="hero__band">
+      <h1 class="hero__title" data-hero-title>Ивет Кармаш</h1>
+      <div class="hero__row">
+        <p class="hero__text" data-text="heroText" data-hint="heroText — коротко о себе и о разделах сайта (site.js)"></p>
+        <div class="hero__cta" data-hero-cta></div>
       </div>
     </div>
-  </div>
-</div>
-	
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <section class="contacts" id="contacts">
-        <!-- Здесь должен быть контент секции контактов -->
+  </header>
+
+  <main>
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <span class="about__edge" aria-hidden="true"></span>
+      <div class="wrap about__grid" data-decor="about">
+        <figure class="about__photo reveal" style="--rr:-2deg">
+          <span class="tape" aria-hidden="true"></span>
+          <img data-about-photo src="" alt="" width="720" height="960" loading="lazy">
+        </figure>
+        <div class="about__body">
+          <h2 class="section-title reveal" id="about-title" data-about-title></h2>
+          <div class="about__text reveal" style="--rd:120ms" data-about-text></div>
+          <aside class="about__facts reveal" style="--rd:220ms" data-about-facts></aside>
+        </div>
+      </div>
+
+      <div class="wrap career" data-decor="career">
+        <h2 class="section-title career__title reveal" data-career-title></h2>
+        <div class="branch" data-timeline></div>
+      </div>
     </section>
 
-    <!-- Форма обратной связи -->
-    <div class="contact-form">
-        <form id="feedbackForm">
-            <!-- Содержимое формы -->
-        </form>
-    </div>
+    <!-- ============ SKILLS ============ -->
+    <section class="skills" aria-labelledby="skills-title">
+      <h2 class="visually-hidden" id="skills-title" data-skills-title></h2>
+      <div class="ticker" data-skills-ticker></div>
+    </section>
 
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <div class="footer-contacts">
-                    <a href="tel:+79067503950" class="footer-phone">
-                        <i class="fas fa-phone-alt footer-icon"></i>
-                        <h3> +7 (906) 750-3950 </h3>
-                    </a>
-                    <a href="mailto:k4rrmash.7@gmail.com" class="footer-email">
-                        <i class="fas fa-envelope footer-icon"></i>
-                        k4rrmash@gmail.com
-                    </a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.behance.net/pocketname/projects" class="social-link" aria-label="Behance">
-                        <i class="fab fa-behance"></i>
-                    </a>
-                    <a href="https://t.me/Kardesign" class="social-link" aria-label="Telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <a href="https://vk.com/karrmash" class="social-link" aria-label="VKontakte">
-                        <i class="fab fa-vk"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-right">
-                <!-- Место для логотипа -->
-                <div class="footer-logo-placeholder">
-				<a href="#top" class="logo-link">
-                    <img src="logo_white.svg" alt="Наверх" class="logo-img">
-                </div>
-            </div>
+    <section class="programs" aria-labelledby="programs-title">
+      <div class="wrap">
+        <div class="programs__sheet" data-decor="programs">
+          <h2 class="section-title programs__title reveal" id="programs-title" data-programs-title></h2>
+          <ul class="programs__grid" data-programs></ul>
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <!-- ============ ART / DESIGN ============ -->
+    <section class="albums" aria-label="Разделы портфолио">
+      <div class="wrap albums__stack" data-decor="albums" data-albums></div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact__grid" data-decor="contact" data-contact></div>
+    </section>
+  </main>
+
+  <footer data-footer></footer>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>
